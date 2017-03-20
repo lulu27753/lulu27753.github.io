@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/**
+ * css reset for mydemo
+ * @authors cnzsb
+ * @date    2015-12-02 15:10:22
+ */
+
+/*css reset*/
+/* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+}
+/* 重置列表元素 */
+ul, ol {
+	list-style: none;
+}
+/* 清除浮动 */
+.clearfix::before, .clearfix::after {
+    content: "";
+    display: table;
+}
+.clearfix::after {
+    clear: both;
+    overflow: hidden;
+}
+/* ie6/7 */
+.clearfix {
+    zoom: 1;
+}
+.clear {
+    clear: both;
+    display: block;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+/* 设置默认鼠标样式*/
+html {
+	cursor: url(../images/cursor.ico), auto;
+	height: 100%;
+}
+/* 重置a标签，设置默认字体*/
+a {
+	text-decoration: none;
+	color: #09A8FF;
+}
+a img {
+	border: none;
+}
+body, a {
+	font-family: "Century Gothic",CenturyGothic,AppleGothic,"Microsoft YaHei",sans-serif;
+	letter-spacing: 2px;
+}

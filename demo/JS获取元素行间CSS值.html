@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+	<meta charset="UTF-8">
+	<title>获取元素CSS值 | cnzsb</title>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style type="text/css">
+	/*导航链接*/
+    #header{
+        background-color: #00A8E7;
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    #header a{
+        font-size: 20px;
+        line-height: 40px;
+        color: #FFF;
+        font-weight: bold;
+        padding: 0 50px;
+    }
+	</style>
+</head>
+<body>
+    <div id="header">
+        <a href="http://www.zhaoshibo.net/mydemo">Home</a>
+        <a href="http://www.zhaoshibo.net">Blog</a>
+    </div>
+	<div id="box" style="width: 200px; height: 50px; background: #ccc;"></div>
+	<script type="text/javascript">
+		// getComputedStyle(元素, 伪元素) 只读，只能获取，不能设置
+		// 其中伪元素可以为null，不能设置为:hover等伪类，可为:after等
+		// 取得的样式只能为基础样式，不能为复合样式
+		// currentStyle用于IE，个别情况下取值与getComputedStyle略有不同
+		var oBox = document.getElementById('box');
+		var oStyle = oBox.currentStyle || window.getComputedStyle(oBox, null);
+		alert(oStyle.width);
+		document.write('宽度为：' + oStyle.width);
+	</script>
+	<script type="text/javascript" src="../js/analytics.js"></script>
+</body>
+</html>

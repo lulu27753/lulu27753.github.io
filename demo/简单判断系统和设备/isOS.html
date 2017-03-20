@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>isOS | cnzsb</title>
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../css/reset.css">
+    <style type="text/css">
+    /*导航链接*/
+    #header{
+        background-color: #00A8E7;
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    #header a{
+        font-size: 20px;
+        line-height: 40px;
+        color: #FFF;
+        font-weight: bold;
+        padding: 0 50px;
+    }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <a href="http://www.zhaoshibo.net/mydemo">Home</a>
+        <a href="http://www.zhaoshibo.net">Blog</a>
+    </div>
+    <script type="text/javascript">
+    function detectOS() {
+        var sUserAgent = navigator.userAgent;
+
+        var isWin = (navigator.platform == "Win32") || (navigator.platform == "Windows");
+        var isMac = (navigator.platform == "Mac68K") || (navigator.platform == "MacPPC") || (navigator.platform == "Macintosh") || (navigator.platform == "MacIntel");
+        if (isMac) return "Mac";
+        var isUnix = (navigator.platform == "X11") && !isWin && !isMac;
+        if (isUnix) return "Unix";
+        var isLinux = (String(navigator.platform).indexOf("Linux") > -1);
+
+        var bIsAndroid = sUserAgent.toLowerCase().match(/android/i) == "android";
+        if (isLinux) {
+            if (bIsAndroid) return "Android";
+            else return "Linux";
+        }
+        if (isWin) {
+            var isWin2K = sUserAgent.indexOf("Windows NT 5.0") > -1 || sUserAgent.indexOf("Windows 2000") > -1;
+            if (isWin2K) return "Win2000";
+            var isWinXP = sUserAgent.indexOf("Windows NT 5.1") > -1 ||
+                sUserAgent.indexOf("Windows XP") > -1;
+            if (isWinXP) return "WinXP";
+            var isWin2003 = sUserAgent.indexOf("Windows NT 5.2") > -1 || sUserAgent.indexOf("Windows 2003") > -1;
+            if (isWin2003) return "Win2003";
+            var isWinVista = sUserAgent.indexOf("Windows NT 6.0") > -1 || sUserAgent.indexOf("Windows Vista") > -1;
+            if (isWinVista) return "WinVista";
+            var isWin7 = sUserAgent.indexOf("Windows NT 6.1") > -1 || sUserAgent.indexOf("Windows 7") > -1;
+            if (isWin7) return "Win7";
+        }
+        return "other";
+    }
+    alert(detectOS());
+    document.write("您的操作系统是：" + detectOS());
+    </script>
+    <script type="text/javascript" src="../../js/analytics.js"></script>
+</body>
+</html>

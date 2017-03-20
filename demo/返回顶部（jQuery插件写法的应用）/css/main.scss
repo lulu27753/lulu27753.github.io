@@ -1,0 +1,73 @@
+$toolbar-size: 51px;
+@mixin bg-pos ($posX: 0, $posY: 0, $hoverPosX: 0, $hoverPosY: 0) {
+	background-position: $posX $posY;
+
+	&:hover {		
+		background-position: $hoverPosX $hoverPosY;
+	}
+}
+
+body {
+	height: 2000px;
+	background-color: #D4F8FE;
+}
+
+#header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding-left: 20px;
+	background-color: #FFA478;
+
+	> a {
+		color: #fff;
+		font-size: 26px;
+		line-height: 26px;
+		font-weight: bold;
+		padding: 10px;
+		display: inline-block;
+
+		&:hover {
+			color: #FF4747;
+		}
+	}
+}
+
+.sth {
+	margin-top: 70px;
+	padding-left: 30%;
+}
+
+.toolbar {
+	position: fixed;
+	left: 50%;
+	bottom: 10%;
+	margin-left: -$toolbar-size / 2;
+
+	.toolbar-item {
+		position: relative;
+		display: block;
+		width: $toolbar-size;
+		height: $toolbar-size;
+		margin-top: 1px;
+		background: url('../images/spirit.png') no-repeat;
+		transition: all 0.25s ease;
+	}
+
+	.toolbar-weixin {
+		@include bg-pos(0, -372px, 0, -434px);
+	}
+
+	.toolbar-feedback {
+		@include bg-pos(0, 0, 0, -62px);
+	}
+
+	.toolbar-app {
+		@include bg-pos(0, -124px, 0, -186px);
+	}
+
+	.toolbar-top {
+		@include bg-pos(0, -248px, 0, -310px);
+	}
+}

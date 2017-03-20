@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>啤酒问题</title>
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <style type="text/css">
+        body {
+            text-align: center;
+        }
+        #button {
+            margin: 10px 0;
+        }
+
+        /*导航链接*/
+        #header{
+            background-color: #00A8E7;
+            width: 100%;
+            height: 40px;
+            margin-bottom: 30px;
+        }
+        #header a{
+            font-size: 20px;
+            line-height: 40px;
+            color: #FFF;
+            font-weight: bold;
+            padding: 0 5%;
+        }
+    </style>
+    <script type="text/javascript" href="../js/analytics.js"></script>
+</head>
+<body>
+    <div id="header">
+        <a href="http://www.zhaoshibo.net/mydemo">Home</a>
+        <a href="http://www.zhaoshibo.net">Blog</a>
+    </div>
+    <p>已知：啤酒2元1瓶，4个瓶盖可以换一瓶，2个空瓶可以换1瓶。</p>
+    <p>问：<input id="money" type="text" value="10" placeholder="填写金额数值">块钱可以喝多少瓶？</p>
+    <button type="button" id="button">答案</button>
+    <div id="result"></div>
+    <script type="text/javascript">
+    (function () {
+        var money = document.getElementById('money'),
+            result = document.getElementById('result'),
+            button = document.getElementById('button'),
+            nowBeer = parseInt(money.value / 2),        // 所持金钱可买到的啤酒数量
+            total = 0,          // 能喝到的啤酒总数
+            round = 0;          // 喝啤酒轮数
+
+        function beers (beer, bottle, cover) {
+            round++;
+            result.innerHTML += "第" + round + "轮：现在有" + beer + "瓶啤酒，" + bottle + "个空瓶和" + cover + "个瓶盖<br>";
+
+            var beerByBottle = parseInt(bottle / 2),    // 当前空瓶换的啤酒
+                beerByCover = parseInt(cover / 4),      // 当前瓶盖换的啤酒
+                bottle_remain = bottle % 2,             // 当前剩余空瓶
+                cover_remain = cover % 4;               // 当前剩余瓶盖
+
+            var new_beer = beerByBottle + beerByCover,  // 换到的总啤酒量
+                new_bottle = new_beer + bottle_remain,  // 换完后总空瓶数
+                new_cover = new_beer + cover_remain;    // 换完后总瓶盖数
+
+            total += new_beer;      // 新喝到的啤酒总量，总啤酒量须加上开始买到的啤酒数（nowBeer）
+
+            if (new_beer === 0) {
+                result.innerHTML += "<br>一共能喝" + (total + nowBeer) + "瓶啤酒，还剩" + new_bottle + "个空瓶和" + new_cover + "个瓶盖";
+                round = 0;
+                total = 0;
+                return;
+            }
+
+            beers(new_beer, new_bottle, new_cover);
+        }
+
+        button.onclick = function () {
+            // 动态获取当前身上金额，并且重置当前买到的啤酒数量（nowBeer）
+            var nowMoney = money.value;
+            nowBeer = parseInt(nowMoney / 2);
+            if (/^[0-9]*$/.test(nowMoney) && nowMoney > 0) {
+                result.innerHTML = "现在有" + nowMoney + "块钱，可以买" + nowBeer + "瓶啤酒<br><br>";
+                beers(nowBeer, nowBeer, nowBeer);
+            }
+            else if (nowMoney == 0 || nowMoney === '') {
+                result.innerHTML = "小婊砸，没钱还出来混，快去搬砖吧！";
+            }
+            else {
+                result.innerHTML = "痴心妄想的小婊砸，不要用不明所以的金币糊弄我！";
+            }
+        };
+    })();
+    </script>
+</body>
+</html>

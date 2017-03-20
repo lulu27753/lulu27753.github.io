@@ -1,0 +1,70 @@
+body {
+  height: 2000px;
+  background-color: #D4F8FE;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-left: 20px;
+  background-color: #FFA478;
+}
+#header > a {
+  color: #fff;
+  font-size: 26px;
+  line-height: 26px;
+  font-weight: bold;
+  padding: 10px;
+  display: inline-block;
+}
+#header > a:hover {
+  color: #FF4747;
+}
+
+.sth {
+  margin-top: 70px;
+  padding-left: 30%;
+}
+
+.toolbar {
+  position: fixed;
+  left: 50%;
+  bottom: 10%;
+  margin-left: -25.5px;
+}
+.toolbar .toolbar-item {
+  position: relative;
+  display: block;
+  width: 51px;
+  height: 51px;
+  margin-top: 1px;
+  background: url("../images/spirit.png") no-repeat;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.toolbar .toolbar-weixin {
+  background-position: 0 -372px;
+}
+.toolbar .toolbar-weixin:hover {
+  background-position: 0 -434px;
+}
+.toolbar .toolbar-feedback {
+  background-position: 0 0;
+}
+.toolbar .toolbar-feedback:hover {
+  background-position: 0 -62px;
+}
+.toolbar .toolbar-app {
+  background-position: 0 -124px;
+}
+.toolbar .toolbar-app:hover {
+  background-position: 0 -186px;
+}
+.toolbar .toolbar-top {
+  background-position: 0 -248px;
+}
+.toolbar .toolbar-top:hover {
+  background-position: 0 -310px;
+}

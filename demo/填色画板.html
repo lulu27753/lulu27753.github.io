@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+	<meta charset="UTF-8">
+	<title>Mondrian | cnzsb</title>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style type="text/css">	
+	body{
+		background-color: #9C9C9C;
+	}
+
+	#header {
+		position: fixed;
+		background-color: #3A3636;
+		width: 75px;
+		height: 80px;
+		top: 141px;
+		left: 50%;
+		margin-left: -494px;
+		text-align: center;
+		border-radius: 20px;
+		padding-top: 10px;
+		box-shadow: 0 0 5px 1px #3A3636;
+	}
+	#header a {
+		font-size: 20px;
+		line-height: 35px;
+		color: #FFFFE0;
+		font-weight: bold;
+	}
+
+	#container{
+		width: 800px;
+		margin: 50px auto;
+		padding: 10px;
+		background-color: #FFFFE0;
+		box-shadow: 0 0 5px 5px #584F4F;
+	}
+	.title{
+		margin-top: 50px;
+		color: #3A3636;
+		font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+		text-shadow: -1px -1px 0 #FFF;
+		text-align: center;
+	}
+
+	/*color*/
+	#color{
+		float: right;
+		padding: 15px;
+	}
+	#color li{
+		display: block;
+		width: 40px;
+		height: 40px;
+		border: 2px solid #584F4F;
+		margin-bottom: 5px;
+	}
+	.red{
+		background-color: red;
+	}
+	.yellow{
+		background-color: yellow;
+	}
+	.blue{
+		background-color: blue;
+	}
+	.white{
+		background-color: white;
+	}
+
+	/*box*/
+	#box{
+		width: 625px;
+		height: 625px;
+		margin: 40px auto;
+		background-color: white;
+		border-top: 1px solid #000;
+		border-left: 1px solid #000;
+		font-size: 0;				/*清除li间隙*/
+	}
+	#box li{
+		display: inline-block;
+		float: left;				/*IE6,7*/
+		border-right: 8px solid #000;
+		border-bottom: 8px solid #000;
+	}
+	#box li.liR{
+		border-right: 1px solid #000;
+	}
+	#box li.liB{
+		border-bottom: 1px solid #000;		
+	}
+	#box .w1{
+		width: 140px;
+	}
+	#box .w2{
+		width: 60px;
+	}
+	#box .w3{
+		width: 280px;
+	}
+	#box .w4{
+		width: 120px;
+	}
+	#box .h1{
+		height: 90px;
+	}
+	#box .h2{
+		height: 280px;
+	}
+	#box .h3{
+		height: 160px;
+	}
+	#box .h4{
+		height: 70px;
+	}
+	</style>
+
+	<script type="text/javascript">
+	window.onload = function() {
+		// 获取画板的元素
+		var oBox = document.getElementById('box'),
+			oLis = box.getElementsByTagName('li');
+		
+		// 获取取色板颜色
+		var oColor = document.getElementById('color'),
+			oClrs = oColor.getElementsByTagName('li');
+
+		bgcChange(oLis, oClrs);
+
+	};
+	// 获取鼠标点击颜色
+	/*function clrPick(oCls) {
+		var len = oCls.length;
+		for(var i = 0; i < len; i++){
+			oCls[i].onclick = function() {
+				return this.className;
+			};
+		}
+	}*/
+
+	// 点击元素改变背景颜色
+	function bgcChange(oCls, oColors) {
+		var color = '';
+		for(var i = 0; i < oColors.length; i++){
+			oColors[i].onclick = function() {
+				color = this.className;
+			};
+			for(var j = 0; j < oCls.length; j++){
+				oCls[j].onclick = function() {
+					// console.log(color);
+					this.style.backgroundColor = color;
+				};
+			}
+		}
+	}
+	</script>
+
+	<!-- <script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function () {
+		var $oClrs = $('#color').find('li'),
+			$oLis = $('#box').find('li'),
+			color = '';
+	
+		$oClrs.on('click', function () {
+			color = $(this).css('background-color');
+		});
+	
+		$oLis.on('click', function () {
+			$(this).css('background-color', color);
+		});
+	});
+	</script> -->
+</head>
+<body>
+	<div id="header">
+		<a href="http://www.zhaoshibo.net/mydemo">Home</a>
+		<a href="http://www.zhaoshibo.net">Blog</a>
+	</div>
+	<h1 class="title">Pick a color and paint the canvas</h1>
+	<div id="container">
+		<ul id="color">
+			<li class="red"></li>
+			<li class="yellow"></li>
+			<li class="blue"></li>
+			<li class="white"></li>
+		</ul>
+		<ul id="box">
+			<li class="w1 h1"></li>
+			<li class="w2 h1"></li>
+			<li class="w3 h1"></li>
+			<li class="w4 h1 liR"></li>
+			<li class="w1 h2"></li>
+			<li class="w2 h2"></li>
+			<li class="w3 h2"></li>
+			<li class="w4 h2 liR"></li>
+			<li class="w1 h3"></li>
+			<li class="w2 h3"></li>
+			<li class="w3 h3"></li>
+			<li class="w4 h3 liR"></li>
+			<li class="w1 h4 liB"></li>
+			<li class="w2 h4 liB"></li>
+			<li class="w3 h4 liB"></li>
+			<li class="w4 h4 liR liB"></li>
+		</ul>		
+	</div>
+	<script type="text/javascript" src="../js/analytics.js"></script>
+</body>
+</html>

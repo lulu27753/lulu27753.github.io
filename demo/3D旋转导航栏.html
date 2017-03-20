@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3D 旋转导航栏 | cnzsb</title>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <style type="text/css">
+    body {
+        background-color: #f5f5f5;
+    }
+
+    .nav-menu {
+        display: block;
+        margin-top: 50px;
+        position: relative;
+        float: left;
+        top: 0;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+                transform: translateX(-50%);
+        box-shadow: 5px 5px 5px 1px #00A8E7;
+    }
+    .nav-menu > li {
+        border-right: 1px solid #fff;
+        position: relative;        
+        float: left;
+    }
+    .nav-menu > li:last-child {
+        border-right: none;
+    }
+    .nav-menu li a {
+        display: block;
+        padding: 10px 30px;
+        height: 30px;
+        font: 20px/30px bold;
+        color: #fff;
+        text-align: center;
+    }
+
+    /*设置3D舞台布景*/    
+    .three-d {
+        -webkit-perspective: 200px;
+        perspective: 200px;
+        transition: all 0.08s linear;
+        position: relative;
+    }
+
+    /*给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/    
+    .three-d:not(.active):hover .three-d-box,
+    .three-d:not(.active):focus .three-d-box {
+        -webkit-transform: translateZ(-25px) rotateX(90deg);
+                transform: translateZ(-25px) rotateX(90deg);
+    }
+
+    /*定位于父元素进行3D设置*/    
+    .three-d-box {
+        display: block;
+        transition: all 0.3s linear;
+        -webkit-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+        -webkit-transform: translateZ(-25px);
+                transform: translateZ(-25px);
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    /*设置3D前后变形效果*/    
+    .front,
+    .back {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 10px 30px;
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        color: #fff;
+        font-weight: bold;
+        background-color: #1AD3FF;
+    }    
+    .front {
+        -webkit-transform: rotateX(0) translateZ(25px);
+                transform: rotateX(0) translateZ(25px);
+    }    
+    .back {
+        -webkit-transform: rotateX(-90deg) translateZ(25px);
+                transform: rotateX(-90deg) translateZ(25px);
+    }
+
+    /*设置当前状态样式*/
+    .nav-menu li .active .front,
+    .nav-menu li .active .back,
+    .nav-menu li .three-d:hover .front,
+    .nav-menu li .three-d:hover .back {
+    	background-color: #00A8E7;
+    	background-image: linear-gradient(45deg, #288C83, #00A8E7);
+    	background-size: 5px 5px;
+    }
+
+    /*下拉菜单*/
+    .drop-menu {
+    	position: absolute;
+    	top: 51px;
+    	left: 0;
+    	-webkit-transform: rotateX(-90deg);
+    	        transform: rotateX(-90deg);
+    	-webkit-transform-origin: 0 0 0;
+    	    -ms-transform-origin: 0 0 0;
+    	        transform-origin: 0 0 0;
+    	transition: all 0.3s ease-in 0s;
+    	box-shadow: 5px 5px 5px 1px #00A8E7;
+    }
+	.drop-menu li a {
+		width: 120px;
+    	text-align: left;
+    	border-top: 1px solid #fff;
+	}
+    .nav-menu li:hover .drop-menu {
+    	display: block;
+    	z-index: 1;
+    	-webkit-transform: rotateX(0deg);
+    	        transform: rotateX(0deg);
+    }
+    </style>
+</head>
+
+<body>
+	<!-- Not For IE -->
+    <header>
+        <ul class="nav-menu clearfix">
+            <li>
+                <a href="/mydemo" class="three-d active">
+					Home
+					<span class="three-d-box">
+						<span class="front">Home</span>
+						<span class="back">Home</span>
+					</span>
+				</a>
+            </li>
+            <li>
+                <a href="#" class="three-d">
+					Blog
+					<span class="three-d-box">
+						<span class="front">Blog</span>
+						<span class="back">Blog</span>
+					</span>
+				</a>
+            </li>
+            <li>
+                <a href="#" class="three-d">
+					Articles
+					<span class="three-d-box">
+						<span class="front">Articles</span>
+						<span class="back">Articles</span>
+					</span>
+				</a>
+            </li>
+            <li>
+                <a href="#" class="three-d">
+					Demo
+					<span class="three-d-box">
+						<span class="front">Demo</span>
+						<span class="back">Demo</span>
+					</span>					
+				</a>
+				<ul class="drop-menu clearfix">
+					<li>
+						<a href="#" class="three-d">
+							Demo1
+							<span class="three-d-box">
+								<span class="front">Demo1</span>
+								<span class="back">Demo1</span>
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="three-d">
+							Demo2
+							<span class="three-d-box">
+								<span class="front">Demo2</span>
+								<span class="back">Demo2</span>
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="three-d">
+							Demo3
+							<span class="three-d-box">
+								<span class="front">Demo3</span>
+								<span class="back">Demo3</span>
+							</span>
+						</a>
+					</li>
+				</ul>
+            </li>
+            <li>
+                <a href="#" class="three-d">
+					About
+					<span class="three-d-box">
+						<span class="front">About</span>
+						<span class="back">About</span>
+					</span>
+				</a>
+            </li>
+        </ul>
+    </header>
+    <script type="text/javascript" src="../js/analytics.js"></script>
+</body>
+
+</html>

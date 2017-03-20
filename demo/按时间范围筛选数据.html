@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<title>按时间范围筛选数据 | cnzsb</title>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style type="text/css">
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-top: 20px;
+		}
+		pre {
+			display: block;
+		}
+		.result {
+			margin-top: 20px;
+		}
+		span {
+			font-weight: bold;
+		}
+		.now {
+			color: #FC4D4D;
+		}
+		.data {
+			color: #FF5D00;
+		}
+	</style>
+</head>
+<body>	
+	<pre>
+	需求如下：
+	0:00-8:00显示['aaa', 'aab', 'aac']其中一个
+	12:00-14:30显示['bba', 'bbb']其中一个
+	20:00-21:00显示['ccc']
+	其他时间段显示['MMM']</pre>
+	<div class="result">
+		<p>当前时间为：<span class="now"></span></p>
+		<p>处于范围<span class="range"></span></p>
+		<p>随机显示了<span class="data"></span></p>
+	</div>
+
+	<script type="text/javascript">
+		var now = document.querySelector('.now'),
+			range = document.querySelector('.range'),
+			data = document.querySelectorAll('.data');
+
+		// 新增数据放在datas中
+		// default 为默认的时间
+		// 时间范围按格式 "hh:mm-hh:mm" (例如 5:30-14:30)，注意小时前面不加0，分钟前面需要加0
+		// 时间范围之后按照数组的形式增加需要的数据号码，以引号包裹，多个号码以逗号分隔，['','']
+		// 注意：多个数据最后一个号码后不加逗号，同理多个时间范围对应的栏目，最后一个不加逗号
+		// {
+		// 		'default': ['', ''],
+		// 		'hh:mm-hh:mm': [],
+		// 		'hh:mm-hh:mm': ['','',''],
+		// 		'hh:mm-hh:mm': []
+		// }
+		
+		var datas = {
+			'default': ['MMM'],
+			'0:00-8:00': ['aaa', 'aab', 'aac'],
+			'12:00-14:30': ['bba', 'bbb'],
+			'20:00-21:00': ['ccc']
+		};
+
+		// 获取当前时间并格式化小于10的为02这种格式
+		function toFix(num) {
+			return num < 10 ? '0' + num : num;
+		}
+
+		var currentDate = new Date(),
+			currentTime = '' + currentDate.getHours() + toFix(currentDate.getMinutes());
+
+		// 页面展示当前时间需求，无他用
+		now.innerHTML = currentDate.getHours() + ':' + toFix(currentDate.getMinutes());
+
+		// 存储时间范围，第一个元素为“default”;
+		var timeRange = [],
+			filterRange = [],
+		    currentRange = '';
+
+		for (var r in datas) {
+			timeRange.push(r);
+		}
+
+		// 筛选满足当前时间的范围
+		filterRange = timeRange.filter(function (e, i) {
+		    if (i > 0) {
+		        e = e.replace(/\:/g, '').split('-');
+				return parseInt(currentTime) >= parseInt(e[0]) && parseInt(currentTime) < parseInt(e[1]);
+			}
+		});
+
+		currentRange = !filterRange[0] ? 'default' : filterRange[0];
+
+		// 页面展示当前时间范围需要
+		range.innerHTML = currentRange;
+
+		// 当前时间段要随机的数据
+		var currentData = datas[currentRange];
+
+		// 随机选取一个数据并渲染在页面中class为data的元素中
+		var randomData = parseInt(Math.random() * currentData.length);
+		[].forEach.call(data, function (e) {
+			e.innerHTML = currentData[randomData];
+		});
+	</script>
+	<script type="text/javascript" src="../js/analytics.js"></script>
+</body>
+</html>

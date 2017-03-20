@@ -1,0 +1,205 @@
+@charset "UTF-8";
+/**
+ * @authors lulu
+ * @email   lulu27753@163.com
+ * @date    2016-12-02 15:10:22
+ */
+
+body {	background-color: #E9FCFF;}
+
+/* 鼠标选择颜色 */
+::selection {
+    color: #FFF;
+    background-color: #19caad;
+}
+::-moz-selection {
+    color: #FFF;
+    background-color: #19caad;
+}
+
+#header2 {
+	height: 48px;
+	text-align: right;
+	padding: 5px;
+	border-bottom: 1px solid #ccc;
+}
+#header2 a {
+	font-size: 24px;
+	line-height: 25px;
+	padding: 0 10px;
+	color: #09A8FF;
+}
+#header2 a:hover {
+	border-bottom: 2px solid #09A8FF;
+}
+
+#header2-m {
+	display: none;
+}
+
+#top {
+	width: 90%;
+	margin: 0 auto;
+	padding: 20px;
+	font-size: 20px;
+}
+/*.avatar2 {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background: url('/avatar2.jpg') center center no-repeat;
+	background-size: 100px 100px;
+	float: right;*/
+}
+/* 高亮元素样式 */
+
+.highlight2 {
+	font-size: 24px;
+	font-weight: bold;
+	color: #19caad;
+}
+#top h2 {
+	font-size: 70px;
+}
+
+#middle2 {
+	width: 90%;
+	margin: 0 auto;
+	padding: 20px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+	font-size: 24px;
+}
+#middle2 h2 {
+	font-weight: normal;
+	font-size: 24px;
+}
+#newest2 {
+	line-height: 50px;
+	font-weight: bold;
+}
+
+.especial {
+	padding: 5px 4%;
+	text-align: right;
+}
+.especial a {
+	font-size: 12px;
+	text-decoration: underline;
+}
+
+#content {
+	width: 90%;
+	margin: 0 auto;	
+}
+#content a {
+	line-height: 30px;
+}
+#content a:visited {
+	color: #0490A5;
+}
+
+/* 新增.ife 2016.3.20*/
+/* ife start */
+.ife {
+	width: 90%;
+	margin: 0 auto;
+	padding: 20px;
+	border-top: 1px solid #ccc;
+	line-height: 30px;
+}
+
+.ife h2 {
+	font-weight: normal;
+	color: #F64848;
+	line-height: 40px;
+}
+
+.ife .ife-date {
+	font-size: 12px;
+}
+/* ife end */
+
+
+/* 移动端 */
+@media screen and (max-width: 768px) {
+	/* header2 start */
+	#header2 {
+		display: none;
+	}
+	#header2-m {
+		display: block;
+		padding-top: 20px;
+		border-bottom: 2px solid #ccc;
+	}
+	#header2-m .avatar2-m {
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		margin: 0 auto;
+		background: url(http://www.zhaoshibo.net/avatar2.jpg) center center no-repeat;
+		background-size: 100px 100px;
+	}
+	#header2-m .nav-m {
+		padding-top: 20px;
+		text-align: center;
+	}
+
+	#header2-m .nav-m li {
+		display: inline-block;
+	}
+
+	#header2-m .nav-m li a {
+		font-size: 18px;
+		padding: 0 8px;
+		line-height: 1.8em;
+	}
+	/* header2 end */
+
+
+	#top {
+		font-size: 16px;
+		line-height: 1.8em;
+		padding: 0 5px;
+	}
+	.avatar2 {
+		display: none;
+	}
+
+	/* 高亮元素样式 */
+	.highlighter2 {
+		font-size: 22px;
+		line-height: 1.1em;
+	}
+
+	#top h2 {
+		font-size: 40px;
+		line-height: 1.2em;
+	}
+	#top p {
+		display: inline;
+	}
+
+	/* ife start */
+	.ife {
+		font-size: 16px;
+		padding: 0 5px;
+		line-height: 1.8em;
+	}
+
+	.ife h2 {
+		font-size: 24px;
+		line-height: 2em;
+	}
+
+	.ife p {
+		display: inline;
+	}
+
+	.ife .ife-date {
+		display: block;
+		text-align: right;
+	}
+	/* ife end */
+}

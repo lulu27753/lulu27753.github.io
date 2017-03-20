@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+	<meta charset="UTF-8">
+	<title>情诗 | cnzsb</title>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style type="text/css">
+	body{
+		width: 980px;
+		margin: 0 auto;
+		font-size: 28px;
+		animation: bg 25s linear;
+		-webkit-animation: bg 25s linear;
+		animation-fill-mode: forwards;
+		-webkit-animation-fill-mode: forwards;
+	}
+
+	#header{
+		display: none;
+		width: 100%;
+		height: 50px;
+		position: fixed;
+		padding-top: 10px;
+		z-index: 1000px;
+	}
+	#header a{
+		font-size: 20px;
+		color: #FFF;
+		font-weight: bold;
+		padding-left: 20px;
+	}
+
+	.container1{
+		position: relative;
+		top: 100px;
+		left: 0;
+		animation: moveA 2s 18s ease-out;
+		-webkit-animation: moveA 2s 18s ease-out;
+		animation-fill-mode: forwards;
+		-webkit-animation-fill-mode: forwards;
+	}
+	.container2{
+		position: relative;
+		visibility: hidden;
+		opacity: 0;
+		top: 100px;
+		left: 0;
+		padding-left: 400px;
+		animation: moveB 2s 19s ease-in;
+		-webkit-animation: moveB 2s 19s ease-in;
+		animation-fill-mode: forwards;
+		-webkit-animation-fill-mode: forwards;
+	}
+	.content{
+		visibility: hidden;
+		position: absolute;
+	}
+	.p1{
+		top: 0;
+		left: 200px;
+		animation: move1 3s 1s ease;
+		-webkit-animation: move1 3s 1s ease;
+		animation-fill-mode: forwards;
+		-webkit-animation-fill-mode: forwards;
+	}
+	.p2{
+		top: 0px;
+		left: 750px;
+		animation: move2 3s 5s ease-in-out;
+		-webkit-animation: move2 3s 5s ease-in-out;
+		animation-fill-mode: forwards;
+		-webkit-animation-fill-mode: forwards;
+	}
+	.p3{
+		top: -80px;
+		left: 380px;
+		animation: move3 3s 9s ease-out;
+		-webkit-animation: move3 3s 9s ease-out;
+		animation-fill-mode: forwards;
+		-webkit-animation-fill-mode: forwards;
+	}
+	.p4{
+		top: 120px;
+		left: 400px;
+		animation: move4 3s 13s linear;
+		-webkit-animation: move4 3s 13s linear;
+		animation-fill-mode: forwards;
+		-webkit-animation-fill-mode: forwards;
+	}
+	
+	@keyframes move1 {
+		0%	 {top: 0; left: 0; visibility: visible;}
+		1%   {transform: rotate(20deg);}
+		8%	 {transform: rotate(0);}
+		35%  {transform: scale(1.2, 1.2);}
+		36%  {transform: scale(1, 1);}
+		70%  {transform: rotate(-25deg); transform-origin: 0 -20px;}
+		75%  {top: 0; left: 600px; transform: rotate(0);}
+		100% {top: 0; left: 400px; color: #FC7102; visibility: visible;}
+	}
+	@-webkit-keyframes move1 {
+		0%	 {top: 0; left: 0; visibility: visible;}
+		1%   {-webkit-transform: rotate(20deg);}
+		8%	 {-webkit-transform: rotate(0);}
+		35%  {-webkit-transform: scale(1.2, 1.2);}
+		36%  {-webkit-transform: scale(1, 1);}
+		70%  {-webkit-transform: rotate(-25deg); transform-origin: 0 -20px;}
+		75%  {top: 0; left: 600px; transform: rotate(0);}
+		100% {top: 0; left: 400px; color: #FC7102; visibility: visible;}
+	}
+
+	@keyframes move2 {
+		0%   {top: 0px; left: 750px; visibility: visible;}
+		80%  {top: 25px; left: 380px; visibility: visible;}
+		100% {top: 40px; left: 400px; color: #2C2C2E; visibility: visible;}
+	}
+	@-webkit-keyframes move2 {
+		0%   {top: 0px; left: 750px; visibility: visible;}
+		80%  {top: 25px; left: 380px; visibility: visible;}
+		100% {top: 40px; left: 400px; color: #2C2C2E; visibility: visible;}
+	}
+
+	@keyframes move3 {
+		0%   {top: -50px; left: 380px; visibility: visible;}
+		10%  {top: -30px; left: 350px;}
+		30%  {top: -10px; left: 410px;}
+		50%  {top: 10px; left: 350px;}
+		70%  {top: 30px; left: 410px;}
+		85%  {top: 50px; left: 330px;}
+		100% {top: 80px; left: 400px; color: #FA5D3F; visibility: visible;}
+	}
+	@-webkit-keyframes move3 {
+		0%   {top: -50px; left: 380px; visibility: visible;}
+		10%  {top: -30px; left: 350px;}
+		30%  {top: -10px; left: 410px;}
+		50%  {top: 10px; left: 350px;}
+		70%  {top: 30px; left: 410px;}
+		85%  {top: 50px; left: 330px;}
+		100% {top: 80px; left: 400px; color: #FA5D3F; visibility: visible;}
+	}
+
+	@keyframes move4 {
+		0%   {transform: scale(0.1, 0.1); visibility: visible;}
+		12%  {transform: rotate(80deg);}
+		14%  {transform: rotate(160deg);}
+		16%  {transform: rotate(240deg);}
+		18%  {transform: rotate(320deg);}
+		20%  {transform: rotate(360deg);}
+		30%  {transform: scale(0.6, 0.6);}
+		50%  {transform: scale(0.9, 0.9);}
+		52%  {transform: rotate(-80deg);}
+		54%  {transform: rotate(-160deg);}
+		56%  {transform: rotate(-240deg);}
+		58%  {transform: rotate(-320deg);}
+		60%  {transform: rotate(-360deg);}
+		68%  {transform: scale(1.2, 1.2);}
+		70%  {transform: rotate(80deg);}
+		72%  {transform: rotate(160deg);}
+		74%  {transform: rotate(240deg);}
+		76%  {transform: rotate(320deg);}
+		78%  {transform: rotate(360deg);}
+		79%  {transform: scale(2, 2);}
+		80%  {transform: scale(0.7, 0.7);}
+		84%  {transform: scale(1,7, 1,7);}
+		90%  {transform: scale(0.7, 0.7);}
+		96%  {transform: scale(1,7, 1,7);}
+		100% {color: #2B88FC; transform: scale(1, 1); visibility: visible;}
+	}
+	@-webkit-keyframes move4 {
+		0%   {transform: scale(0.1, 0.1); visibility: visible;}
+		12%  {-webkit-transform: rotate(80deg);}
+		14%  {-webkit-transform: rotate(160deg);}
+		16%  {-webkit-transform: rotate(240deg);}
+		18%  {-webkit-transform: rotate(320deg);}
+		20%  {-webkit-transform: rotate(360deg);}
+		30%  {-webkit-transform: scale(0.6, 0.6);}
+		50%  {-webkit-transform: scale(0.9, 0.9);}
+		52%  {-webkit-transform: rotate(-80deg);}
+		54%  {-webkit-transform: rotate(-160deg);}
+		56%  {-webkit-transform: rotate(-240deg);}
+		58%  {-webkit-transform: rotate(-320deg);}
+		60%  {-webkit-transform: rotate(-360deg);}
+		68%  {-webkit-transform: scale(1.2, 1.2);}
+		70%  {-webkit-transform: rotate(80deg);}
+		72%  {-webkit-transform: rotate(160deg);}
+		74%  {-webkit-transform: rotate(240deg);}
+		76%  {-webkit-transform: rotate(320deg);}
+		78%  {-webkit-transform: rotate(360deg);}
+		79%  {-webkit-transform: scale(2, 2);}
+		80%  {-webkit-transform: scale(0.7, 0.7);}
+		84%  {-webkit-transform: scale(1,7, 1,7);}
+		90%  {-webkit-transform: scale(0.7, 0.7);}
+		96%  {-webkit-transform: scale(1,7, 1,7);}
+		100% {color: #2B88FC; -webkit-transform: scale(1, 1); visibility: visible;}
+	}
+
+	@keyframes moveA{
+		0%   {top: 100px; left: 0px; opacity: 1; transform-origin: 50% 50%; transform: rotateY(1800deg);}
+		100% {top: 100px; left: 100px; opacity: 0; visibility: hidden;}
+	}
+	@-webkit-keyframes moveA{
+		0%   {opacity: 1; transform-origin: 50% 50%; -webkit-transform: rotateY(1800deg);}
+		100% {opacity: 0; visibility: hidden;}
+	}
+
+	@keyframes moveB{
+		0%   {visibility: visible; transform-origin: 50% 50%; transform: rotateY(-1800deg);}
+		100% {visibility: visible; color: #FFF; opacity: 1;}
+	}
+	@-webkit-keyframes moveB{
+		0%   {visibility: visible; transform-origin: 50% 50%; -webkit-transform: rotateY(-1800deg);}
+		100% {visibility: visible; color: #FFF; opacity: 1;}
+	}
+	
+	@keyframes bg{
+		0%   {background-color: #FFF;}
+		50%  {background-color: #19CAAD;}
+		100% {background-color: #F9636F;}
+	}
+	@-webkit-keyframes bg{
+		0%   {background-color: #FFF;}
+		50%  {background-color: #19CAAD;}
+		100% {background-color: #F9636F;}
+	}
+	</style>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function () {
+		setTimeout(function () {
+			$('.container1').hide();
+			$('.container2').css({
+								'animation-name': 'none',
+								'color': '#FFF',
+								'visibility': 'visible',
+								'opacity': '1'
+								})
+							.slideUp(2000, function () {
+									$(this).html('螃蟹在剥我的壳<br />笔记本在写我<br />漫天的我落在枫叶上雪花上<br />而你在想我')
+										.slideDown(2000);
+								});
+			$('#header').fadeIn(2000);
+		}, 23000);
+	});deco
+	</script>
+</head>
+<body>
+	<div id="header">
+		<a href="http://www.zhaoshibo.net/mydemo">Home</a>
+		<a href="http://www.zhaoshibo.net">Blog</a>
+	</div>
+	<div class="container1">
+		<div class="content p1">螃蟹在剥我的壳</div>
+		<div class="content p2">笔记本在写我</div>
+		<div class="content p3">漫天的我落在枫叶上雪花上</div>
+		<div class="content p4">而你在想我</div>
+	</div>
+	<div class="container2">
+		我在剥螃蟹的壳<br />
+		我在写笔记本<br />
+		漫天的枫叶雪花落在我身上<br />
+		而我在想你
+	</div>
+	<script type="text/javascript" src="../js/analytics.js"></script>
+</body>
+</html>

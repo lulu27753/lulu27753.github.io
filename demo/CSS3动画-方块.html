@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3动画-方块</title>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style type="text/css">
+	body{
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	.box{
+		width: 80px;
+		height: 80px;
+		position: relative;
+		display: inline-block;
+		vertical-align: top;	/* 影响高度变化时的动画效果 */
+		cursor: pointer;
+	}
+	.box:hover{
+		z-index: 1;
+		box-shadow: 0 0 2px 3px #FFF;
+		-webkit-transform: translate(2px, -2px);
+		transform: translate(2px, -2px);
+	}
+	.sty1{
+		background-color: #FB6060;
+	}
+	.sty2{
+		background-color: #FFE96B;
+	}
+	.sty3{
+		background-color: #1AD3FF;
+	}
+	.sty4{
+		background-color: #BB14FA;
+	}
+	.sty5{
+		background-color: #30D7A7;
+	}
+
+	/*导航链接*/
+	#footer{
+		background-color: #00A8E7;
+		width: 100%;
+		height: 40px;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		text-align: center;
+	}
+	#footer a{
+		font-size: 20px;
+		line-height: 40px;
+		color: #FFF;
+		font-weight: bold;
+		padding: 0 50px;
+	}
+
+	.dangle{
+		animation: dangle 5s ease-in;
+		-webkit-animation: dangle 5s ease-in;
+	}
+	.diminish{
+		animation: diminish 5s ease-out;
+		-webkit-animation: diminish 5s ease-out;
+	}
+	.largen{
+		animation: largen 5s;
+		-webkit-animation: largen 5s;
+	}
+	.crawl{
+		animation: crawl 5s linear;
+		-webkit-animation: crawl 5s linear;
+	}
+	.stretch{
+		animation: stretch 5s ease-in-out;
+		-webkit-animation: stretch 5s ease-in-out;
+	}
+
+	@keyframes dangle{
+		0%,10% {transform-origin: top left; transform: rotate(45deg);}
+		5%,15% {transform-origin: top left; transform: rotate(15deg);}
+		20%  {transform: translateY(120px);}
+		22%	 {transform: translateY(80px);}
+		30%  {transform: translate(40px, 370px);}
+		32%  {transform: translate(40px, 330px);}
+		40%  {transform: translate(120px, 550px);}
+		42%  {transform: translate(120px, 510px);}
+		50%  {transform: translate(200px, 730px);}
+		52%  {transform: translate(200px, 690px);}
+		55%  {transform: translate(200px, 2000px) rotateY(1800deg);}
+	}
+	@-webkit-keyframes dangle{
+		0%,10% {-webkit-transform-origin: top left; -webkit-transform: rotate(45deg);}
+		5%,15% {-webkit-transform-origin: top left; -webkit-transform: rotate(15deg);}
+		20%  {-webkit-transform: translateY(120px);}
+		22%	 {-webkit-transform: translateY(80px);}
+		30%  {-webkit-transform: translate(40px, 370px);}
+		32%  {-webkit-transform: translate(40px, 330px);}
+		40%  {-webkit-transform: translate(120px, 550px);}
+		42%  {-webkit-transform: translate(120px, 510px);}
+		50%  {-webkit-transform: translate(200px, 730px);}
+		52%  {-webkit-transform: translate(200px, 690px);}
+		55%  {-webkit-transform: translate(200px, 1200px) rotateY(1800deg);}
+	}
+
+	@keyframes diminish{
+		7%   {transform: scale(0.5);}
+		10%  {transform: translateY(-70px) scale(0.5);}
+		50%  {transform: translateY(2000px) scale(0.5); opacity: 1;}
+		55%  {transform: translateY(-2000px) scale(0.5); opacity: 0;}
+		95%  {transform: translateY(-80px) scale(1); opacity: 1;}
+		100% {transform: translateY(0);}
+	}
+	@-webkit-keyframes diminish{
+		7%   {-webkit-transform: scale(0.5);}
+		10%  {-webkit-transform: translateY(-70px) scale(0.5);}
+		50%  {-webkit-transform: translateY(2000px) scale(0.5); opacity: 1;}
+		55%  {-webkit-transform: translateY(-2000px) scale(0.5); opacity: 0;}
+		95%  {-webkit-transform: translateY(-80px) scale(1); opacity: 1;}
+		100% {-webkit-transform: translateY(0);}
+	}
+
+	@keyframes largen{
+		7%   {transform: scale(1.5); z-index: 1;}    /* firefox下z-index失效 */
+		30%  {transform: scale(1.5) translateY(500px); opacity: 1;}
+		35%  {transform: translateY(500px) scale(0.5, 1); opacity: 0.2;}
+		45%  {transform: translateY(2000px) rotateX(1800deg);}
+	}
+	@-webkit-keyframes largen{
+		7%   {-webkit-transform: scale(1.5); z-index: 1;}    /* firefox下z-index失效 */
+		30%  {-webkit-transform: scale(1.5) translateY(500px); opacity: 1;}
+		35%  {-webkit-transform: translateY(500px) scale(0.5, 1); opacity: 0.2;}
+		45%  {-webkit-transform: translateY(2000px) rotateX(1800deg);}
+	}
+
+	@keyframes crawl{
+		2%,6%,10% {transform: translateY(310px);}
+		4%,8% {transform: translateY(340px);}
+		11%  {transform: translateY(320px);}
+		20%  {height: 80px; transform: translateY(320px);}
+		25%  {height: 40px; transform: translateY(320px);}
+		30%  {height: 80px; transform: translateY(280px);}
+		35%  {height: 40px; transform: translateY(280px);}
+		40%  {height: 80px; transform: translateY(240px);}
+		45%  {height: 40px; transform: translateY(240px);}
+		50%  {height: 80px; transform: translateY(200px);}
+		55%  {height: 40px; transform: translateY(200px);}
+		60%  {height: 80px; transform: translateY(160px);}
+		65%  {height: 40px; transform: translateY(160px);}
+		70%  {height: 80px; transform: translateY(120px);}
+		75%  {height: 40px; transform: translateY(120px);}
+		80%  {height: 80px; transform: translateY(80px);}
+		85%  {height: 40px; transform: translateY(80px);}
+		90%  {height: 80px; transform: translateY(40px);}
+		95%  {height: 40px; transform: translateY(40px);}
+		100% {height: 80px; transform: translateY(0px);}
+	}
+	@-webkit-keyframes crawl{
+		2%,6%,10% {-webkit-transform: translateY(310px);}
+		4%,8% {-webkit-transform: translateY(340px);}
+		11%  {-webkit-transform: translateY(320px);}
+		20%  {height: 80px; -webkit-transform: translateY(320px);}
+		25%  {height: 40px; -webkit-transform: translateY(320px);}
+		30%  {height: 80px; -webkit-transform: translateY(280px);}
+		35%  {height: 40px; -webkit-transform: translateY(280px);}
+		40%  {height: 80px; -webkit-transform: translateY(240px);}
+		45%  {height: 40px; -webkit-transform: translateY(240px);}
+		50%  {height: 80px; -webkit-transform: translateY(200px);}
+		55%  {height: 40px; -webkit-transform: translateY(200px);}
+		60%  {height: 80px; -webkit-transform: translateY(160px);}
+		65%  {height: 40px; -webkit-transform: translateY(160px);}
+		70%  {height: 80px; -webkit-transform: translateY(120px);}
+		75%  {height: 40px; -webkit-transform: translateY(120px);}
+		80%  {height: 80px; -webkit-transform: translateY(80px);}
+		85%  {height: 40px; -webkit-transform: translateY(80px);}
+		90%  {height: 80px; -webkit-transform: translateY(40px);}
+		95%  {height: 40px; -webkit-transform: translateY(40px);}
+		100% {height: 80px; -webkit-transform: translateY(0px);}
+	}
+
+	@keyframes stretch{
+		30%  {height: 2000px; transform: translateY(0);}
+		50%  {height: 80px; transform: translateY(2000px);}
+		70%  {transform: translateY(2000px);}
+		80%  {transform: translateY(-120px);}
+		85%  {transform: translateY(80px);}
+		90%  {transform: translateY(-40px);}
+		94%  {transform: translateY(20px);}
+		96%  {transform: translateY(-10px);}
+		98%  {transform: translateY(5px);}
+		100% {transform: translateY(0px);}
+	}
+	@-webkit-keyframes stretch{
+		30%  {height: 2000px; -webkit-transform: translateY(0);}
+		50%  {height: 80px; -webkit-transform: translateY(2000px);}
+		70%  {-webkit-transform: translateY(2000px);}
+		80%  {-webkit-transform: translateY(-120px);}
+		85%  {-webkit-transform: translateY(80px);}
+		90%  {-webkit-transform: translateY(-40px);}
+		94%  {-webkit-transform: translateY(20px);}
+		96%  {-webkit-transform: translateY(-10px);}
+		98%  {-webkit-transform: translateY(5px);}
+		100% {-webkit-transform: translateY(0px);}
+	}
+	</style>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function () {
+		var animations = ['dangle', 'diminish', 'largen', 'crawl', 'stretch'];
+
+		$('.box').each(function() {
+			var count = 0;
+			$(this).on('click', function () {
+				count ++;
+				if(count == 1) {
+					var it = $(this),
+						index = Math.floor(Math.random() * (animations.length + 1));
+
+					it.addClass(animations[index]);
+					setTimeout(function () {
+						it.removeClass(animations[index]);
+						count = 0;
+					}, 5000);	
+				}
+			});
+		});			
+	});
+	</script>
+</head>
+<body>
+	<div class="sty1 box"></div><div class="sty2 box"></div><div class="sty3 box"></div><div class="sty4 box"></div><div class="sty5 box"></div><div class="sty1 box"></div><div class="sty2 box"></div><div class="sty3 box"></div><div class="sty4 box"></div><div class="sty5 box"></div><div class="sty1 box"></div><div class="sty2 box"></div><div class="sty3 box"></div><div class="sty4 box"></div><div class="sty5 box"></div><div class="sty1 box"></div><div class="sty2 box"></div><div class="sty3 box"></div><div class="sty4 box"></div><div class="sty5 box"></div><div class="sty1 box"></div><div class="sty2 box"></div><div class="sty3 box"></div><div class="sty4 box"></div><div class="sty5 box"></div>
+	<div id="footer">
+		<a href="http://www.zhaoshibo.net/mydemo">Home</a>
+		<a href="http://www.zhaoshibo.net">Blog</a>
+	</div>
+
+	<script type="text/javascript" src="../js/analytics.js"></script>
+</body>
+</html>

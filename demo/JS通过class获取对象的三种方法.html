@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+	<meta charset="UTF-8">
+	<title>getByClass | cnzsb</title>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style type="text/css">
+	/*导航链接*/
+    #header{
+        background-color: #00A8E7;
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    #header a{
+        font-size: 20px;
+        line-height: 40px;
+        color: #FFF;
+        font-weight: bold;
+        padding: 0 50px;
+    }
+    #box {
+    	width: 202px;
+    	margin: 0 auto;
+    }
+    #box li {
+    	width: 200px;
+    	height: 200px;
+    	border: 1px solid #000;
+    	margin-bottom: 5px;
+    	margin-top: 0 auto;
+    }
+	</style>
+	<script type="text/javascript">
+	window.onload = function () {
+		// 方法一
+		var a1 = getByClass1('a', 'box');
+		for(var i = 0; i < a1.length; i++){
+			a1[i].style.backgroundColor = 'red';
+		}
+
+		// 方法二
+		var a2 = getByClass2('a', 'box');
+		for(var i = 0; i < a2.length; i++){
+			a2[i].style.backgroundColor = 'yellow';
+		}
+
+		// 方法三
+		var b = getByClass3('b', 'box');
+		console.log(a2);
+		console.log(b);
+		for(var i = 0; i < b.length; i++){
+			b[i].style.backgroundColor = 'green';
+		}
+	}
+
+	// 方法一，只适用于单个class的元素
+	function getByClass1(oCls, oPrt) {
+		var oParent = oPrt ? document.getElementById(oPrt) : document,
+			oTags = oParent.getElementsByTagName('*'),
+			cls = [];
+
+		for(var i = 0; i < oTags.length; i++){
+			if(oTags[i].className == oCls){
+				cls.push(oTags[i]);
+			}
+		}
+
+		return cls;
+	}
+
+	// 方法二，适用于包含多个class的元素
+	function getByClass2(oCls, oPrt){
+		var oParent = oPrt ? document.getElementById(oPrt) : document,
+			oTags = oParent.getElementsByTagName('*'),
+			cls = [];
+
+		for(var i = 0; i < oTags.length; i++){
+			var newcls = oTags[i].className.split(/\s+/);
+			for(var j = 0; j < newcls.length; j++){
+				if(newcls[j] == oCls){
+					cls.push(oTags[i]);
+				}
+			}
+		}
+
+		return cls;
+	}
+
+	// 方法三，正则方法，其中RegExp()中的参数为i，m或无时可匹配正确，g时匹配错误；search方法不可用
+	function getByClass3(oCls, oPrt) {
+		var oParent = oPrt ? document.getElementById(oPrt) : document,
+			oTags = oParent.getElementsByTagName('*'),
+			cls = [],
+			reg = new RegExp('\\b' + oCls + '\\b', 'm');
+
+		for(var i = 0; i < oTags.length; i++){
+			// if(oTags[i].className.search(reg)){
+			if(reg.test(oTags[i].className)){
+				cls.push(oTags[i]);
+			}
+		}
+
+		return cls;
+	}
+	</script>
+</head>
+<body>
+    <div id="header">
+        <a href="http://www.zhaoshibo.net/mydemo">Home</a>
+        <a href="http://www.zhaoshibo.net">Blog</a>
+    </div>
+	<ul id="box">
+		<li class="a"></li>
+		<li class="a b"></li>
+		<li class="b c a"></li>
+	</ul>
+	<script type="text/javascript" src="../js/analytics.js"></script>
+</body>
+</html>

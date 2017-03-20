@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>number counter | cnzsb</title>
+        <style media="screen">
+        .headline {
+            text-align: center;
+        }
+        .ul {
+            width: 600px;
+            margin: 0 auto;
+        }
+        .mode {
+            margin-right: 20px;
+            vertical-align: middle;
+            color: tomato;
+        }
+        .btn {
+            vertical-align: middle
+        }
+        .res {
+            line-height: 1.5;
+            font-size: 50px;
+        }
+        </style>
+    </head>
+    <body>
+        <h2 class="headline">数值变换特效</h2>
+        <ul class="ul">
+            <li class="li1">
+                <span class="mode">默认模式</span><button type="button" class="btn">click</button>
+                <div class="res"></div>
+            </li>
+            <li class="li2">
+                <span class="mode">改变填充数值 fill: 0 (default: '')</span><button type="button" class="btn">click</button>
+                <div class="res"></div>
+            </li>
+            <li class="li3">
+                <span class="mode">改变间隔时间 interval: 100 (default: 0)</span><button type="button" class="btn">click</button>
+                <div class="res"></div>
+            </li>
+            <li class="li4">
+                <span class="mode">改变单个位置速度 speed: 100 (default: 50)</span><button type="button" class="btn">click</button>
+                <div class="res"></div>
+            </li>
+            <li class="li5">
+                <span class="mode">正向模式 direction: 'start' (default: 'end')</span><button type="button" class="btn">click</button>
+                <div class="res"></div>
+            </li>
+        </ul>
+
+        <script type="text/javascript" src="./scriptDemo/NumCounter.js"></script>
+        <script type="text/javascript">
+            const ress = document.querySelectorAll('.res')
+            const btns = document.querySelectorAll('.btn')
+            Array.from(ress).forEach(res => res.innerHTML = parseInt(Math.random().toString().slice(2, 8), 10))
+            Array.from(btns).forEach((btn, i) => {
+                let ct
+                switch (i) {
+                    case 1:
+                        ct = new NumCounter(ress[i].innerHTML, ress[i], 'innerHTML', {fill: 0})
+                        break;
+                    case 2:
+                        ct = new NumCounter(ress[i].innerHTML, ress[i], 'innerHTML', {interval: 100})
+                        break;
+                    case 3:
+                        ct = new NumCounter(ress[i].innerHTML, ress[i], 'innerHTML', {speed: 100})
+                        break;
+                    case 4:
+                        ct = new NumCounter(ress[i].innerHTML, ress[i], 'innerHTML', {direction: 'start'})
+                        break;
+                    default:
+                        ct = new NumCounter(ress[i].innerHTML, ress[i], 'innerHTML')
+                }
+                btn.addEventListener('click', ct.run.bind(ct), false)
+            })
+        </script>
+        <script type="text/javascript" src="../js/analytics.js"></script>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+	<meta charset="UTF-8">
+	<title>Textarea 自适应 | cnzsb</title>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="../css/reset.css">
+	<style type="text/css">
+	* {
+		box-sizing: border-box;
+	}
+
+    .container {
+        position: relative;
+        border: 1px solid #888;
+        background: #fff;
+    }
+
+    .container textarea,
+    .container pre {
+        padding: 10px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+
+    .container textarea {
+        width: 100%;
+        height: 100%;
+    	outline: 0;
+        resize: none;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .container pre {
+        display: block;
+        visibility: hidden;
+    }
+	</style>
+</head>
+<body>
+	<div class="container">
+        <pre><span></span><br></pre>
+        <textarea></textarea>
+    </div>
+    <script type="text/javascript">
+    var area = document.getElementsByTagName('textarea')[0]
+    var span = document.getElementsByTagName('span')[0]
+
+    // 不考虑兼容性
+    area.addEventListener('input', function() {
+        span.textContent = area.value
+    })
+    </script>
+    <script type="text/javascript" src="../js/analytics.js"></script>
+</body>
+</html>

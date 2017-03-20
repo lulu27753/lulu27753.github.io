@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>scroll | cnzsb</title>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <style type="text/css">
+    #box {
+        width: 300px;
+        height: 250px;
+        border: 1px solid #eee;
+        margin: 0 auto;
+        overflow: auto;
+    }
+
+    #box1,#box2 {
+        width: 250px;
+        height: 250px;
+        border: 1px solid #000;
+        margin: 0 auto;
+        border-radius: 125px;
+    }
+
+    #box1 {
+        background-color: pink;
+    }
+
+    #box2 {
+        background-color: yellow;
+    }
+
+    #text {
+        width: 100%;
+        text-align: center;
+    }
+
+    /*导航链接*/
+    #footer{
+        background-color: #00A8E7;
+        width: 100%;
+        height: 40px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        text-align: center;
+    }
+    #footer a{
+        font-size: 20px;
+        line-height: 40px;
+        color: #FFF;
+        font-weight: bold;
+        padding: 0 50px;
+    }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="box1"></div>
+        <div id="box2"></div>
+    </div>
+    <div id="text"></div>
+    <div id="footer">
+        <a href="http://www.zhaoshibo.net/mydemo">Home</a>
+        <a href="http://www.zhaoshibo.net">Blog</a>
+    </div>
+
+    <script type="text/javascript">
+    window.onload = function() {
+        var box = document.getElementById('box'),
+            text = document.getElementById('text'),
+            direction = 1;
+
+        box.onscroll = function() {
+            text.innerHTML = '窗口高度：' + box.offsetHeight;
+            text.innerHTML += '<br />';
+            text.innerHTML += '滚动距离：' + box.scrollTop;
+        };
+
+        function scr() {
+            // console.log(box.scrollTop);
+            if (box.scrollTop >= box.offsetHeight) {
+                direction = -1;
+            } else if (box.scrollTop <= 0) {
+                direction = 1;
+            }
+
+            if (direction == 1) {
+                box.scrollTop += 10;
+            } else if (direction == -1) {
+                box.scrollTop -= 10;
+            }
+        };
+
+        setInterval(scr, 100);
+    };
+    </script>
+    <script type="text/javascript" src="../js/analytics.js"></script>
+</body>
+</html>
