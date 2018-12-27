@@ -81,6 +81,8 @@
 	        
 				<li><a href="https://www.yuque.com/lulu27753/lulu">语雀目录</a></li>
 	        
+				<li><a href="https://www.yuque.com/kobg2k/ipgh9u">awesome Fronted</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -101,13 +103,13 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/lulu27753/Frontend-Book/tree/master" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+					<a class="weixin" target="_blank" href="/Wechat.jpeg" title="weixin"><i class="icon-weixin"></i></a>
 		        
-					<a class="jianshu" target="_blank" href="#" title="jianshu"><i class="icon-jianshu"></i></a>
+					<a class="jianshu" target="_blank" href="https://juejin.im/user/59a3713af265da24817a7810/posts" title="jianshu"><i class="icon-jianshu"></i></a>
 		        
 					<a class="mail" target="_blank" href="mailto:lulu27753@163.com" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -151,18 +153,20 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/lulu27753/Frontend-Book/tree/master" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="rss" target="_blank" href="/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="weixin" target="_blank" href="#" title="weixin"><i class="icon-weixin"></i></a>
+						<a class="weixin" target="_blank" href="/Wechat.jpeg" title="weixin"><i class="icon-weixin"></i></a>
 			        
-						<a class="jianshu" target="_blank" href="#" title="jianshu"><i class="icon-jianshu"></i></a>
+						<a class="jianshu" target="_blank" href="https://juejin.im/user/59a3713af265da24817a7810/posts" title="jianshu"><i class="icon-jianshu"></i></a>
 			        
 						<a class="mail" target="_blank" href="mailto:lulu27753@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -173,19 +177,21 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 14.285714285714286%"><a href="/">首页</a></li>
+					<li style="width: 12.5%"><a href="/">首页</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/categories/program">前端工程化</a></li>
+					<li style="width: 12.5%"><a href="/categories/program">前端工程化</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/categories/service">业务场景解决方案</a></li>
+					<li style="width: 12.5%"><a href="/categories/service">业务场景解决方案</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/categories/principle">底层原理及基础</a></li>
+					<li style="width: 12.5%"><a href="/categories/principle">底层原理及基础</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/categories/productt">产品项目思维</a></li>
+					<li style="width: 12.5%"><a href="/categories/productt">产品项目思维</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="https://www.yuque.com/lulu27753/notes">读书笔记</a></li>
+					<li style="width: 12.5%"><a href="https://www.yuque.com/lulu27753/notes">读书笔记</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="https://www.yuque.com/lulu27753/lulu">语雀目录</a></li>
+					<li style="width: 12.5%"><a href="https://www.yuque.com/lulu27753/lulu">语雀目录</a></li>
+		        
+					<li style="width: 12.5%"><a href="https://www.yuque.com/kobg2k/ipgh9u">awesome Fronted</a></li>
 		        
 				</ul>
 			</nav>
@@ -201,6 +207,292 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-package.json 的解读" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/17/package.json 的解读/">package.json 的解读</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/17/package.json 的解读/" class="archive-article-date">
+  	<time datetime="2018-12-17T07:09:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          <!-- Table of Contents -->
+          
+        <p><span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">tags: [组件]</span></span><br><span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">categories: 前端工程化</span></span></p>
+<hr>
+<h1 id="官方字段"><a href="#官方字段" class="headerlink" title="官方字段"></a><a name="e438um"></a>官方字段</h1><h2 id="json-和-JS-对象的区别"><a href="#json-和-JS-对象的区别" class="headerlink" title="json 和 JS 对象的区别"></a><a name="lpfreb"></a>json 和 JS 对象的区别</h2><p>package.json，顾名思义，它是一个json文件，而不能写入JS对象。<br>所以我们首先要搞懂的是JSON和JS对象的区别：</p>
+<div class="bi-table"><br>  <table><br>    <colgroup><br>      <col width="auto"><br>      <col width="auto"><br>      <col width="auto"><br>    </colgroup><br>    <tbody><br>      <tr><br>        <td rowspan="1" colspan="1"><br>          <div data-type="p">区别</div><br>        </td><br>        <td rowspan="1" colspan="1"><br>          <div data-type="p">Json</div><br>        </td><br>        <td rowspan="1" colspan="1"><br>          <div data-type="p">Javascript对象</div><br>        </td><br>      </tr><br>      <tr><br>        <td rowspan="1" colspan="1"><br>          <div data-type="p">含义</div><br>        </td><br>        <td rowspan="1" colspan="1"><br>          <div data-type="p">仅仅是一种数据格式</div><br>        </td><br>        <td rowspan="1" colspan="1"><br>          <div data-type="p">表示类的实例</div><br>        </td><br>      </tr><br>      <tr><br>        <td rowspan="1" colspan="1"><br>          <div data-type="p">传输</div><br>        </td><br>        <td rowspan="1" colspan="1"><br>          <div data-type="p">可以跨平台数据传输，速度快</div><br>        </td><br>        <td rowspan="1" colspan="1"><br>          <div data-type="p">不能传输</div><br>        </td><br>      </tr><br>      <tr><br>        <td rowspan="1" colspan="1"><br>          <div data-type="p">表现</div><br>        </td><br>        <td rowspan="1" colspan="1"><br>          <div data-type="p">1、键值对方式，键必须加双引号 2、值不能是方法函数，不能是undefined|NaN<br>          </div><br>        </td><br>        <td rowspan="1" colspan="1"><br>          <div data-type="p">1、键值对方式，键不加引号 2、值可以是函数、对象、字符串、数字、boolean等<br>          </div><br>        </td><br>      </tr><br>      <tr><br>        <td rowspan="1" colspan="1"><br>          <div data-type="p">相互转换</div><br>        </td><br>        <td rowspan="1" colspan="1"><br>          <div data-type="p">Json转化为JS对象： 1、JSON.parse(jsonstring); 2、json=eval(“(“+jsonstring+”)”)<br>          </div><br>        </td><br>        <td rowspan="1" colspan="1"><br>          <div data-type="p">JS对象转换为JSON: JSON.stringify(json)<br>          </div><br>        </td><br>      </tr><br>    </tbody><br>  </table><br></div>
+
+
+<p>【注意】 在JSON中属性名一定要加上双引号</p>
+<h2 id="name-字段"><a href="#name-字段" class="headerlink" title="name 字段"></a><a name="57agkw"></a>name 字段</h2><p><strong>name字段的限制</strong></p>
+<ul>
+<li>name字段必须小于214字符（这个没什么好记的～）</li>
+<li>name字段不能包含有“.”符号和下划线（这个要记一下哦～）</li>
+<li>name字段不能包含有大写字母（这个要记一下哦～）</li>
+<li>name字段不能含有非URL安全的字符，因为它将当发布的时候，它将作为你的包的相关信息被写入URL中<br>  那么，有哪些算是非URL安全的字符呢？咱们看表说话：</li>
+</ul>
+<p><img src="./book/assets/url_safecode.png" alt="image | left"></p>
+<h2 id="version-字段"><a href="#version-字段" class="headerlink" title="version 字段"></a><a name="1t9sbg"></a>version 字段</h2><h3 id="npm对version定义的规则要求"><a href="#npm对version定义的规则要求" class="headerlink" title="npm对version定义的规则要求"></a><a name="d31agy"></a>npm对version定义的规则要求</h3><p>对于”version”:”x.y.z”<br>1.修复bug,小改动，增加z<br>2.增加了新特性，但仍能向后兼容，增加y<br>3.有很大的改动，无法向后兼容,增加x</p>
+<p>例如：我原本的项目是1.0.0版本的话<br>若是1中情况，变为1.0.1<br>若是2中情况，变为1.1.0<br>若是3中情况，变为2.0.0</p>
+<h3 id="npm-有自己的检验version的模块——node-semver"><a href="#npm-有自己的检验version的模块——node-semver" class="headerlink" title="npm 有自己的检验version的模块——node-semver"></a><a name="0gwprg"></a>npm 有自己的检验version的模块——node-semver</h3><p>npm有自己的一套检验version正确性的模块，它叫做 node-semver，是一开始就跟随着npm一起被打包安装的。当然了，你也可以通过自己安装去在自己的项目中使用它。<br>使用的例子像这样：<br>先npm install –save semver<br>然后:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> semver = <span class="built_in">require</span>(<span class="string">'semver'</span>)</span><br><span class="line">semver.valid(<span class="string">'1.2.3'</span>) <span class="comment">// '1.2.3'</span></span><br><span class="line">semver.valid(<span class="string">'a.b.c'</span>) <span class="comment">// null</span></span><br></pre></td></tr></table></figure>
+<h2 id="keywords-和-description-字段"><a href="#keywords-和-description-字段" class="headerlink" title="keywords 和 description 字段"></a><a name="5t56gy"></a>keywords 和 description 字段</h2><h3 id="字段要求："><a href="#字段要求：" class="headerlink" title="字段要求："></a><a name="hrwsrt"></a>字段要求：</h3><p>description：字符串<br>keywords：字符串数组</p>
+<p>简单地说，这两个东东是npm搜索系统中的搜索条件，所以。如果你试图发布的是一个开源插件，那么这两个字段你应该重视</p>
+<h2 id="license-字段"><a href="#license-字段" class="headerlink" title="license 字段"></a><a name="nq9ywd"></a>license 字段</h2><p>这是你指定的项目的许可证，它告诉他人他们是否有权利使用你的包，以及，在使用你的包的时候他们应该受到怎样的限制</p>
+<p>字段要求：<br>单个license：直接写入名称</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"license"</span> : <span class="string">"BSD-3-Clause"</span> &#125;</span><br></pre></td></tr></table></figure>
+<p>多个license：在一对圆括号内写入license名称，且在多个license内用AND等连接</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"license"</span> : <span class="string">"(ISC AND GPL-3.0)"</span> &#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.npmjs.com/package/spdx" target="_blank" rel="noopener">SPDX license表达式的语法规则 2.0版本</a></p>
+<h2 id="author-字段"><a href="#author-字段" class="headerlink" title="author 字段"></a><a name="6wgflv"></a>author 字段</h2><p>要求：一个字符串或是一个对象。<br>如果是一个对象，该对象包含三个属性：<br>name属性(必填)<br>email属性（选填）<br>URL属性（选填）</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"name"</span> : <span class="string">"Barney Rubble"</span></span><br><span class="line">, <span class="attr">"email"</span> : <span class="string">"b@rubble.com"</span></span><br><span class="line">, <span class="attr">"url"</span> : <span class="string">"http://barnyrubble.tumblr.com/"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="main-字段"><a href="#main-字段" class="headerlink" title="main 字段"></a><a name="oxo5aa"></a>main 字段</h2><p>这个是你项目的入口文件。简而言之，当别人安装了你发布的模块时，require你的模块的时候取得的就是你main字段规定的入口文件的输出。</p>
+<p>例如你写入了 { “main”:”XXX.js”}，而他人通过npm install ‘你的模块名称’ . 安装了你的模块后，他通过 var X = require(‘你的模块名称’)取得的就是你在XXX.js的输出</p>
+<h2 id="script-字段"><a href="#script-字段" class="headerlink" title="script 字段"></a><a name="0gg4no"></a>script 字段</h2><p>写进scripts的命令(command),可以通过npm run 或者npm  运行对应的shell指令，例如：{“scripts”: { “start”: “node main.js”} } 可以让你在终端输入npm start的时候，等同于运行了node main.js</p>
+<h3 id="什么时候要加“run”-什么时候可以不用加“run”呢？"><a href="#什么时候要加“run”-什么时候可以不用加“run”呢？" class="headerlink" title="什么时候要加“run”,什么时候可以不用加“run”呢？"></a><a name="o7vnng"></a>什么时候要加“run”,什么时候可以不用加“run”呢？</h3><p>一个让我们可能有些困扰的问题是，通过<code>script</code>字段内的<code>npm命令</code>运行脚本时，有时候要加<code>“run”</code>，有时候又不要加<code>&quot;run&quot;</code>,即有时候是可以直接用<code>npm &lt;command&gt;</code>；而有时候又要用<code>npm run &lt;command&gt;</code> 才能运行脚本，这该如何区分呢？</p>
+<p>首先要提一下的是，<code>run</code>的原名是<code>run-script</code>，是一段脚本，而<code>run</code>是它的一个别名（<code>alias</code>）</p>
+<p>1.当<code>run[-script]</code>被 <code>test, start, restart, and stop</code>这四个自带的命令所使用时，它可以被省略（或者说不需要加<code>“run”</code>就可以直接调用），所以我们平时最常输入的<code>npm start</code>实际上相当于<code>npm run start</code>，只不过是为了方便省略了<code>run</code>而已</p>
+<p>原文：<code>run[-script] is used by the test, start, restart, and stop commands, but can be called directly</code></p>
+<p>2.当你在<code>package.json</code>的<code>script</code>字段中定义的是除了1中的4个命令外的命令的时候，你就不能省略<code>“run”</code>了<br>例如你定义</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">  "build": "XXX.js"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>的时候，你运行XXX.js就只能通过npm run build去运行了</p>
+<h3 id="npm-为script字段中的脚本路径都加上了node-moudles-bin前缀"><a href="#npm-为script字段中的脚本路径都加上了node-moudles-bin前缀" class="headerlink" title="npm 为script字段中的脚本路径都加上了node_moudles/.bin前缀"></a><a name="i703qp"></a>npm 为script字段中的脚本路径都加上了node_moudles/.bin前缀</h3><p>npm为script字段中的脚本路径都加上了node_moudles/.bin前缀，这意味着：你在试图运行本地安装的依赖在 node_modules/.bin 中的脚本的时候，可以省略node_modules/.bin这个前缀。例如：<br>我刚npm install webpack了，而在我的项目下的node_modules目录的.bin子目录下：就多了一个叫做webpack的脚本</p>
+<p>本来运行这个脚本的命令应该是：node_modules/.bin webpack<br>但由于npm已经自动帮我们加了node_modules/.bin前缀了，所以我们可以直接写成：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;"start": "webpack"&#125;</span><br></pre></td></tr></table></figure>
+<p>而不用写成：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;"start": "node_modules/.bin webpack"&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>原文：npm run adds node_modules/.bin to the PATH provided to scripts. Any binaries provided by locally-installed dependencies can be used without the node_modules/.bin prefix</p>
+</blockquote>
+<blockquote>
+<p>npm start是有默认值的，默认为：node server.js</p>
+</blockquote>
+<h2 id="better-npm-run-的安装与betterScript字段的使用"><a href="#better-npm-run-的安装与betterScript字段的使用" class="headerlink" title="better-npm-run 的安装与betterScript字段的使用"></a><a name="fhxxci"></a>better-npm-run 的安装与betterScript字段的使用</h2><p>这个是package.json文档介绍里所没有的，但这里我想特别讲一下：</p>
+<p>先通过npm install better-npm-run安装好包，然后你就可以在你的package.json里面使用一个新的字段—— “betterScripts”字段</p>
+<p>故名思意，它和”scripts”字段很像，那么两者间有什么联系呢？咱还是用代码说话吧，它可以把</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">   "test": "NODE_ENV=production karma start"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>变成：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">    "test": "better-npm-run test"</span><br><span class="line">&#125;,</span><br><span class="line">"betterScripts": &#123;</span><br><span class="line">    "test": &#123;</span><br><span class="line">        "command": "karma start",</span><br><span class="line">        "env": &#123;</span><br><span class="line">            "NODE_ENV": "test"</span><br><span class="line">          &#125;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>简单地说，就是当运行”scripts”字段中的命令的时候，它会进一步去运行 “betterScripts”中对应的命令，并通过”env”对象控制运行时的环境变量，如NODE_ENV。</p>
+<p>好处是让你的代码的可读性更强一些</p>
+<p>另外提一下NODE_ENV的作用：<br>用来设置环境变量（默认值为development）。<br>通过检查这个值可以分别对开发环境和生产环境下做不同的处理</p>
+<p>例如在服务端代码中通过检查是否是开发环境（development）决定是否启动代码热重载功能</p>
+<p>（热重载只是为了在开发环境【developmen】提高生产效率用，在生产环境【production】没用）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">'development'</span>) &#123;</span><br><span class="line"><span class="comment">// 省略诸多内容</span></span><br><span class="line">app.use(<span class="built_in">require</span>(<span class="string">'webpack-hot-middleware'</span>)(compiler, &#123;</span><br><span class="line">    path: <span class="string">'/__webpack_hmr'</span></span><br><span class="line">&#125;))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="dependencies-字段和-devDependencies-字段"><a href="#dependencies-字段和-devDependencies-字段" class="headerlink" title="dependencies 字段和 devDependencies 字段"></a><a name="54ahbt"></a>dependencies 字段和 devDependencies 字段</h2><p>dependencies字段和devDependencies字段分别代表生产环境依赖和开发环境依赖</p>
+<p>与两个字段相关的npm install的命令<br>npm install 模块 –save 安装好后写入package.json的dependencies中（生产环境依赖）<br>npm install 模块 –save-dev 安装好后写入package.json的devDepencies中（开发环境依赖）</p>
+<p><strong>怎么区分到底安装包的时候放在dependencies中还是devDepencies中呢？</strong></p>
+<p>很简单<br>1.一般你去github或者npm社区里面相关包的介绍后面都会带有–save 或者–save-dev 的参数的，这时候把命令直接复制过来运行就OK了，不用管那么多</p>
+<p>2.如果没有1中的介绍，那么请思考，这个包到底是纯粹为了开发方便使用呢？还是要放到上线后APP的代码中呢？前者则为devDepencies，后者则为dependencies</p>
+<p>【注意】：在团队协作中，一个常见的情景是他人从github上clone你的项目，然后通过npm install安装必要的依赖，（刚从github上clone下来是没有node_modules的，需要安装）那么根据什么信息安装依赖呢？就是你的package.json中的dependencies和devDepencies。所以，在本地安装的同时，将依赖包的信息（要求的名称和版本）写入package.json中是很重要的！</p>
+<h2 id="prepublishOnly-字段"><a href="#prepublishOnly-字段" class="headerlink" title="prepublishOnly 字段"></a><a name="7xa0oi"></a>prepublishOnly 字段</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"prepublishOnly": "npm run build"</span><br></pre></td></tr></table></figure>
+<p><span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">这样每次执行</span></span><code>npm publish</code><span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">前都会先执行</span></span><code>npm run build</code></p>
+<h2 id="peerDependencies-字段"><a href="#peerDependencies-字段" class="headerlink" title="peerDependencies 字段"></a><a name="b7imam"></a>peerDependencies 字段</h2><p>同版本依赖</p>
+<h1 id="非官方字段"><a href="#非官方字段" class="headerlink" title="非官方字段"></a><a name="b7mugf"></a>非官方字段</h1><h2 id="yarn-相关字段"><a href="#yarn-相关字段" class="headerlink" title="yarn 相关字段"></a><a name="7g2dis"></a>yarn 相关字段</h2><p><a href="https://github.com/yarnpkg/yarn" target="_blank" rel="noopener">yarn</a> : 类似 npm 的依赖管理工具，但 yarn 缓存了每个下载过的包，所以再次使用时无需重复下载，同时利用并行下载以最大化资源利用率，因此安装速度更快。</p>
+<h3 id="flat"><a href="#flat" class="headerlink" title="flat"></a><a name="urd0tl"></a>flat</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"flat"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你的包只允许给定依赖的一个版本，你想强制和命令行上 <span data-type="background" style="background-color:#FADB14">yarn install –flat </span>相同的行为，把这个值设为<span data-type="background" style="background-color:#FADB14"> true</span>。</p>
+<p>详细参考 <a href="https://yarnpkg.com/zh-Hans/docs/package-json#toc-flat" target="_blank" rel="noopener">yarn - flat</a><span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">.</span></span>.</p>
+<h3 id="resolutions"><a href="#resolutions" class="headerlink" title="resolutions"></a><a name="20npgi"></a>resolutions</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"resolutions"</span>: &#123;</span><br><span class="line">        <span class="attr">"transitive-package-1"</span>: <span class="string">"0.0.29"</span>,</span><br><span class="line">        <span class="attr">"transitive-package-2"</span>: <span class="string">"file:./local-forks/transitive-package-2"</span>,</span><br><span class="line">        <span class="attr">"dependencies-package-1/transitive-package-3"</span>: <span class="string">"^2.1.1"</span></span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>允许你覆盖特定嵌套依赖项的版本。有关完整规范，请参见<a href="https://github.com/yarnpkg/rfcs/blob/master/implemented/0000-selective-versions-resolutions.md" target="_blank" rel="noopener">选择性版本解析 RFC</a>。</p>
+<p>详细参考 <a href="https://yarnpkg.com/zh-Hans/docs/package-json#toc-resolutions" target="_blank" rel="noopener">yarn - resolutions</a>.</p>
+<h2 id="unpkg-相关字段"><a href="#unpkg-相关字段" class="headerlink" title="unpkg 相关字段"></a><a name="qsrgbn"></a>unpkg 相关字段</h2><p><a href="https://github.com/unpkg/unpkg.com" target="_blank" rel="noopener">unpkg</a>: 让 npm 上所有的文件都开启 cdn 服务。</p>
+<p>unpkg</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># jquery</span><br><span class="line">&#123;</span><br><span class="line"><span class="attr">"unpkg"</span>: <span class="string">"dist/jquery.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>正常情况下，访问 jquery 的发布文件通过 <a href="https://unpkg.com/jquery@3.3.1/dist/jquery.js%EF%BC%8C%E5%BD%93%E4%BD%A0%E4%BD%BF%E7%94%A8%E7%9C%81%E7%95%A5%E7%9A%84" target="_blank" rel="noopener">https://unpkg.com/jquery@3.3.1/dist/jquery.js，当你使用省略的</a> url <a href="https://unpkg.com/jquery" target="_blank" rel="noopener">https://unpkg.com/jquery</a> 时，便会按照如下的方式获取文件：</p>
+<p>[latestVersion] 指最新版本号，pkg 指 package.json</p>
+<ul>
+<li>定义了 unpkg 属性时</li>
+</ul>
+<p><a href="https://unpkg.com/jquery@%5BlatestVersion%5D/%5Bpkg.unpkg%5D" target="_blank" rel="noopener">https://unpkg.com/jquery@[latestVersion]/[pkg.unpkg]</a></p>
+<ul>
+<li>未定义 unpkg 属性时，将回退到 main 属性</li>
+</ul>
+<p><a href="https://unpkg.com/jquery@%5BlatestVersion%5D/%5Bpkg.main%5D" target="_blank" rel="noopener">https://unpkg.com/jquery@[latestVersion]/[pkg.main]</a><br>详细参考 <a href="https://unpkg.com" target="_blank" rel="noopener">https://unpkg.com</a>.</p>
+<h3 id="TypeScript-相关字段"><a href="#TypeScript-相关字段" class="headerlink" title="TypeScript 相关字段"></a><a name="3695ng"></a>TypeScript 相关字段</h3><p>TypeScript: JavaScript 的超集<br>types, typings<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"main"</span>: <span class="string">"./lib/main.js"</span>,</span><br><span class="line">    <span class="attr">"types"</span>: <span class="string">"./lib/main.d.ts"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>就像 main 字段一样，定义一个针对 TypeScript 的入口文件。</p>
+<p>详细参考 TypeScript documentation.</p>
+<h3 id="browserslist-相关字段"><a href="#browserslist-相关字段" class="headerlink" title="browserslist 相关字段"></a><a name="ye8iac"></a>browserslist 相关字段</h3><p>browserslist: 设置项目的浏览器兼容情况。<br>browserslist</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"browserslist"</span>: [</span><br><span class="line"><span class="string">"&gt; 1%"</span>,</span><br><span class="line"><span class="string">"last 2 versions"</span></span><br><span class="line">]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>支持的工具：</p>
+<p>Autoprefixer<br>Babel<br>postcss-preset-env<br>eslint-plugin-compat<br>stylelint-no-unsupported-browser-features<br>postcss-normalize<br>详细参考 browserslist.</p>
+<h3 id="发行打包相关字段"><a href="#发行打包相关字段" class="headerlink" title="发行打包相关字段"></a><a name="whz6lg"></a>发行打包相关字段</h3><p>点击 Setting up multi-platform npm packages 查看相关介绍。</p>
+<h4 id="module"><a href="#module" class="headerlink" title="module"></a><a name="mnamrg"></a>module</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"main"</span>: <span class="string">"./lib/main.js"</span>,</span><br><span class="line"><span class="attr">"module"</span>: <span class="string">"./lib/main.m.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>就像 main 字段一样，定义一个针对 es6 模块及语法的入口文件。<br>构建工具在构建项目的时候，如果发现了这个字段，会首先使用这个字段指向的文件，如果未定义，则回退到 main 字段指向的文件。</p>
+<p>支持的工具：</p>
+<p>rollup<br>webpack<br>详细参考 rollup - pkg.module.</p>
+<h4 id="browser"><a href="#browser" class="headerlink" title="browser"></a><a name="5breni"></a>browser</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;main&quot;: &quot;./lib/main.js&quot;,</span><br><span class="line">    &quot;browser&quot;: &quot;./lib/main.b.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>指定该模块供浏览器使用的入口文件。<br>如果这个字段未定义，则回退到 main 字段指向的文件。</p>
+<p>支持的工具：</p>
+<p>rollup<br>webpack<br>browserify<br>详细参考 babel-plugin-module-resolver.</p>
+<h4 id="esnext"><a href="#esnext" class="headerlink" title="esnext"></a><a name="zrogwv"></a>esnext</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">&quot;main&quot;: &quot;main.js&quot;,</span><br><span class="line">&quot;esnext&quot;: &quot;main-esnext.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id=""><a href="#" class="headerlink" title=""></a><a name="a0k0ck"></a></h1><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"main"</span>: <span class="string">"main.js"</span>,</span><br><span class="line">    <span class="attr">"esnext"</span>: &#123;</span><br><span class="line">    <span class="attr">"main"</span>: <span class="string">"main-esnext.js"</span>,</span><br><span class="line">    <span class="attr">"browser"</span>: <span class="string">"browser-specific-main-esnext.js"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用 es 模块化规范，stage 4 特性的源代码。<br>详细参考 Transpiling dependencies with Babel, Delivering untranspiled source code via npm.</p>
+<h4 id="es2015"><a href="#es2015" class="headerlink" title="es2015"></a><a name="am3pii"></a>es2015</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"main"</span>: <span class="string">"main.js"</span>,</span><br><span class="line">    <span class="attr">"es2015"</span>: <span class="string">"main-es2015.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Angular 定义的未转码的 es6 源码。<br>详细参考 <a href="https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/edit#" target="_blank" rel="noopener">https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/edit#</a>.</p>
+<p>esm<br>详细参考 adjusted proposal: ES module “esm”: true package.json flag.</p>
+<h3 id="react-native-相关字段"><a href="#react-native-相关字段" class="headerlink" title="react-native 相关字段"></a><a name="b246cd"></a>react-native 相关字段</h3><p>react-native: 使用 react 组件技术写原生APP。</p>
+<h4 id="react-native"><a href="#react-native" class="headerlink" title="react-native"></a><a name="64uakc"></a>react-native</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"main"</span>: <span class="string">"./lib/main.js"</span>,</span><br><span class="line">    <span class="attr">"react-native"</span>: <span class="string">"./lib/main.react-native.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>指定该模块供 react-native 使用的入口文件。<br>如果这个字段未定义，则回退到 main 字段指向的文件。</p>
+<p>源代码查看.</p>
+<h3 id="webpack-相关字段"><a href="#webpack-相关字段" class="headerlink" title="webpack 相关字段"></a><a name="564axp"></a>webpack 相关字段</h3><h4 id="sideEffects"><a href="#sideEffects" class="headerlink" title="sideEffects"></a><a name="4y9mgs"></a>sideEffects</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"sideEffects"</span>: <span class="literal">true</span>|<span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>声明该模块是否包含 sideEffects（副作用），从而可以为 tree-shaking 提供更大的优化空间。<br>详细参考 sideEffects example, proposal for marking functions as pure, eslint-plugin-tree-shaking.</p>
+<h3 id="microbundle-相关字段"><a href="#microbundle-相关字段" class="headerlink" title="microbundle 相关字段"></a><a name="o47yaz"></a>microbundle 相关字段</h3><p>microbundle: 基于 rollup 零配置快速打包工具。</p>
+<h4 id="source"><a href="#source" class="headerlink" title="source"></a><a name="fhklgb"></a>source</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "source"： "src/index.js"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>源文件入口文件。</p>
+<p>详细参考 Specifying builds in package.json.</p>
+<h4 id="umd-main"><a href="#umd-main" class="headerlink" title="umd:main"></a><a name="u7pxuy"></a>umd:main</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    "umd:main"： "dist/main.umd.js"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>umd 模式 bundle 文件。<br>详细参考 Specifying builds in package.json.</p>
+<h3 id="parcel-相关字段"><a href="#parcel-相关字段" class="headerlink" title="parcel 相关字段"></a><a name="u1l8gz"></a>parcel 相关字段</h3><p>parcel: 零配置打包工具。</p>
+<h4 id="source-1"><a href="#source-1" class="headerlink" title="source"></a><a name="rlq8fb"></a>source</h4><p>查看 parcel-bundler/parcel#1652.</p>
+<h3 id="babel-相关字段"><a href="#babel-相关字段" class="headerlink" title="babel 相关字段"></a><a name="35meyo"></a>babel 相关字段</h3><p>babel: es6 -&gt; es5 转码器。</p>
+<h4 id="babel"><a href="#babel" class="headerlink" title="babel"></a><a name="20pork"></a>babel</h4><p>配置 babel。</p>
+<h3 id="eslint-相关字段"><a href="#eslint-相关字段" class="headerlink" title="eslint 相关字段"></a><a name="mfygqs"></a>eslint 相关字段</h3><p>eslint: js 代码检查与优化。</p>
+<h4 id="eslintConfig"><a href="#eslintConfig" class="headerlink" title="eslintConfig"></a><a name="kce7en"></a>eslintConfig</h4><p>配置 eslint。</p>
+<h3 id="jest-相关字段"><a href="#jest-相关字段" class="headerlink" title="jest 相关字段"></a><a name="pk7gyw"></a>jest 相关字段</h3><p>jest: js 测试库。</p>
+<h4 id="jest"><a href="#jest" class="headerlink" title="jest"></a><a name="riftrg"></a>jest</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"jest"</span>: &#123;</span><br><span class="line">        <span class="attr">"verbose"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置 jest。<br>详细参考 jest docs.</p>
+<h3 id="stylelint-相关字段"><a href="#stylelint-相关字段" class="headerlink" title="stylelint 相关字段"></a><a name="egpgug"></a>stylelint 相关字段</h3><p>stylelint: style 代码检查与优化。</p>
+<p>stylelint<br>配置 stylelint。</p>
+<p>详细参考 New configuration loader.</p>
+<h3 id="ava-相关字段"><a href="#ava-相关字段" class="headerlink" title="ava 相关字段"></a><a name="xyregs"></a>ava 相关字段</h3><p>ava: js 测试库。</p>
+<h4 id="ava"><a href="#ava" class="headerlink" title="ava"></a><a name="zhmvin"></a>ava</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"ava"</span>: &#123;</span><br><span class="line">        <span class="attr">"require"</span>: [ <span class="string">"@std/esm"</span> ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置 ava。<br>详细参考 ava configuration.</p>
+<h2 id="nyc-相关字段"><a href="#nyc-相关字段" class="headerlink" title="nyc 相关字段"></a><a name="g0c1qs"></a>nyc 相关字段</h2><p>nyc: istanbul.js 命令行。</p>
+<h4 id="nyc"><a href="#nyc" class="headerlink" title="nyc"></a><a name="8usxxg"></a>nyc</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"nyc"</span>: &#123;</span><br><span class="line">    <span class="attr">"extension"</span>: [<span class="string">".js"</span>, <span class="string">".mjs"</span>],</span><br><span class="line">    <span class="attr">"require"</span>: [<span class="string">"@std/esm"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置 nyc。<br>详细参考 nyc docs.</p>
+<h3 id="CommonJS-保留字段"><a href="#CommonJS-保留字段" class="headerlink" title="CommonJS 保留字段"></a><a name="gpgstu"></a>CommonJS 保留字段</h3><p>保留字段: build, default, email, external, files, imports, maintainer, paths, platform, require, summary, test, using, downloads, uid.</p>
+<p>不可用字段: id, type, 以 _ 和 \$ 开头的字段。</p>
+<h3 id="Standard-JS-相关字段"><a href="#Standard-JS-相关字段" class="headerlink" title="Standard JS 相关字段"></a><a name="zfqxzx"></a>Standard JS 相关字段</h3><p>Standard JS: js 代码检查与优化。</p>
+<h4 id="standard"><a href="#standard" class="headerlink" title="standard"></a><a name="coslfu"></a>standard</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"standard"</span>: &#123;</span><br><span class="line">    <span class="attr">"parser"</span>: <span class="string">"babel-eslint"</span>,</span><br><span class="line">    <span class="attr">"ignore"</span>: [</span><br><span class="line">        <span class="string">"**/out/"</span>,</span><br><span class="line">        <span class="string">"/lib/select2/"</span>,</span><br><span class="line">        <span class="string">"/lib/ckeditor/"</span>,</span><br><span class="line">        <span class="string">"tmp.js"</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置 standard.<br>详细参考 <a href="https://standardjs.com/" target="_blank" rel="noopener">https://standardjs.com/</a>.</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a><a name="g6y6oo"></a>其他</h3><p>style<br>声明当前模块包含 style 部分，并指定入口文件。</p>
+<p>支持的工具：</p>
+<p>parcelify<br>npm-less<br>rework-npm<br>npm-css<br>详细参考 Package.json “style” Attribute, istf-spec.</p>
+<h4 id="less"><a href="#less" class="headerlink" title="less"></a><a name="5b4czw"></a>less</h4><p>与 style 一样，但是是 less 文件。</p>
+<p>支持的工具：</p>
+<p>npm-less</p>
+<h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a><a name="3l8zck"></a>更多</h3><p>参考 <a href="https://github.com/stereobooster/package.json" target="_blank" rel="noopener">package.json fields explained</a></p>
+<h2 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a><a name="4ylufx"></a>参考资源</h2><p><a href="https://segmentfault.com/a/1190000016365409#articleHeader39" target="_blank" rel="noopener">package.json 非官方字段集合</a><br>官方字段文档：<a href="https://docs.npmjs.com/files/package.json" target="_blank" rel="noopener">https://docs.npmjs.com/files/package.json</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/17/package.json 的解读/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Dbox 内部开源组件背后的故事" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/13/Dbox 内部开源组件背后的故事/">Dbox 内部开源组件背后的故事</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/13/Dbox 内部开源组件背后的故事/" class="archive-article-date">
+  	<time datetime="2018-12-13T07:22:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.yuque.com/attachments/yuque/0/2018/pdf/84728/1545800735504-7911b7d2-ee91-4d91-971f-7465017e7bdc.pdf" title="size:428586" target="_blank" rel="noopener">download: 前端技术选型会 - IF-RCM ☎.pdf</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a><a name="n9b0dy"></a>前言</h1><h2 id="已有组件-OR-自造组件？？？"><a href="#已有组件-OR-自造组件？？？" class="headerlink" title="已有组件 OR 自造组件？？？"></a><a name="aib0uh"></a><strong>已有组件</strong> OR <strong>自造组件？？？</strong></h2><p><span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">基础和灵活 VS 定制化和效率</span></span><br>
+        
+          <a class="article-more-a" href="/2018/12/13/Dbox 内部开源组件背后的故事/#more">more >></a>
+        
+      
+
+      
+    </p></div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">components</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/业务场景解决方案/" class="article-tag-list-link color4">业务场景解决方案</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/13/Dbox 内部开源组件背后的故事/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-大屏业务场景解决方案" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
@@ -227,7 +519,7 @@
         <p><span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">tags: [组件]</span></span><br><span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">categories: 业务场景解决方案</span></span></p>
 <hr>
 <p>无论是在科幻电影还是在真实世界里，可视化大屏都是非常常见的一种表现手法。<br>之前在市局看到了大屏是由多个屏幕组成，看起来有两层楼那么高。</p>
-<p><strong>技术栈： vue + element-ui + echarts + css3 + vw + vh + rem</strong><br><strong>因为运用了大量css3 新特性，所以建议使用 google浏览器，投大屏。</strong></p>
+<p><strong>技术栈：echarts + css3 + vw + vh + rem</strong><br><strong>因为运用了大量css3 新特性，所以建议使用 google浏览器，投大屏。</strong></p>
 <h2 id="可视化大屏的特性"><a href="#可视化大屏的特性" class="headerlink" title="可视化大屏的特性"></a><a name="0g4ltz"></a>可视化大屏的特性</h2><p>可视化大屏，归根到底还是运用的可视化技术，只不过展现的屏幕比起笔记本和显示器大了很多。相比于传统的桌面级可视化运用，大屏可视化的特性有:</p>
 <ol>
 <li><strong>屏幕巨大</strong>，用户通常离屏幕比较远，文字表达出来的信息需要足够清楚，通常要在字体和颜色上做文章。</li>
@@ -269,17 +561,6 @@
       
       
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/业务场景解决方案/" class="article-tag-list-link color4">业务场景解决方案</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
@@ -438,7 +719,7 @@
 <h3 id="i18n-webpack-plugin"><a href="#i18n-webpack-plugin" class="headerlink" title="i18n-webpack-plugin"></a><a name="hf4qfe"></a>i18n-webpack-plugin</h3><p><a href="https://github.com/webpack-contrib/i18n-webpack-plugin" target="_blank" rel="noopener">https://github.com/webpack-contrib/i18n-webpack-plugin</a><br>使网页支持国际化</p>
 <h3 id="provide-plugin"><a href="#provide-plugin" class="headerlink" title="provide-plugin"></a><a name="vtffkm"></a>provide-plugin</h3><p><a href="https://webpack.js.org/plugins/provide-plugin/" target="_blank" rel="noopener">https://webpack.js.org/plugins/provide-plugin/</a><br>从环境中提供的全局变量中加载模块，而不用导入对应的文件</p>
 <h3 id="web-webpack-plugin"><a href="#web-webpack-plugin" class="headerlink" title="web-webpack-plugin"></a><a name="cpcapa"></a>web-webpack-plugin</h3><p><a href="https://github.com/gwuhaolin/web-webpack-plugin" target="_blank" rel="noopener">https://github.com/gwuhaolin/web-webpack-plugin</a><br>可方便地为单页应用输出HTML，比 html-webpack-plugin 好用</p>
-<h1 id="优化"><a href="#优化" class="headerlink" title="优化"></a><a name="siidsa"></a>优化</h1><h2 id="缩小文件搜索范围"><a href="#缩小文件搜索范围" class="headerlink" title="缩小文件搜索范围"></a><a name="d1lwqt"></a>缩小文件搜索范围</h2><h3 id="Loader-配置"><a href="#Loader-配置" class="headerlink" title="Loader 配置"></a><a name="apg4bo"></a>Loader 配置</h3><ul>
+<h1 id="三、优化"><a href="#三、优化" class="headerlink" title="三、优化"></a><a name="siidsa"></a>三、优化</h1><h2 id="缩小文件搜索范围"><a href="#缩小文件搜索范围" class="headerlink" title="缩小文件搜索范围"></a><a name="d1lwqt"></a>缩小文件搜索范围</h2><h3 id="Loader-配置"><a href="#Loader-配置" class="headerlink" title="Loader 配置"></a><a name="apg4bo"></a>Loader 配置</h3><ul>
 <li>test</li>
 <li>use</li>
 <li>include</li>
@@ -572,6 +853,8 @@
 <li>模块之间的包含关系</li>
 <li>每个文件的 Gzip 后的大小</li>
 </ul>
+<h2 id="推荐配置"><a href="#推荐配置" class="headerlink" title="推荐配置"></a><a name="55wxrl"></a>推荐配置</h2><h3 id="最优构建速度"><a href="#最优构建速度" class="headerlink" title="最优构建速度"></a><a name="go1kqh"></a>最优构建速度</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> CommonsChunkPlugin = <span class="built_in">require</span>(<span class="string">'webpack/lib/optimize/CommonsChunkPlugin'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123;AutoWebPlugin&#125; = <span class="built_in">require</span>(<span class="string">'web-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">const</span> HappyPack = <span class="built_in">require</span>(<span class="string">'happypack'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自动寻找 pages 目录下的所有目录，把每一个目录看成一个单页应用</span></span><br><span class="line"><span class="keyword">const</span> autoWebPlugin = <span class="keyword">new</span> AutoWebPlugin(<span class="string">'./src/pages'</span>, &#123;</span><br><span class="line">  <span class="comment">// HTML 模版文件所在的文件路径</span></span><br><span class="line">  template: <span class="string">'./template.html'</span>,</span><br><span class="line">  <span class="comment">// 提取出所有页面公共的代码</span></span><br><span class="line">  commonsChunk: &#123;</span><br><span class="line">    <span class="comment">// 提取出公共代码 Chunk 的名称</span></span><br><span class="line">    name: <span class="string">'common'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// AutoWebPlugin 会找为寻找到的所有单页应用，生成对应的入口配置，</span></span><br><span class="line">  <span class="comment">// autoWebPlugin.entry 方法可以获取到生成入口配置</span></span><br><span class="line">  entry: autoWebPlugin.entry(&#123;</span><br><span class="line">    <span class="comment">// 这里可以加入你额外需要的 Chunk 入口</span></span><br><span class="line">    base: <span class="string">'./src/base.js'</span>,</span><br><span class="line">  &#125;),</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'[name].js'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  resolve: &#123;</span><br><span class="line">    <span class="comment">// 使用绝对路径指明第三方模块存放的位置，以减少搜索步骤</span></span><br><span class="line">    <span class="comment">// 其中 __dirname 表示当前工作目录，也就是项目根目录</span></span><br><span class="line">    modules: [path.resolve(__dirname, <span class="string">'node_modules'</span>)],</span><br><span class="line">    <span class="comment">// 只采用 main 字段作为入口文件描述字段，以减少搜索步骤</span></span><br><span class="line">    mainFields: [<span class="string">'jsnext:main'</span>, <span class="string">'main'</span>],</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// 如果项目源码中只有 js 文件就不要写成 /\.jsx?$/，提升正则表达式性能</span></span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        use: [<span class="string">'happypack/loader?id=babel'</span>],</span><br><span class="line">        <span class="comment">// 只对项目根目录下的 src 目录中的文件采用 babel-loader</span></span><br><span class="line">        include: path.resolve(__dirname, <span class="string">'src'</span>),</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        use: [<span class="string">'happypack/loader?id=ui-component'</span>],</span><br><span class="line">        include: path.resolve(__dirname, <span class="string">'src'</span>),</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// 增加对 CSS 文件的支持</span></span><br><span class="line">        test: <span class="regexp">/\.css/</span>,</span><br><span class="line">        <span class="comment">// 提取出 Chunk 中的 CSS 代码到单独的文件中</span></span><br><span class="line">        use: [<span class="string">'happypack/loader?id=css'</span>],</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    autoWebPlugin,</span><br><span class="line">    <span class="comment">// 使用HappyPack</span></span><br><span class="line">    <span class="keyword">new</span> HappyPack(&#123;</span><br><span class="line">      id: <span class="string">'babel'</span>,</span><br><span class="line">      <span class="comment">// babel-loader 支持缓存转换出的结果，通过 cacheDirectory 选项开启</span></span><br><span class="line">      loaders: [<span class="string">'babel-loader?cacheDirectory'</span>],</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> HappyPack(&#123;</span><br><span class="line">      <span class="comment">// UI 组件加载拆分</span></span><br><span class="line">      id: <span class="string">'ui-component'</span>,</span><br><span class="line">      loaders: [&#123;</span><br><span class="line">        loader: <span class="string">'ui-component-loader'</span>,</span><br><span class="line">        options: &#123;</span><br><span class="line">          lib: <span class="string">'antd'</span>,</span><br><span class="line">          style: <span class="string">'style/index.css'</span>,</span><br><span class="line">          camel2: <span class="string">'-'</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;],</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> HappyPack(&#123;</span><br><span class="line">      id: <span class="string">'css'</span>,</span><br><span class="line">      <span class="comment">// 如何处理 .css 文件，用法和 Loader 配置中一样</span></span><br><span class="line">      loaders: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>],</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="comment">// 4-11提取公共代码</span></span><br><span class="line">    <span class="keyword">new</span> CommonsChunkPlugin(&#123;</span><br><span class="line">      <span class="comment">// 从 common 和 base 两个现成的 Chunk 中提取公共的部分</span></span><br><span class="line">      chunks: [<span class="string">'common'</span>, <span class="string">'base'</span>],</span><br><span class="line">      <span class="comment">// 把公共的部分放到 base 中</span></span><br><span class="line">      name: <span class="string">'base'</span></span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">  watchOptions: &#123;</span><br><span class="line">    <span class="comment">// 4-5使用自动刷新：不监听的 node_modules 目录下的文件</span></span><br><span class="line">    ignored: <span class="regexp">/node_modules/</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="最佳质量"><a href="#最佳质量" class="headerlink" title="最佳质量"></a><a name="2de5yl"></a>最佳质量</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> DefinePlugin = <span class="built_in">require</span>(<span class="string">'webpack/lib/DefinePlugin'</span>);</span><br><span class="line"><span class="keyword">const</span> ModuleConcatenationPlugin = <span class="built_in">require</span>(<span class="string">'webpack/lib/optimize/ModuleConcatenationPlugin'</span>);</span><br><span class="line"><span class="keyword">const</span> CommonsChunkPlugin = <span class="built_in">require</span>(<span class="string">'webpack/lib/optimize/CommonsChunkPlugin'</span>);</span><br><span class="line"><span class="keyword">const</span> ExtractTextPlugin = <span class="built_in">require</span>(<span class="string">'extract-text-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123;AutoWebPlugin&#125; = <span class="built_in">require</span>(<span class="string">'web-webpack-plugin'</span>);</span><br><span class="line"><span class="keyword">const</span> HappyPack = <span class="built_in">require</span>(<span class="string">'happypack'</span>);</span><br><span class="line"><span class="keyword">const</span> ParallelUglifyPlugin = <span class="built_in">require</span>(<span class="string">'webpack-parallel-uglify-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自动寻找 pages 目录下的所有目录，把每一个目录看成一个单页应用</span></span><br><span class="line"><span class="keyword">const</span> autoWebPlugin = <span class="keyword">new</span> AutoWebPlugin(<span class="string">'./src/pages'</span>, &#123;</span><br><span class="line">  <span class="comment">// HTML 模版文件所在的文件路径</span></span><br><span class="line">  template: <span class="string">'./template.html'</span>,</span><br><span class="line">  <span class="comment">// 提取出所有页面公共的代码</span></span><br><span class="line">  commonsChunk: &#123;</span><br><span class="line">    <span class="comment">// 提取出公共代码 Chunk 的名称</span></span><br><span class="line">    name: <span class="string">'common'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 指定存放 CSS 文件的 CDN 目录 URL</span></span><br><span class="line">  stylePublicPath: <span class="string">'//css.cdn.com/id/'</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// AutoWebPlugin 会找为寻找到的所有单页应用，生成对应的入口配置，</span></span><br><span class="line">  <span class="comment">// autoWebPlugin.entry 方法可以获取到生成入口配置</span></span><br><span class="line">  entry: autoWebPlugin.entry(&#123;</span><br><span class="line">    <span class="comment">// 这里可以加入你额外需要的 Chunk 入口</span></span><br><span class="line">    base: <span class="string">'./src/base.js'</span>,</span><br><span class="line">  &#125;),</span><br><span class="line">  output: &#123;</span><br><span class="line">    <span class="comment">// 给输出的文件名称加上 hash 值</span></span><br><span class="line">    filename: <span class="string">'[name]_[chunkhash:8].js'</span>,</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">'./dist'</span>),</span><br><span class="line">    <span class="comment">// 指定存放 JavaScript 文件的 CDN 目录 URL</span></span><br><span class="line">    publicPath: <span class="string">'//js.cdn.com/id/'</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  resolve: &#123;</span><br><span class="line">    <span class="comment">// 使用绝对路径指明第三方模块存放的位置，以减少搜索步骤</span></span><br><span class="line">    <span class="comment">// 其中 __dirname 表示当前工作目录，也就是项目根目录</span></span><br><span class="line">    modules: [path.resolve(__dirname, <span class="string">'node_modules'</span>)],</span><br><span class="line">    <span class="comment">// 只采用 main 字段作为入口文件描述字段，以减少搜索步骤</span></span><br><span class="line">    mainFields: [<span class="string">'jsnext:main'</span>, <span class="string">'main'</span>],</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// 如果项目源码中只有 js 文件就不要写成 /\.jsx?$/，提升正则表达式性能</span></span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        use: [<span class="string">'happypack/loader?id=babel'</span>],</span><br><span class="line">        <span class="comment">// 只对项目根目录下的 src 目录中的文件采用 babel-loader</span></span><br><span class="line">        include: path.resolve(__dirname, <span class="string">'src'</span>),</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        use: [<span class="string">'happypack/loader?id=ui-component'</span>],</span><br><span class="line">        include: path.resolve(__dirname, <span class="string">'src'</span>),</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// 增加对 CSS 文件的支持</span></span><br><span class="line">        test: <span class="regexp">/\.css/</span>,</span><br><span class="line">        <span class="comment">// 提取出 Chunk 中的 CSS 代码到单独的文件中</span></span><br><span class="line">        use: ExtractTextPlugin.extract(&#123;</span><br><span class="line">          use: [<span class="string">'happypack/loader?id=css'</span>],</span><br><span class="line">          <span class="comment">// 指定存放 CSS 中导入的资源（例如图片）的 CDN 目录 URL</span></span><br><span class="line">          publicPath: <span class="string">'//img.cdn.com/id/'</span></span><br><span class="line">        &#125;),</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    autoWebPlugin,</span><br><span class="line">    <span class="comment">// 4-14开启ScopeHoisting</span></span><br><span class="line">    <span class="keyword">new</span> ModuleConcatenationPlugin(),</span><br><span class="line">    <span class="comment">// 4-3使用HappyPack</span></span><br><span class="line">    <span class="keyword">new</span> HappyPack(&#123;</span><br><span class="line">      <span class="comment">// 用唯一的标识符 id 来代表当前的 HappyPack 是用来处理一类特定的文件</span></span><br><span class="line">      id: <span class="string">'babel'</span>,</span><br><span class="line">      <span class="comment">// babel-loader 支持缓存转换出的结果，通过 cacheDirectory 选项开启</span></span><br><span class="line">      loaders: [<span class="string">'babel-loader?cacheDirectory'</span>],</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> HappyPack(&#123;</span><br><span class="line">      <span class="comment">// UI 组件加载拆分</span></span><br><span class="line">      id: <span class="string">'ui-component'</span>,</span><br><span class="line">      loaders: [&#123;</span><br><span class="line">        loader: <span class="string">'ui-component-loader'</span>,</span><br><span class="line">        options: &#123;</span><br><span class="line">          lib: <span class="string">'antd'</span>,</span><br><span class="line">          style: <span class="string">'style/index.css'</span>,</span><br><span class="line">          camel2: <span class="string">'-'</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;],</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> HappyPack(&#123;</span><br><span class="line">      id: <span class="string">'css'</span>,</span><br><span class="line">      <span class="comment">// 如何处理 .css 文件，用法和 Loader 配置中一样</span></span><br><span class="line">      <span class="comment">// 通过 minimize 选项压缩 CSS 代码</span></span><br><span class="line">      loaders: [<span class="string">'css-loader?minimize'</span>],</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> ExtractTextPlugin(&#123;</span><br><span class="line">      <span class="comment">// 给输出的 CSS 文件名称加上 hash 值</span></span><br><span class="line">      filename: <span class="string">`[name]_[contenthash:8].css`</span>,</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="comment">// 4-11提取公共代码</span></span><br><span class="line">    <span class="keyword">new</span> CommonsChunkPlugin(&#123;</span><br><span class="line">      <span class="comment">// 从 common 和 base 两个现成的 Chunk 中提取公共的部分</span></span><br><span class="line">      chunks: [<span class="string">'common'</span>, <span class="string">'base'</span>],</span><br><span class="line">      <span class="comment">// 把公共的部分放到 base 中</span></span><br><span class="line">      name: <span class="string">'base'</span></span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> DefinePlugin(&#123;</span><br><span class="line">      <span class="comment">// 定义 NODE_ENV 环境变量为 production 去除 react 代码中的开发时才需要的部分</span></span><br><span class="line">      <span class="string">'process.env'</span>: &#123;</span><br><span class="line">        NODE_ENV: <span class="built_in">JSON</span>.stringify(<span class="string">'production'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="comment">// 使用 ParallelUglifyPlugin 并行压缩输出的 JS 代码</span></span><br><span class="line">    <span class="keyword">new</span> ParallelUglifyPlugin(&#123;</span><br><span class="line">      <span class="comment">// 传递给 UglifyJS 的参数</span></span><br><span class="line">      uglifyJS: &#123;</span><br><span class="line">        output: &#123;</span><br><span class="line">          <span class="comment">// 最紧凑的输出</span></span><br><span class="line">          beautify: <span class="literal">false</span>,</span><br><span class="line">          <span class="comment">// 删除所有的注释</span></span><br><span class="line">          comments: <span class="literal">false</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        compress: &#123;</span><br><span class="line">          <span class="comment">// 在UglifyJs删除没有用到的代码时不输出警告</span></span><br><span class="line">          warnings: <span class="literal">false</span>,</span><br><span class="line">          <span class="comment">// 删除所有的 `console` 语句，可以兼容ie浏览器</span></span><br><span class="line">          drop_console: <span class="literal">true</span>,</span><br><span class="line">          <span class="comment">// 内嵌定义了但是只用到一次的变量</span></span><br><span class="line">          collapse_vars: <span class="literal">true</span>,</span><br><span class="line">          <span class="comment">// 提取出出现多次但是没有定义成变量去引用的静态值</span></span><br><span class="line">          reduce_vars: <span class="literal">true</span>,</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;),</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h1 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a><a name="8eidni"></a>参考资源</h1><p>《深入浅出 webpack》<a href="https://github.com/gwuhaolin/dive-into-webpack" target="_blank" rel="noopener">https://github.com/gwuhaolin/dive-into-webpack</a></p>
 
       
@@ -582,17 +865,6 @@
       
       
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端工程化/" class="article-tag-list-link color1">前端工程化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
@@ -717,17 +989,6 @@
       
       
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/底层原理及基础/" class="article-tag-list-link color3">底层原理及基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
@@ -1049,6 +1310,10 @@
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资源</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">components</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -1111,7 +1376,7 @@
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Dbox-UI</a>
+              <a href="https://github.com/PIdoll" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Dbox开源组件库</a>
             </li>
           
             <li class="search-li">
@@ -1130,7 +1395,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">个人主攻 Web 前端 React 开发，5年+工作经验，1年团队管理经验，有过angular、vue、node 的开发经验，经历过前后端分离，熟悉大前端BFF架构。参与或独立开发过多个核心项目，项目类型涉及：医疗器械、教育服务、企业管理、SPA 应用（PC/Moblie）等等；</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">个人主攻 Web 前端 React 开发，5年+工作经验，1年团队管理经验，有过angular、vue、node 的开发经验，了解mongodb、sql 等数据库，熟悉 webpack、gulp、rollup等构建工具，熟悉git、PS、sketch等工具的使用。研究ant design开源组件源码、开发模式、开发流程、开发规范等。经历过前后端分离，熟悉大前端BFF架构。参与或独立开发过多个核心项目，项目类型涉及：医疗器械、教育服务、企业管理、SPA 应用（PC/Moblie）等等；</div>
   	  	
     	</section>
     

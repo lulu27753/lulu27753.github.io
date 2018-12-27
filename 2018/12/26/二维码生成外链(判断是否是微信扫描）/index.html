@@ -6,19 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://lulustyle.net">
-  <title>Archives: 2018 | LULU</title>
+  <title>二维码生成外链(判断是否是微信扫描） | LULU</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我自风情万种，以码为生">
+  <meta name="description" content="需求通过二维码生成 sketch 下载链接，可以扫描下载 问题初始方案：通过二维码生成 sketch 静态资源链接，然而 用安卓微信是直接解析的，会直接下载文件，用IOS 手机微信扫描后会产生乱码 改进方案通过二维码生成一个静态 HTML 的页面，并判断“用户代理” 信息，确认是否是微信客户端，从而实现返回不同的文字效果123456789101112131415161718192021222324">
 <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LULU">
-<meta property="og:url" content="http://lulustyle.net/archives/2018/page/3/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二维码生成外链(判断是否是微信扫描）">
+<meta property="og:url" content="http://lulustyle.net/2018/12/26/二维码生成外链(判断是否是微信扫描）/index.html">
 <meta property="og:site_name" content="LULU">
-<meta property="og:description" content="我自风情万种，以码为生">
+<meta property="og:description" content="需求通过二维码生成 sketch 下载链接，可以扫描下载 问题初始方案：通过二维码生成 sketch 静态资源链接，然而 用安卓微信是直接解析的，会直接下载文件，用IOS 手机微信扫描后会产生乱码 改进方案通过二维码生成一个静态 HTML 的页面，并判断“用户代理” 信息，确认是否是微信客户端，从而实现返回不同的文字效果123456789101112131415161718192021222324">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2018/png/84728/1545828383912-65a6baa2-d735-45f0-a8f5-bc9b3dc63e7d.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2018/png/84728/1545828766595-2bc9cd40-07b7-4d66-af91-e0e9ce795402.png">
+<meta property="og:updated_time" content="2018-12-27T01:35:19.835Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LULU">
-<meta name="twitter:description" content="我自风情万种，以码为生">
+<meta name="twitter:title" content="二维码生成外链(判断是否是微信扫描）">
+<meta name="twitter:description" content="需求通过二维码生成 sketch 下载链接，可以扫描下载 问题初始方案：通过二维码生成 sketch 静态资源链接，然而 用安卓微信是直接解析的，会直接下载文件，用IOS 手机微信扫描后会产生乱码 改进方案通过二维码生成一个静态 HTML 的页面，并判断“用户代理” 信息，确认是否是微信客户端，从而实现返回不同的文字效果123456789101112131415161718192021222324">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2018/png/84728/1545828383912-65a6baa2-d735-45f0-a8f5-bc9b3dc63e7d.png">
   
     <link rel="alternative" href="/atom.xml" title="LULU" type="application/atom+xml">
   
@@ -206,301 +210,74 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-二维码生成外链(判断是否是微信扫描）" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      二维码生成外链(判断是否是微信扫描）
+    </h1>
+  
+
+        
+        <a href="/2018/12/26/二维码生成外链(判断是否是微信扫描）/" class="archive-article-date">
+  	<time datetime="2018-12-26T12:35:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-26</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+          <!-- Table of Contents -->
+          
+        <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a><a name="3ixahe"></a>需求</h2><p>通过二维码生成 sketch 下载链接，可以扫描下载</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a><a name="dc5dbg"></a>问题</h2><p>初始方案：通过<a href="https://github.com/davidshimjs/qrcodejs" target="_blank" rel="noopener">二维码</a>生成 sketch 静态资源链接，然而 用安卓微信是直接解析的，会直接下载文件，用IOS 手机微信扫描后会产生乱码</p>
+<h2 id="改进方案"><a href="#改进方案" class="headerlink" title="改进方案"></a><a name="ho7qdw"></a>改进方案</h2><p>通过二维码生成一个静态 HTML 的页面，并判断“用户代理” 信息，确认是否是微信客户端，从而实现返回不同的文字效果<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Download<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        * &#123;</span></span><br><span class="line"><span class="undefined">            margin: 0;</span></span><br><span class="line"><span class="undefined">            padding: 0;</span></span><br><span class="line"><span class="undefined">            box-sizing: border-box;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        html, body &#123;</span></span><br><span class="line"><span class="undefined">            height: 100%;</span></span><br><span class="line"><span class="undefined">            width: 100%;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        #holder &#123;</span></span><br><span class="line"><span class="undefined">            height: 25%;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        #content &#123;</span></span><br><span class="line"><span class="undefined">            text-align: center;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        #content p &#123;</span></span><br><span class="line"><span class="undefined">            font-size: 20px;</span></span><br><span class="line"><span class="undefined">            line-height: 36px;</span></span><br><span class="line"><span class="undefined">            margin-bottom: 20px;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        #link &#123;</span></span><br><span class="line"><span class="undefined">            display: inline-block;</span></span><br><span class="line"><span class="undefined">            width: 80%;</span></span><br><span class="line"><span class="undefined">            color: #2D71DB;</span></span><br><span class="line"><span class="undefined">            text-align: left;</span></span><br><span class="line"><span class="undefined">            font-size: 12px;</span></span><br><span class="line"><span class="undefined">            word-break:break-all;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        #link a &#123;</span></span><br><span class="line"><span class="undefined">            color: #2D71DB !important;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"holder"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"tar"</span>&gt;</span>请复制网址后使用浏览器下载<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            或发送下载链接至PC端微信下载</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"link"</span>&gt;</span></span><br><span class="line">           https://obs-cn-shanghai.yun.pingan.com/xdc/PAT%20Design%20UI%20Kit%20Orange_V1.1.sketch?response-content-disposition=attachment%3Bfilename%3DPAT%2520Design%2520UI%2520Kit%2520Orange_V1.1.sketch</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> ua = navigator.userAgent.toLocaleLowerCase();</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> isWeixin  = ua.indexOf(<span class="string">'micromessenger'</span>) != <span class="number">-1</span>;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> tar = <span class="built_in">document</span>.getElementById(<span class="string">'tar'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> link = <span class="string">'https://obs-cn-shanghai.yun.pingan.com/xdc/PAT%20Design%20UI%20Kit%20Orange_V1.1.sketch?response-content-disposition=attachment%3Bfilename%3DPAT%2520Design%2520UI%2520Kit%2520Orange_V1.1.sketch'</span>;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> linkWrap = <span class="built_in">document</span>.getElementById(<span class="string">'link'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (!isWeixin) &#123;</span></span><br><span class="line"><span class="javascript">            tar.innerText = <span class="string">'可点击直接下载'</span>;</span></span><br><span class="line"><span class="javascript">            linkWrap.innerHTML = <span class="string">'&lt;a href="'</span> + link + <span class="string">'"&gt;'</span> + link + <span class="string">'&lt;/a&gt;'</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a><a name="tgu3na"></a>最终效果</h2><h3 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a><a name="9awick"></a>浏览器</h3><p><img src="https://cdn.nlark.com/yuque/0/2018/png/84728/1545828383912-65a6baa2-d735-45f0-a8f5-bc9b3dc63e7d.png" alt="image.png | left | 737x248"></p>
+<h3 id="微信"><a href="#微信" class="headerlink" title="微信"></a><a name="g6srst"></a>微信</h3><p><img src="https://cdn.nlark.com/yuque/0/2018/png/84728/1545828766595-2bc9cd40-07b7-4d66-af91-e0e9ce795402.png" alt="image.png | left | 284x504"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/22/GTD 时间管理方法论/" class="archive-article-date">
-  	<time datetime="2018-12-22T07:28:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/22/GTD 时间管理方法论/">GTD 时间管理方法论</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/22/埋点方案/" class="archive-article-date">
-  	<time datetime="2018-12-22T07:26:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-22</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/22/埋点方案/">埋点方案</a>
-    </h1>
+  
+    <a href="/2018/12/25/node 命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">node 命令</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/22/随记/" class="archive-article-date">
-  	<time datetime="2018-12-22T07:24:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/22/随记/">随记</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/22/编写一个 Loader/" class="archive-article-date">
-  	<time datetime="2018-12-22T07:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/22/编写一个 Loader/">编写一个 Loader</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/22/浏览器兼容性/" class="archive-article-date">
-  	<time datetime="2018-12-22T07:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/22/浏览器兼容性/">浏览器兼容性</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/22/跨域问题解决方案/" class="archive-article-date">
-  	<time datetime="2018-12-22T07:07:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/22/跨域问题解决方案/">跨域问题解决方案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/22/ES6|ES7|ES8/" class="archive-article-date">
-  	<time datetime="2018-12-22T07:03:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/22/ES6|ES7|ES8/">ES6|ES7|ES8</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/22/JS 导出EXCEL文件/" class="archive-article-date">
-  	<time datetime="2018-12-22T07:02:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/22/JS 导出EXCEL文件/">JS 导出EXCEL文件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/22/浏览器渲染原理/" class="archive-article-date">
-  	<time datetime="2018-12-22T07:00:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/22/浏览器渲染原理/">浏览器渲染原理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/22/React Hooks/" class="archive-article-date">
-  	<time datetime="2018-12-22T06:58:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/22/React Hooks/">React Hooks</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><a class="page-number" href="/archives/2018/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2018/page/4/">4</a><a class="page-number" href="/archives/2018/page/5/">5</a><a class="extend next" rel="next" href="/archives/2018/page/4/">Next &raquo;</a>
-    </nav>
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><a class="page-number" href="/archives/2018/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2018/page/4/">4</a><a class="page-number" href="/archives/2018/page/5/">5</a><a class="extend next" rel="next" href="/archives/2018/page/4/">Next &raquo;</a>
-    </nav>
-  
 
           </div>
         </div>
@@ -522,8 +299,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
