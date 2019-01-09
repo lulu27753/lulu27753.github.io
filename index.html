@@ -208,20 +208,20 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-二维码生成外链(判断是否是微信扫描）" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-滚动穿透" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/26/二维码生成外链(判断是否是微信扫描）/">二维码生成外链(判断是否是微信扫描）</a>
+      <a class="article-title" href="/2019/01/09/滚动穿透/">滚动穿透</a>
     </h1>
   
 
         
-        <a href="/2018/12/26/二维码生成外链(判断是否是微信扫描）/" class="archive-article-date">
-  	<time datetime="2018-12-26T12:35:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-26</time>
+        <a href="/2019/01/09/滚动穿透/" class="archive-article-date">
+  	<time datetime="2019-01-09T03:50:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-09</time>
 </a>
         
       </header>
@@ -230,232 +230,38 @@
       
           <!-- Table of Contents -->
           
-        <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a><a name="3ixahe"></a>需求</h2><p>通过二维码生成 sketch 下载链接，可以扫描下载</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a><a name="dc5dbg"></a>问题</h2><p>初始方案：通过<a href="https://github.com/davidshimjs/qrcodejs" target="_blank" rel="noopener">二维码</a>生成 sketch 静态资源链接，然而 用安卓微信是直接解析的，会直接下载文件，用IOS 手机微信扫描后会产生乱码</p>
-<h2 id="改进方案"><a href="#改进方案" class="headerlink" title="改进方案"></a><a name="ho7qdw"></a>改进方案</h2><p>通过二维码生成一个静态 HTML 的页面，并判断“用户代理” 信息，确认是否是微信客户端，从而实现返回不同的文字效果<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Download<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        * &#123;</span></span><br><span class="line"><span class="undefined">            margin: 0;</span></span><br><span class="line"><span class="undefined">            padding: 0;</span></span><br><span class="line"><span class="undefined">            box-sizing: border-box;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        html, body &#123;</span></span><br><span class="line"><span class="undefined">            height: 100%;</span></span><br><span class="line"><span class="undefined">            width: 100%;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        #holder &#123;</span></span><br><span class="line"><span class="undefined">            height: 25%;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        #content &#123;</span></span><br><span class="line"><span class="undefined">            text-align: center;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        #content p &#123;</span></span><br><span class="line"><span class="undefined">            font-size: 20px;</span></span><br><span class="line"><span class="undefined">            line-height: 36px;</span></span><br><span class="line"><span class="undefined">            margin-bottom: 20px;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        #link &#123;</span></span><br><span class="line"><span class="undefined">            display: inline-block;</span></span><br><span class="line"><span class="undefined">            width: 80%;</span></span><br><span class="line"><span class="undefined">            color: #2D71DB;</span></span><br><span class="line"><span class="undefined">            text-align: left;</span></span><br><span class="line"><span class="undefined">            font-size: 12px;</span></span><br><span class="line"><span class="undefined">            word-break:break-all;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        #link a &#123;</span></span><br><span class="line"><span class="undefined">            color: #2D71DB !important;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"holder"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"tar"</span>&gt;</span>请复制网址后使用浏览器下载<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            或发送下载链接至PC端微信下载</span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"link"</span>&gt;</span></span><br><span class="line">           https://obs-cn-shanghai.yun.pingan.com/xdc/PAT%20Design%20UI%20Kit%20Orange_V1.1.sketch?response-content-disposition=attachment%3Bfilename%3DPAT%2520Design%2520UI%2520Kit%2520Orange_V1.1.sketch</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> ua = navigator.userAgent.toLocaleLowerCase();</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> isWeixin  = ua.indexOf(<span class="string">'micromessenger'</span>) != <span class="number">-1</span>;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> tar = <span class="built_in">document</span>.getElementById(<span class="string">'tar'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> link = <span class="string">'https://obs-cn-shanghai.yun.pingan.com/xdc/PAT%20Design%20UI%20Kit%20Orange_V1.1.sketch?response-content-disposition=attachment%3Bfilename%3DPAT%2520Design%2520UI%2520Kit%2520Orange_V1.1.sketch'</span>;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> linkWrap = <span class="built_in">document</span>.getElementById(<span class="string">'link'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (!isWeixin) &#123;</span></span><br><span class="line"><span class="javascript">            tar.innerText = <span class="string">'可点击直接下载'</span>;</span></span><br><span class="line"><span class="javascript">            linkWrap.innerHTML = <span class="string">'&lt;a href="'</span> + link + <span class="string">'"&gt;'</span> + link + <span class="string">'&lt;/a&gt;'</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a><a name="tgu3na"></a>最终效果</h2><h3 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a><a name="9awick"></a>浏览器</h3><p><img src="https://cdn.nlark.com/yuque/0/2018/png/84728/1545828383912-65a6baa2-d735-45f0-a8f5-bc9b3dc63e7d.png" alt="image.png | left | 737x248"></p>
-<h3 id="微信"><a href="#微信" class="headerlink" title="微信"></a><a name="g6srst"></a>微信</h3><p><img src="https://cdn.nlark.com/yuque/0/2018/png/84728/1545828766595-2bc9cd40-07b7-4d66-af91-e0e9ce795402.png" alt="image.png | left | 284x504"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/26/二维码生成外链(判断是否是微信扫描）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-node 命令" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/25/node 命令/">node 命令</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/25/node 命令/" class="archive-article-date">
-  	<time datetime="2018-12-25T13:54:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          <!-- Table of Contents -->
-          
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查询全局模块路径</span></span><br><span class="line">npm root -g  <span class="comment"># /usr/local/lib/node_modules</span></span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/25/node 命令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-webpack 工作原理" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/24/webpack 工作原理/">webpack 工作原理</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/24/webpack 工作原理/" class="archive-article-date">
-  	<time datetime="2018-12-24T10:24:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          <!-- Table of Contents -->
-          
-        <p><span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">tags: [组件]</span></span><br><span data-type="color" style="color:rgb(38, 38, 38)"><span data-type="background" style="background-color:rgb(255, 255, 255)">categories: 底层原理及基础</span></span></p>
-<hr>
-<h1 id="流程概括"><a href="#流程概括" class="headerlink" title="流程概括"></a><a name="fp1pma"></a>流程概括</h1><ul>
-<li style="list-style: none"><input type="checkbox"> 初始化参数：从配置文件和 Shell 语句中读取与合并参数，得出最终的参数</li>
-<li style="list-style: none"><input type="checkbox"> 开始编译：用上一步得到的参数初始化 Compiler 对象，加载所有配置的插件，通过执行对象的 run 方法开始执行编译</li>
-<li style="list-style: none"><input type="checkbox"> 确定入口：根据配置中的 entry 找出所有入口文件</li>
-<li style="list-style: none"><input type="checkbox"> 编译模块：从入口文件出发，调用所有配置的 Loader 对模块进行翻译，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理</li>
-<li style="list-style: none"><input type="checkbox"> 完成模块编译：在经过</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/24/webpack 工作原理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-mobx" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/23/mobx/">mobx</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/23/mobx/" class="archive-article-date">
-  	<time datetime="2018-12-23T02:45:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          <!-- Table of Contents -->
-          
-        <h2 id="mobx"><a href="#mobx" class="headerlink" title="mobx"></a><a name="ios0rb"></a>mobx</h2><p>状态管理工具</p>
-<h2 id="VS-Redux"><a href="#VS-Redux" class="headerlink" title="VS Redux"></a><a name="iguvfg"></a>VS Redux</h2><ol>
-<li>开发难度低：redux函数式编程思想；mobx响应式编程风格，同时集成度高，避免引入众多第三方库</li>
-<li>开发代码量少：redux有reducer等众多概念，而mobx只要在store中更新即可</li>
-<li>渲染性能好：redux通过shouldComponentUpdate优化，但是当应用大到一定程度，就比较难实现；mobx精确的指出了哪些需要重复渲染，将re-render限制在最小范围之内</li>
-</ol>
-<h2 id="mobx核心思想"><a href="#mobx核心思想" class="headerlink" title="mobx核心思想"></a><a name="vzmlkh"></a>mobx核心思想</h2><ol>
-<li>状态变化引起的副作用应该被自动触发</li>
-<li>数据流：类redux单向数据流模式（action =》 State =〉Reaction）</li>
-</ol>
-<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a><a name="lohceq"></a>基础知识</h2><h3 id="实现继承和多态"><a href="#实现继承和多态" class="headerlink" title="实现继承和多态"></a><a name="gi5sve"></a>实现继承和多态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir mobx_test</span><br><span class="line">cd mobx_test</span><br><span class="line">mkdir src</span><br><span class="line">touch src/index.js</span><br><span class="line">npm init -y</span><br><span class="line">touch webpack.config.js</span><br><span class="line">yarn add webpack webpack-cli babel-core babel-preset-env babel-loader -D</span><br></pre></td></tr></table></figure>
-<p>配置webpack.config.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	mode: <span class="string">'development'</span>, <span class="comment">// 'production'</span></span><br><span class="line">	entry: path.resolve(__dirname, <span class="string">'src/index.js'</span>),</span><br><span class="line">	output: &#123;</span><br><span class="line">		path: path.resolve(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">		filename: <span class="string">'main.js'</span>,</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="built_in">module</span>: &#123;</span><br><span class="line">		rules: [&#123;</span><br><span class="line">			test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">			exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">			use: &#123;</span><br><span class="line">				loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">				options: &#123;</span><br><span class="line">					presets: [<span class="string">'env'</span>],</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;]</span><br><span class="line">	&#125;,</span><br><span class="line">	devtool: <span class="string">'inline-source-map'</span>, <span class="comment">// 方便调试</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>配置package.json</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"webpack -w"</span> // -w：js文件更改自动执行编译</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
-<p>编写index.html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>= <span class="string">"src/index.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>编写src/index.js 用原生实现继承和多态</p>
+        <blockquote>
+<p>页面滑出了一个弹窗，我们用手指触摸屏幕滑动时，会发现弹窗下面的内容还是在滚动。</p>
+</blockquote>
+<p><br></p>
+<h3 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h3><p>找到的第一个方法就是当弹窗触发的时候，给 <code>overflow: scroll:</code> 的元素加上一个 <code>class</code> (一般都是 <code>body</code> 元素)。退出的时候去掉这个 <code>class</code>。下面为了方便，会直接用 <code>body</code> 元素来代指弹窗下方的元素。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// css 部分</span><br><span class="line"><span class="selector-tag">modal_open</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line">// js 部分</span><br><span class="line">document.body.classList.add('modal_open');</span><br><span class="line">document.body.classList.remove('modal_open');</span><br></pre></td></tr></table></figure></p>
+<p>上面的这个方法可以解决滚动穿透问题，却也会带来新的问题。<br><br>即:</p>
+<blockquote>
+<p><code>body</code> 的滚动位置会丢失，也就是<code>body</code> 的 <code>scrollTop</code> 属性值会变为 0。</p>
+</blockquote>
+<p>这个新问题比起滚动穿透本身来说更加麻烦，所以这个方案是要进行优化的。</p>
+<h3 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h3><p>既然添加 <code>modal_open</code> 这个 <code>class</code> 会使 <code>body</code> 的滚动位置会丢失，那么我们为什么不在滚动位置丢失之前先保存下来，等到退出弹窗的前在將这个保存下来的滚动位置在设置回去。然后就朝着这个方向开始 coding 。<br><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.modal_open</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * ModalHelper helpers resolve the modal scrolling issue on mobile devices</span></span><br><span class="line"><span class="comment"> * https://github.com/twbs/bootstrap/issues/15852</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> ModalHelper = (<span class="function"><span class="keyword">function</span>(<span class="params">bodyClass</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> scrollTop;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        afterOpen: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            scrollTop = <span class="built_in">document</span>.scrollingElement.scrollTop  ||</span><br><span class="line">                        <span class="built_in">document</span>.documentElement.scrollTop || </span><br><span class="line">                        <span class="built_in">document</span>.body.scrollTop;</span><br><span class="line">            <span class="built_in">document</span>.body.classList.add(bodyClass);</span><br><span class="line">            <span class="built_in">document</span>.body.style.top = -scrollTop + <span class="string">'px'</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        beforeClose: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">document</span>.body.classList.remove(bodyClass);</span><br><span class="line">            <span class="built_in">document</span>.scrollingElement.scrollTop = <span class="built_in">document</span>.documentElement.scrollTop = <span class="built_in">document</span>.body.scrollTop = scrollTop;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;)(<span class="string">'modal_open'</span>);</span><br><span class="line"><span class="comment">// method</span></span><br><span class="line">modalSwitch: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">if</span>( self.switchFlag === <span class="string">'close'</span> )&#123;</span><br><span class="line">        ModalHelper.afterOpen();</span><br><span class="line">        self.switchFlag = <span class="string">'open'</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        ModalHelper.beforeClose();</span><br><span class="line">        self.switchFlag = <span class="string">'close'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方案二可以达到以下效果：</p>
 <ol>
-<li>继承：Dog.prototype.<strong>proto</strong> === Animal.prototype</li>
-<li>多态：重写Dog的name属性</li>
-<li>Dog的原型对象的构造函数应该指向Dog而不是Animal</li>
+<li>弹窗滚动的时候，下方的 <code>body</code> 是固定的无法滚动；</li>
+<li><code>body</code> 的滚动位置不会丢失；</li>
+<li><code>body</code> 有 scroll 事件；</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">Animal</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">// body...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function">function <span class="title">Dog</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">// body...</span></span><br><span class="line">&#125;</span><br><span class="line">Object.defineProperties(Animal.prototype, &#123;</span><br><span class="line">	name: &#123;</span><br><span class="line">		value() &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="string">'Animal'</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	say: &#123;</span><br><span class="line">		value() &#123;</span><br><span class="line">			<span class="keyword">return</span> `I<span class="string">'m $&#123;this.name()&#125;`</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;)</span></span><br><span class="line"><span class="string">// dog instanceOf Animal === true</span></span><br><span class="line"><span class="string">// dog.__proto__.__proto__ === Animal.prototype</span></span><br><span class="line"><span class="string">// dog.__proto__ === Dog.prototype</span></span><br><span class="line"><span class="string">// Dog.prototype.__proto__ === Animal.prototype</span></span><br><span class="line"><span class="string">Dog.prototype = Object.create(Animal.prototype, &#123;</span></span><br><span class="line"><span class="string">	constructor: &#123;</span></span><br><span class="line"><span class="string">		value: Dog,</span></span><br><span class="line"><span class="string">		enumerable: false,</span></span><br><span class="line"><span class="string">	&#125;,</span></span><br><span class="line"><span class="string">	name: &#123;</span></span><br><span class="line"><span class="string">		value() &#123;</span></span><br><span class="line"><span class="string">			return `Dog`</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">// document.write(new Dog() instanceOf Animal())</span></span><br><span class="line"><span class="string">// document.write(new Dog().say())</span></span><br><span class="line"><span class="string">document.write(Dog.prototype.constructor)</span></span><br></pre></td></tr></table></figure>
-<p>通过ES6来实现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">	name() &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">'Animal'</span></span><br><span class="line">	&#125;</span><br><span class="line">	say() &#123;</span><br><span class="line">		<span class="keyword">return</span> `I<span class="string">'m $&#123;this.name()&#125;`</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">class Dog extends Animal &#123;</span></span><br><span class="line"><span class="string">	name() &#123;</span></span><br><span class="line"><span class="string">		return '</span>Dog<span class="string">'</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">console.log(new Dog() instanceOf Animal</span></span><br></pre></td></tr></table></figure>
-<p>安装babel插件，使其支持在类中声明成员变量<br><code>yarn add babel-plugin-transform-class-properties -D</code><br>配置webpack.config.js<br>module.rules下面的use.plugins: [‘transform-class-properties’]</p>
-<h3 id="decorator"><a href="#decorator" class="headerlink" title="decorator"></a><a name="fuxbvc"></a>decorator</h3><p>Decorator是在<code>声明阶段</code>实现类与类成员注解的一种语法.本质上是特殊的函数。</p>
-<p>安装babel插件<br><code>yarn add babel-plugin-transform-decorators-legacy -D</code><br>配置webpack.config.js<br>module.rules下面的use.plugins: [‘transform-decorators-legacy’]</p>
-<h2 id="mobx-常用-API"><a href="#mobx-常用-API" class="headerlink" title="mobx 常用 API"></a><a name="821qpe"></a>mobx 常用 API</h2><p>安装mobx依赖：<code>yarn add mobx</code></p>
-<h3 id="observable-可观察的数据"><a href="#observable-可观察的数据" class="headerlink" title="observable(可观察的数据)"></a><a name="ve5tbh"></a>observable(可观察的数据)</h3><p>是一种让数据的变化可以被观察的方法</p>
-<p>哪些数据可以被观察：</p>
-<ul>
-<li>原始类型：String | Number | Boolean | Symbol</li>
-<li>对象</li>
-<li>数组</li>
-</ul>
-<p>PS：一定要检查数组的长度以避免越界访问，在mobx中越界的数组值是不被观察的.同样要检查对象是否含有属性hasOwnProperty</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; observable &#125; from <span class="string">'mobx'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Store</span> </span>&#123;</span><br><span class="line">  <span class="meta">@observable</span> array = []</span><br><span class="line">  <span class="meta">@observable</span> obj = &#123;&#125;</span><br><span class="line">  <span class="meta">@observable</span> map = <span class="keyword">new</span> Map()</span><br><span class="line"></span><br><span class="line">  <span class="meta">@observable</span> string = <span class="string">'hello'</span></span><br><span class="line">  <span class="meta">@observable</span> number = <span class="number">20</span></span><br><span class="line">  <span class="meta">@observable</span> bool = <span class="keyword">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="对可观察的数据作出反应"><a href="#对可观察的数据作出反应" class="headerlink" title="对可观察的数据作出反应"></a><a name="xyz4dg"></a>对可观察的数据作出反应</h3><p>方式：</p>
-<ul>
-<li>computed<ul>
-<li>observe()</li>
-<li>get()</li>
-</ul>
-</li>
-<li>autorun</li>
-<li>when</li>
-<li>reaction</li>
-</ul>
-<h2 id="mobx-实现-todoList"><a href="#mobx-实现-todoList" class="headerlink" title="mobx 实现 todoList"></a><a name="3dhdsg"></a>mobx 实现 todoList</h2><p>yarn add mobx-react react react-dom prop-types<br>yarn add babel-preset-react</p>
-<p>配置webpack.config.js<br><code>presets: [[&#39;env&#39;, &#39;react&#39;]],</code></p>
-<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a><a name="bmm3sf"></a>资源</h2><p>mobx-state-tree</p>
+<p>方案二可以适应绝大多数的弹窗需求，提测后测试方也没有在提其他问题，这个问题算是完美的解决了。不过我在这个过程有一个疑问：</p>
+<blockquote>
+<p>IOS 自有的橡皮筋效果会导致页面会出现短暂卡顿现象，暂时没有找到原因，请教各位。</p>
+</blockquote>
+<h3 id="其他方案："><a href="#其他方案：" class="headerlink" title="其他方案："></a>其他方案：</h3><p><strong>使用 <code>preventDefault</code> 阻止浏览器默认事件：</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> modal = <span class="built_in">document</span>.getElementById(<span class="string">'modalBox'</span>);</span><br><span class="line">modal.addEventListener(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+<p>这个方案只适用于这个弹窗本身的高度小于屏幕的高度，即不可滚动的时候。<code>touchmove</code> 比 <code>touchstart</code> 更加合适。因为 <code>touchstart</code> 会连点击事件都阻止。<br><strong>使用插件：</strong><br>对于插件我的态度是，除非是自己实现起来太复杂，否则还是自己花点时间去实现。原因有二：</p>
+<ol>
+<li>使用插件就意味着需要引入的文件至少多了一个。</li>
+<li>插件过多，担心日后项目升级维护成本加大。</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><a href="https://link.juejin.im?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FWeb%2FAPI%2Fdocument%2FscrollingElement" target="_blank" rel="noopener">developer.mozilla.org/en-US/docs/…</a></li>
+<li><a href="https://link.juejin.im?target=https%3A%2F%2Fuedsky.com%2F2016-06%2Fmobile-modal-scroll%2F" target="_blank" rel="noopener">uedsky.com/2016-06/mob…</a></li>
+</ol>
 
       
 
@@ -468,7 +274,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/23/mobx/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/01/09/滚动穿透/">展开全文 >></a>
         </p>
       
 
@@ -487,20 +293,20 @@
 
 
   
-    <article id="post-单元测试" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-webpack 配置比对" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/23/单元测试/">单元测试</a>
+      <a class="article-title" href="/2019/01/07/webpack 配置比对/">webpack 配置比对</a>
     </h1>
   
 
         
-        <a href="/2018/12/23/单元测试/" class="archive-article-date">
-  	<time datetime="2018-12-23T02:25:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-23</time>
+        <a href="/2019/01/07/webpack 配置比对/" class="archive-article-date">
+  	<time datetime="2019-01-07T04:13:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-07</time>
 </a>
         
       </header>
@@ -509,195 +315,346 @@
       
           <!-- Table of Contents -->
           
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><a name="x1gdns"></a>前言</h2><h3 id="前端单测是一个可有可无的东西？"><a href="#前端单测是一个可有可无的东西？" class="headerlink" title="前端单测是一个可有可无的东西？"></a><a name="s0vrxu"></a>前端单测是一个可有可无的东西？</h3><ul>
-<li>写单测比较费时，有这个时间不如多做几个需求！</li>
-<li>测试在验收的时候对页面的功能都会操作一遍，写单测相当于无用功</li>
-<li>后端提供给前端的接口需要保证质量，因此需要做单测，但前端很少需要提供接口给其他人。</li>
+        <h1 id="externals"><a href="#externals" class="headerlink" title="externals"></a>externals</h1><p><img src="https://cdn.nlark.com/yuque/0/2019/png/84728/1546834508051-94c4acad-07e8-41a3-acc6-457b360b664a.png#align=left&amp;display=inline&amp;height=1225&amp;linkTarget=_blank&amp;name=image.png&amp;originHeight=1226&amp;originWidth=1598&amp;size=428844&amp;width=1598" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2019/png/84728/1546834647000-a1b7f3db-499a-46b3-881b-159d1a12212e.png#align=left&amp;display=inline&amp;height=556&amp;linkTarget=_blank&amp;name=image.png&amp;originHeight=558&amp;originWidth=2880&amp;size=207215&amp;width=2880" alt="image.png"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/07/webpack 配置比对/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-存储" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/06/存储/">存储</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/06/存储/" class="archive-article-date">
+  	<time datetime="2019-01-06T12:28:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          <!-- Table of Contents -->
+          
+        <h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><ul>
+<li>存储的数据量非常小，只有 4K 的大小</li>
+<li>数据会自动携带到请求头里</li>
+<li>但服务器端可能并不关心这些数据，所以会造成带宽的浪费<h2 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h2></li>
+<li>存储的数据仅在本次会话有用，会话结束后会自动失效，而且数据仅在当前窗口有效，同一源下新窗口也访问不到<h2 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h2></li>
+<li>绝大多数浏览器有 5M 的大小限制</li>
+<li>可以永久存储，而且同源下数据多窗口也能共享</li>
+<li>在 setItem 时，可能会达到大小限制，最好加上错误捕捉</li>
+<li>使用 Loader 加载静态文件（basket.js)<ul>
+<li>查看请求的文件 url 是否有缓存到 localStorage<ul>
+<li>过期或不匹配，到第 2 大步</li>
+<li>文件内容有效，到第 4 大步</li>
+<li>如果没有，到第 2 大步</li>
+<li>如果有，判断文件是否过期或版本号是否匹配</li>
 </ul>
-<h3 id="什么情况下需要单测"><a href="#什么情况下需要单测" class="headerlink" title="什么情况下需要单测"></a><a name="dbvpss"></a>什么情况下需要单测</h3><p>在大部分情况下，如果公司业务不复杂，我是认同完全没有必要做单测的观点的。但如果涉及到了以下几个方面，则要好好考虑一下：</p>
+</li>
+<li>请求远程文件</li>
+<li>缓存最新文件内容</li>
+<li>执行文件内容</li>
+</ul>
+</li>
+<li>借助服务器端将静态文件 inline 化<ul>
+<li>这个方式比上面那种更进一步，在第一次响应时把需要放入 localStorage 的文件都内联进 html 中，后面每次响应只要文件版本没有变化，都是渲染一段从 localStorage 加载该文件的代码。这样做的好处是可以有效减少请求次数，即使是第一次</li>
+</ul>
+</li>
+<li>使用 localStorage 缓存文件会有 XSS 的风险</li>
+</ul>
+<h2 id="其他应用场景"><a href="#其他应用场景" class="headerlink" title="其他应用场景"></a>其他应用场景</h2><ul>
+<li><code>redux-localstorage</code>可以快速执行<code>localstorage</code>:</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save redux-localstorage@rc</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/06/存储/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JS 类型转换的应用" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/06/JS 类型转换的应用/">JS 类型转换的应用</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/06/JS 类型转换的应用/" class="archive-article-date">
+  	<time datetime="2019-01-06T10:13:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          <!-- Table of Contents -->
+          
+        <p>实现一个函数，运算结果可以满足如下预期结果：<br></p>
+<blockquote>
+<p>add(1)(2) // 3<br>add(1, 2, 3)(10) // 16<br>add(1)(2)(3)(4)(5) // 15</p>
+</blockquote>
+<p><br>对于一个好奇的切图仔来说，忍不住动手尝试了一下，看到题目首先想到的是会用到高阶函数以及 Array.prototype.reduce()。<br><br><br>高阶函数(Higher-order function)：高阶函数的意思是它接收另一个函数作为参数。在 javascript 中，函数是一等公民，允许函数作为参数或者返回值传递。<br>得到了下面这个解法：<br></p>
+<blockquote>
+<p>function add() {<br>    var args = Array.prototype.slice.call(arguments);</p>
+<pre><code>return function() {
+    var arg2 = Array.prototype.slice.call(arguments);
+    return args.concat(arg2).reduce(function(a, b){
+        return a + b;
+    });
+}
+</code></pre><p>}</p>
+</blockquote>
+<p><br>验证了一下，发现错了：<br></p>
+<blockquote>
+<p>add(1)(2) // 3<br>add(1, 2)(3) // 6<br>add(1)(2)(3) // Uncaught TypeError: add(…)(…) is not a function(…)</p>
+</blockquote>
+<p><br>上面的解法，只有在 add()() 情形下是正确的。而当链式操作的参数多于两个或者少于两个的时候，无法返回结果。<br><br><br>而这个也是这题的一个难点所在，add()的时候，如何既返回一个值又返回一个函数以供后续继续调用？<br><br><br>后来经过高人指点，通过重写函数的 valueOf 方法或者 toString 方法，可以得到其中一种解法：<br></p>
+<blockquote>
+<p>function add () {<br>    var args = Array.prototype.slice.call(arguments);</p>
+<pre><code>var fn = function () {
+    var arg_fn = Array.prototype.slice.call(arguments);
+    return add.apply(null, args.concat(arg_fn));
+}
+
+fn.valueOf = function () {
+    return args.reduce(function(a, b) {
+        return a + b;
+    })
+}
+
+return fn;
+</code></pre><p>}</p>
+</blockquote>
+<p><br>嗯？第一眼看到这个解法的时候，我是懵逼的。因为我感觉 fn.valueOf() 从头到尾都没有被调用过，但是验证了下结果：<br></p>
+<blockquote>
+<p>add(1) // 1<br>add(1,2)(3) //6<br>add(1)(2)(3)(4)(5) // 15</p>
+</blockquote>
+<p><br>神奇的对了！那么玄机必然是在上面的 fn.valueOf = function() {} 内了。为何会是这样呢？这个方法是在函数的什么时刻执行的？且听我一步一步道来。<br></p>
+<h2 id="valueOf-和-toString"><a href="#valueOf-和-toString" class="headerlink" title="valueOf 和 toString"></a><strong>valueOf 和 toString</strong></h2><p><br>先来简单了解下这两个方法：<br><br><br><strong>Object.prototype.valueOf()</strong><br><br><br>用 MDN 的话来说，valueOf() 方法返回指定对象的原始值。<br><br><br>JavaScript 调用 valueOf() 方法用来把对象转换成原始类型的值（数值、字符串和布尔值）。但是我们很少需要自己调用此函数，valueOf 方法一般都会被 JavaScript 自动调用。<br><br><br>记住上面这句话，下面我们会细说所谓的自动调用是什么意思。<br><br><br><strong>Object.prototype.toString()</strong><br><br><br>toString() 方法返回一个表示该对象的字符串。<br><br><br>每个对象都有一个 toString() 方法，当对象被表示为文本值时或者当以期望字符串的方式引用对象时，该方法被自动调用。<br><br><br>这里先记住，valueOf() 和 toString() 在特定的场合下会自行调用。<br></p>
+<h2 id="原始类型"><a href="#原始类型" class="headerlink" title="原始类型"></a><strong>原始类型</strong></h2><p><br>好，铺垫一下，先了解下 javascript 的几种原始类型，除去 Object 和 Symbol，有如下几种原始类型：<br></p>
 <ul>
-<li>业务比较复杂，前端参与的人员超过3人</li>
-<li>公司非常注重代码的质量，想尽一切办法杜绝线上出bug</li>
-<li>是跨项目组件的提供方</li>
-<li>在做一个开源项目</li>
+<li>Number<br></li>
+<li>String<br></li>
+<li>Boolean<br></li>
+<li>Undefined<br></li>
+<li>Null<br></li>
 </ul>
-<h3 id="组件化单测的必要性："><a href="#组件化单测的必要性：" class="headerlink" title="组件化单测的必要性："></a><a name="41hnwf"></a>组件化单测的必要性：</h3><ul>
-<li>虽然单元测试需要花费时间且所花时间会比模块本身更多，但是性价比却是随着使用的次数越来越高</li>
-<li>在工作中或开源社区中，我们写库的目的都是为了能更好的为别人使用，这个时候单元测试应该是必须的</li>
-<li>好的单元测试可以作为优秀的文档，并且保证模块行为的确定性。</li>
-<li>UI库并不涉及业务逻辑，所以只写单元测试足够</li>
+<p><br>在 JavaScript 进行对比或者各种运算的时候会把对象转换成这些类型，从而进行后续的操作，下面逐一说明：<br></p>
+<h2 id="String-类型转换"><a href="#String-类型转换" class="headerlink" title="String 类型转换"></a><strong>String 类型转换</strong></h2><p><br>在某个操作或者运算需要字符串而该对象又不是字符串的时候，会触发该对象的 String 转换，会将非字符串的类型尝试自动转为 String 类型。系统内部会自动调用 toString 函数。举个例子：<br></p>
+<blockquote>
+<p>var obj = {name: ‘Coco’};<br>var str = ‘123’ + obj;<br>console.log(str);  // 123[object Object]</p>
+</blockquote>
+<p><br>转换规则：<br></p>
+<ol>
+<li>如果 toString 方法存在并且返回原始类型，返回 toString 的结果。<br></li>
+<li>如果 toString 方法不存在或者返回的不是原始类型，调用 valueOf 方法，如果 valueOf 方法存在，并且返回原始类型数据，返回 valueOf 的结果。<br></li>
+<li>其他情况，抛出错误。<br><br></li>
+</ol>
+<p><br>上面的例子实际上是：<br></p>
+<blockquote>
+<p>var obj = {name: ‘Coco’};<br>var str = ‘123’ + obj.toString();</p>
+</blockquote>
+<p><br>其中，obj.toString() 的值为 “[object Object]”。<br><br><br>假设是数组：<br></p>
+<blockquote>
+<p>var arr = [1, 2];<br>var str = ‘123’ + arr;</p>
+<p>console.log(str); // 1231,2</p>
+</blockquote>
+<p><br>上面 + arr ，由于这里是个字符串加操作，后面的 arr 需要转化为一个字符串类型，所以其实是调用了 + arr.toString() 。<br><br><br>但是，我们可以自己改写对象的 toString，valueOf 方法:<br></p>
+<blockquote>
+<p>var obj = {<br>    toString: function() {<br>        console.log(‘调用了 obj.toString’);<br>        return {};<br>    },<br>    valueOf: function() {<br>        console.log(‘调用了 obj.valueOf’)<br>        return ‘110’;<br>    }<br>}</p>
+<p>alert(obj);<br>// 调用了 obj.toString<br>// 调用了 obj.valueOf<br>// 110</p>
+</blockquote>
+<p><br>上面 alert(obj + ‘1’) ，obj 会自动调用自己的 obj.toString() 方法转化为原始类型，如果我们不重写它的 toString 方法，将输出 [object Object]1 ，这里我们重写了 toString ，而且返回了一个原始类型字符串 111 ，所以最终 alert 出了 1111。<br><br><br>上面的转化规则写了，toString 方法需要存在并且返回原始类型，那么如果返回的不是一个原始类型，则会去继续寻找对象的 valueOf 方法：<br><br><br>下面我们尝试证明如果在一个对象尝试转换为字符串的过程中，如果 toString() 方法不可用的时候，会发生什么。<br><br><br>这个时候系统会再去调用 valueOf() 方法，下面我们改写对象的 toString 和 valueOf：<br></p>
+<blockquote>
+<p>var obj = {<br>    toString: function() {<br>        console.log(‘调用了 obj.toString’);<br>        return {};<br>    },<br>    valueOf: function() {<br>        console.log(‘调用了 obj.valueOf’)<br>        return ‘110’;<br>    }<br>}</p>
+<p>alert(obj);<br>// 调用了 obj.toString<br>// 调用了 obj.valueOf<br>// 110</p>
+</blockquote>
+<p><br>从结果可以看到，当 toString 不可用的时候，系统会再尝试 valueOf 方法，如果 valueOf 方法存在，并且返回原始类型（String、Number、Boolean）数据，返回valueOf的结果。<br><br><br>那么如果，toString 和 valueOf 返回的都不是原始类型呢？看下面这个例子：<br></p>
+<blockquote>
+<p>var obj = {<br>    toString: function() {<br>        console.log(‘调用了 obj.toString’);<br>        return {};<br>    },<br>    valueOf: function() {<br>        console.log(‘调用了 obj.valueOf’)<br>        return {};<br>    }<br>}</p>
+<p>alert(obj);<br>// 调用了 obj.toString<br>// 调用了 obj.valueOf<br>// Uncaught TypeError: Cannot convert object to primitive value</p>
+</blockquote>
+<p><br>可以发现，如果 toString 和 valueOf 方法均不可用的情况下，系统会直接返回一个错误。<br></p>
+<blockquote>
+<p>在查证了 ECMAScript5 官方文档后，发现上面的描述有一点问题，Object 类型转换为 String 类型的转换规则远比上面复杂。转换规则为：1.设原始值为调用 ToPrimitive 的结果；2.返回 ToString(原始值) 。关于 ToPrimitive 和 ToString 的规则可以看看官方文档：ECMAScript5 — ToString</p>
+</blockquote>
+<h2 id="Number-类型转换"><a href="#Number-类型转换" class="headerlink" title="Number 类型转换"></a><strong>Number 类型转换</strong></h2><p><br>上面描述的是 String 类型的转换，很多时候也会发生 Number 类型的转换：<br></p>
+<ul>
+<li>调用 Number() 函数，强制进行 Number 类型转换<br></li>
+<li>调用 Math.sqrt() 这类参数需要 Number 类型的方法<br></li>
+<li>obj == 1 ，进行对比的时候<br></li>
+<li>obj + 1 , 进行运算的时候<br></li>
 </ul>
-<h3 id="测哪些方面"><a href="#测哪些方面" class="headerlink" title="测哪些方面"></a><a name="o72igp"></a>测哪些方面</h3><ul>
-<li>模块应被渲染的DOM树是否正确</li>
-<li>模块的属性传递是否正确,(属性是方法,则是否被正确调用;属性是布尔值或对象,则是否被正确传递且达到预期的目的）</li>
-<li>模块内的各个行为是否正确</li>
-<li>甚至可以测试各个DOM节点是否被应用预期的class，且这些class是不是预期的样式</li>
-</ul>
-<h2 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a><a name="t276we"></a>测试工具</h2><ul>
-<li><a href="https://facebook.github.io/jest/docs/en/getting-started.html" target="_blank" rel="noopener">Jest</a>是Facebook开发的一个测试框架，它集成了测试执行器、断言库、spy、mock、snapshot和测试覆盖率报告等功能。React项目本身也是使用Jest进行单测的，因此它们俩的契合度相当高。</li>
-<li><a href="http://airbnb.io/enzyme/" target="_blank" rel="noopener">Enzyme</a>是由airbnb开发的React单测工具。它扩展了React的TestUtils并通过支持类似jQuery的find语法可以很方便的对render出来的结果做各种断言。</li>
-</ul>
-<h2 id="JEST-跑一个简单的测试用例"><a href="#JEST-跑一个简单的测试用例" class="headerlink" title="JEST 跑一个简单的测试用例"></a><a name="pz3xty"></a>JEST 跑一个简单的测试用例</h2><blockquote>
-<p>技术栈：React@16 + webpack@3</p>
+<p><br>与 String 类型转换相似，但是 Number 类型刚好反过来，先查询自身的 valueOf 方法，再查询自己 toString 方法：<br></p>
+<ol>
+<li>如果 valueOf 存在，且返回原始类型数据，返回 valueOf 的结果。<br></li>
+<li>如果 toString 存在，且返回原始类型数据，返回 toString 的结果。<br></li>
+<li>其他情况，抛出错误。<br></li>
+</ol>
+<p><br>按照上述步骤，分别尝试一下：<br></p>
+<blockquote>
+<p>var obj = {<br>    valueOf: function() {<br>        console.log(‘调用 valueOf’);<br>        return 5;<br>    }<br>}</p>
+<p>console.log(obj + 1);<br>// 调用 valueOf<br>// 6</p>
 </blockquote>
 <blockquote>
-<p>编写测试用例流程：</p>
-<ul>
-<li>Arrange（准备）：设置测试场景，准备测试数据</li>
-<li>Act（执行）：调用被测试代码</li>
-<li>Assert（断言）：验证被测代码是否与预期相同</li>
-</ul>
+<p>var obj = {<br>    valueOf: function() {<br>        console.log(‘调用 valueOf’);<br>        return {};<br>    },<br>    toString: function() {<br>        console.log(‘调用 toString’);<br>        return 10;<br>    }<br>}</p>
+<p>console.log(obj + 1);<br>// 调用 valueOf<br>// 调用 toString<br>// 11</p>
 </blockquote>
-<h3 id="安装Jest并让其支持ES6语法"><a href="#安装Jest并让其支持ES6语法" class="headerlink" title="安装Jest并让其支持ES6语法"></a><a name="vq46fq"></a>安装Jest并让其支持ES6语法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev jest jest-cli babel-jest <span class="comment"># babel-jest的作用是让单测代码支持ES6</span></span><br></pre></td></tr></table></figure>
-<h3 id="新建单测文件夹并新建一个单测文件"><a href="#新建单测文件夹并新建一个单测文件" class="headerlink" title="新建单测文件夹并新建一个单测文件"></a><a name="s5tgsg"></a>新建单测文件夹并新建一个单测文件</h3><p>1.在项目的根目录新建<code>__jest__</code>文件夹和<code>components</code>文件夹</p>
+<blockquote>
+<p>var obj = {<br>    valueOf: function() {<br>        console.log(‘调用 valueOf’);<br>        return {};<br>    },<br>    toString: function() {<br>        console.log(‘调用 toString’);<br>        return {};<br>    }<br>}</p>
+<p>console.log(obj + 1);<br>// 调用 valueOf<br>// 调用 toString<br>// Uncaught TypeError: Cannot convert object to primitive value</p>
+</blockquote>
+<h2 id="Boolean-转换"><a href="#Boolean-转换" class="headerlink" title="Boolean 转换"></a><strong>Boolean 转换</strong><br></h2><p><br>什么时候会进行布尔转换呢：<br></p>
 <ul>
-<li>__jest__<ul>
-<li>__mocks__</li>
-<li>__tests__<ul>
-<li>mudules // 存放各个模块的单测代码</li>
-<li>utils // 对一些公用函数写的测试代码<ul>
-<li>sum.test.js // 单测用例</li>
+<li>布尔比较时<br></li>
+<li>if(obj) , while(obj) 等判断时<br></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>components<ul>
-<li>Math.js // 被测试对象</li>
-</ul>
-</li>
-</ul>
-<p>2.新建单测文件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// __jest__/__test__/sum.test.js</span></span><br><span class="line"><span class="keyword">const</span> sum = <span class="built_in">require</span>(<span class="string">'../../../components/Math'</span>);</span><br><span class="line"></span><br><span class="line">test(<span class="string">'adds 1 + 2 to equal 3'</span>, () =&gt; &#123;</span><br><span class="line">  expect(sum(<span class="number">1</span>, <span class="number">2</span>)).toBe(<span class="number">3</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = sum;</span><br></pre></td></tr></table></figure>
-<h3 id="配置package-json"><a href="#配置package-json" class="headerlink" title="配置package.json"></a><a name="3mlvyy"></a>配置package.json</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">"jest": &#123;</span><br><span class="line">    // moduleFileExtensions对应webpack中的extensions；</span><br><span class="line">    "moduleFileExtensions": [</span><br><span class="line">      "js",</span><br><span class="line">      <span class="string">"jsx"</span></span><br><span class="line">    ],</span><br><span class="line">    // moduleDirectories对应webpack中的modulesDirectories；</span><br><span class="line">    "moduleDirectories": [</span><br><span class="line">      <span class="string">"node_modules"</span></span><br><span class="line">    ],</span><br><span class="line">    // moduleNameMapper对应webpack中的alias</span><br><span class="line">    "moduleNameMapper": &#123;</span><br><span class="line">      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "&lt;rootDir&gt;/__jest__/__mocks__/fileMock.js",</span><br><span class="line">      "\\.(css|scss)$": "identity-obj-proxy", // 对于css等样式文件，使用identity-obj-proxy来mock，它会在引用到class的地方直接返回class的类名</span><br><span class="line">      "^cpn(.*)$": "&lt;rootDir&gt;/src/components$1" //这里的&lt;rootDir&gt;对应我们项目的根目录。</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>同时添加以下script：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">  "test": "jest __jest__/__tests__"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="运行测试脚本"><a href="#运行测试脚本" class="headerlink" title="运行测试脚本"></a><a name="mcrawv"></a>运行测试脚本</h3><p>在命令行输入：<code>npm run test</code><br>出现以下结果，则说明Jest安装成功并通过第一个测试!👏</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2018/png/84728/1545531987108-6d80000f-ff1a-4081-b3b6-c5988af0ac16.png" alt="jest_result.png | left | 747x354"></p>
-<h2 id="create-react-app"><a href="#create-react-app" class="headerlink" title="create-react-app"></a><a name="7zkmfs"></a>create-react-app</h2><ul>
-<li>create-react-app 自带 Jest 库</li>
-<li>Jest 会自动在当前目录下寻找满足条件的JS文件作为单测代码来执行<ul>
-<li>文件名以 <code>.test.js</code> 为后缀的代码文件</li>
-<li>存于 <code>_test_</code> 目录下的代码文件</li>
-</ul>
-</li>
-</ul>
-<p>目录结构</p>
+<p><br>简单来说，除了下述 6 个值转换结果为 false，其他全部为 true：<br></p>
 <ul>
-<li>在根目录创建test目录，单测文件以 <code>.test.js</code> 为后缀</li>
-<li>在每个组件目录下创建 <code>_test_</code> 子目录</li>
-</ul>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a><a name="daitws"></a>语法</h2><h3 id="测试用例it"><a href="#测试用例it" class="headerlink" title="测试用例it()"></a><a name="r1gazc"></a>测试用例it()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 它在什么样的情况下是什么行为</span><br><span class="line">it(&apos;should return object when invoked&apos;, () =&gt; &#123;</span><br><span class="line">  // 增加断言语句</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="测试套件-describe"><a href="#测试套件-describe" class="headerlink" title="测试套件 describe()"></a><a name="swhgzr"></a>测试套件 describe()</h3><ul>
-<li>测试套件 = 测试用例 + 测试套件</li>
-<li>从外到里顺序执行</li>
-<li>重用共同的环境设置</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">describe(<span class="string">'action'</span>, () =&gt; &#123;</span><br><span class="line">  it(<span class="string">'should return object when invoked'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="comment">// 增加断言语句</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// 可以有更多的it函数调用</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="钩子函数"><a href="#钩子函数" class="headerlink" title="钩子函数"></a><a name="1nglxl"></a>钩子函数</h3><ul>
-<li>beforeAll: 在开始测试套件开始之前执行一次</li>
-<li>afterAll: 在结束测试套件中所有测试用例之后执行一次</li>
-<li>beforeEach: 每个测试用例在执行之前都执行一次</li>
-<li>afterEach: 每个测试用例在执行之后都执行一次</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/23/单元测试/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-项目启动流程" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/23/项目启动流程/">项目启动流程</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/23/项目启动流程/" class="archive-article-date">
-  	<time datetime="2018-12-23T02:19:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          <!-- Table of Contents -->
-          
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><a name="r486iu"></a>前言</h2><p>假设接到一个新项目，首先考虑以下几点</p>
-<ul>
-<li style="list-style: none"><input type="checkbox"> 使用何种类库，如何考虑技术选型？分别从哪几个维度去考虑？</li>
-<li style="list-style: none"><input type="checkbox"> 项目目录如何组织(按角色还是按功能)</li>
-<li style="list-style: none"><input type="checkbox"> dev和prod不同环境如何配置</li>
-<li style="list-style: none"><input type="checkbox"> 团队内部其他系统都用了什么</li>
-<li style="list-style: none"><input type="checkbox"> 多人合作开发，团队环境和代码规范问题如何解决?是否需要统一编辑器</li>
-<li style="list-style: none"><input type="checkbox"> 是否需要出文档，教其他团队成员配置环境、安装依赖等</li>
-<li style="list-style: none"><input type="checkbox"> 如果每个项目皆是如此，请考虑效率？(脚手架、cli)</li>
-<li style="list-style: none"><input type="checkbox"> 如何稳定高效的推动项目，请考虑成本收益比，并考虑项目所需的人力、物力的各项支持</li>
-</ul>
-<h2 id="技术框架选型"><a href="#技术框架选型" class="headerlink" title="技术框架选型"></a><a name="7lcirm"></a>技术框架选型</h2><p>考虑以下几个问题：</p>
-<ul>
-<li style="list-style: none"><input type="checkbox"> 框架自身成熟度？</li>
-<li style="list-style: none"><input type="checkbox"> 框架生态圈</li>
-<li style="list-style: none"><input type="checkbox"> 框架主要解决什么问题？</li>
-<li style="list-style: none"><input type="checkbox"> 团队：学习成本</li>
-<li style="list-style: none"><input type="checkbox"> 项目周期：</li>
-<li style="list-style: none"><input type="checkbox"> 项目维护成本</li>
+<li>undefined<br></li>
+<li>null<br></li>
+<li>-0<br></li>
+<li>0或+0<br></li>
+<li>NaN<br></li>
+<li>”（空字符串）<br></li>
 </ul>
 <blockquote>
-<p>结论：最终决定在中小型项目中使用Vue，而大中型项目中使用React，而对于金融科技公司而言，中台复杂项目较多，从而选定以React为主，当项目周期短且交付压力大时仍采用使用Vue的策略。</p>
+<p>Boolean(undefined) // false<br>Boolean(null) // false<br>Boolean(0) // false<br>Boolean(NaN) // false<br>Boolean(‘’) // false</p>
 </blockquote>
-<h2 id="项目目录"><a href="#项目目录" class="headerlink" title="项目目录"></a><a name="pz3fgg"></a>项目目录</h2><h3 id="按角色"><a href="#按角色" class="headerlink" title="按角色"></a><a name="dwingo"></a>按角色</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">reducers/   <span class="comment">#包含所有Redux 的reducer;</span></span><br><span class="line">    todoReducer.js</span><br><span class="line">actions/    <span class="comment">#包含所有action 构造函数；</span></span><br><span class="line">    todoActions.js</span><br><span class="line">components/ <span class="comment">#包含所有的傻瓜组件；</span></span><br><span class="line">    todoList.js</span><br><span class="line">containers/ <span class="comment">#包含所有的容器组件。</span></span><br><span class="line">    todoListContainer.js</span><br></pre></td></tr></table></figure>
+<h2 id="Function-转换"><a href="#Function-转换" class="headerlink" title="Function 转换"></a><strong>Function 转换</strong></h2><p><br>好，最后回到我们一开始的题目，来讲讲函数的转换。<br><br><br>我们定义一个函数如下：<br></p>
 <blockquote>
-<p>“按照角色组织”的方式非常不利于应用的扩展。当你需要对一个功能进行修改，虽然这个功能只是针对某一个具体的应用模块，但是却牵扯到多个角色，而不得不在多个目录间跳转。</p>
+<p>function test() {<br>    var a = 1;<br>    console.log(1);<br>}</p>
 </blockquote>
-<h3 id="按功能"><a href="#按功能" class="headerlink" title="按功能"></a><a name="3ktcmk"></a>按功能</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">todoList/</span><br><span class="line">    actions.js  <span class="comment">#定义action 类型；</span></span><br><span class="line">    actionTypes.js  <span class="comment">#定义action 构造函数，决定了这个功能模块可以接受的动作；</span></span><br><span class="line">    index.js    <span class="comment">#导出该组件需要导出的所有内容，每个文件夹下都包含一个index文件也有利于直接引用文件夹名称就可以导出模块</span></span><br><span class="line">    reducer.jS  <span class="comment">#定义这个功能模块如何对应actions.js 中定义的动作；</span></span><br><span class="line">    views/  <span class="comment">#包含这个功能模块中所有的React 组件</span></span><br><span class="line">        component.js    <span class="comment">#傻瓜组件</span></span><br><span class="line">        container.js    <span class="comment">#容器组件</span></span><br><span class="line">filter/</span><br><span class="line">    actions.js</span><br><span class="line">    actionTypes.js</span><br><span class="line">    index.js</span><br><span class="line">    reducer.js</span><br><span class="line">    views/</span><br><span class="line">    component.js</span><br><span class="line">    container.js</span><br></pre></td></tr></table></figure>
+<p><br>如果我们仅仅是调用 test 而不是 test() ，看看会发生什么？<br><br><br><br><br>可以看到，这里把我们定义的 test 函数的重新打印了一遍，其实，这里自行调用了函数的 valueOf 方法：<br><br><br><br><br><br><br>我们改写一下 test 函数的 valueOf 方法。<br></p>
 <blockquote>
-<p>每个功能模块对应一个目录，每个目录下包含同样名字的角色文件。当需要修改某个功能模块的代码时，只要关注对应的目录即可，所有需要修改的代码文件都能在当前目录下找到。</p>
+<p>test.valueOf = function() {<br>    console.log(‘调用 valueOf 方法’);<br>    return 2;<br>}</p>
+<p>test;<br>// 输出如下：<br>// 调用 valueOf 方法<br>// 2</p>
 </blockquote>
-<h2 id="脚手架"><a href="#脚手架" class="headerlink" title="脚手架"></a><a name="9waqmg"></a>脚手架</h2><h3 id="为什么不用create-react-app"><a href="#为什么不用create-react-app" class="headerlink" title="为什么不用create-react-app"></a><a name="1kzuks"></a>为什么不用create-react-app</h3><ul>
-<li>不满足当前团队的需求</li>
-<li>不可以定制化，需要二次修改配置</li>
-<li>没有开发组件的能力</li>
-</ul>
+<p><br>与 Number 转换类似，如果函数的 valueOf 方法返回的不是一个原始类型，会继续找到它的 toString 方法：<br></p>
 <blockquote>
-<p>结论：为什么不自己开发一个cli工具呢？？</p>
+<p>test.valueOf = function() {<br>    console.log(‘调用 valueOf 方法’);<br>    return {};<br>}</p>
+<p>test.toString= function() {<br>    console.log(‘调用 toString 方法’);<br>    return 3;<br>}</p>
+<p>test;<br>// 输出如下：<br>// 调用 valueOf 方法<br>// 调用 toString 方法<br>// 3</p>
 </blockquote>
-<h3 id="yeoman"><a href="#yeoman" class="headerlink" title="yeoman"></a><a name="5fy8rx"></a>yeoman</h3><ul>
-<li>npm install yo -g</li>
-<li>把全局环境node_modules包下面的模板工程 copy 到你的当前项目路径文件夹下</li>
-</ul>
+<h2 id="破题"><a href="#破题" class="headerlink" title="破题"></a><strong>破题</strong></h2><p><br>再看回我正文开头那题的答案，正是运用了函数会自行调用 valueOf 方法这个技巧，并改写了该方法。我们稍作改变，变形如下：<br></p>
+<blockquote>
+<p>function add () {<br>    console.log(‘进入add’);<br>    var args = Array.prototype.slice.call(arguments);</p>
+<pre><code>var fn = function () {
+    var arg_fn = Array.prototype.slice.call(arguments);
+    console.log(&apos;调用fn&apos;);
+    return add.apply(null, args.concat(arg_fn));
+}
+
+fn.valueOf = function () {
+    console.log(&apos;调用valueOf&apos;);
+    return args.reduce(function(a, b) {
+        return a + b;
+    })
+}
+
+return fn;
+</code></pre><p>}</p>
+</blockquote>
+<p><br>当调用一次 add 的时候，实际是是返回 fn 这个 function，实际是也就是返回 fn.valueOf();<br></p>
+<blockquote>
+<p>add(1);<br>// 输出如下：<br>// 进入add<br>// 调用valueOf<br>// 1</p>
+</blockquote>
+<p><br>其实也就是相当于：<br></p>
+<blockquote>
+<p>[1].reduce(function(a, b) {<br>    return a + b;<br>})<br>// 1</p>
+</blockquote>
+<p><br>当链式调用两次的时候：<br></p>
+<blockquote>
+<p>add(1)(2);<br>// 输出如下：<br>// 进入add<br>// 调用fn<br>// 进入add<br>// 调用valueOf<br>// 3</p>
+</blockquote>
+<p><br>当链式调用三次的时候：<br></p>
+<blockquote>
+<p>add(1)(2)(3);<br>// 输出如下：<br>// 进入add<br>// 调用fn<br>// 进入add<br>// 调用fn<br>// 进入add<br>// 调用valueOf<br>// 6</p>
+</blockquote>
+<p><br>可以看到，这里其实有一种循环。只有最后一次调用才真正调用到 valueOf，而之前的操作都是合并参数，递归调用本身，由于最后一次调用返回的是一个 fn 函数，所以最终调用了函数的 fn.valueOf，并且利用了 reduce 方法对所有参数求和。<br><br><br>除了改写 valueOf 方法，也可以改写 toString 方法，所以，如果你喜欢，下面这样也可以：<br></p>
+<blockquote>
+<p>function add () {<br>    var args = Array.prototype.slice.call(arguments);</p>
+<pre><code>var fn = function () {
+    var arg_fn = Array.prototype.slice.call(arguments);
+    return add.apply(null, args.concat(arg_fn));
+}
+
+fn.toString = function() {
+    return args.reduce(function(a, b) {
+        return a + b;
+    })
+}
+
+return fn;
+</code></pre><p>}</p>
+</blockquote>
+<p><br>这里有个规律，如果只改写 valueOf() 或是 toString() 其中一个，会优先调用被改写了的方法，而如果两个同时改写，则会像 Number 类型转换规则一样，优先查询 valueOf() 方法，在 valueOf() 方法返回的是非原始类型的情况下再查询 toString() 方法。<br></p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a><strong>后记</strong></h2><p><br>在尝试了更多的浏览器之后，发现了上述解法的诸多问题，在 chrome 56 55 下，结果正常。在更新到最新的 chrome57 ，控制台下，结果都会带上 function 字段，在 firefox 下，直接不生效，感觉自己可能陷入了追求某种解法而忽略了一些底层的具体规范，</p>
 
       
 
@@ -710,7 +667,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/23/项目启动流程/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/01/06/JS 类型转换的应用/">展开全文 >></a>
         </p>
       
 
@@ -729,20 +686,20 @@
 
 
   
-    <article id="post-机器学习" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-JS复制内容到剪贴板" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/23/机器学习/">机器学习</a>
+      <a class="article-title" href="/2019/01/05/JS复制内容到剪贴板/">JS复制内容到剪贴板</a>
     </h1>
   
 
         
-        <a href="/2018/12/23/机器学习/" class="archive-article-date">
-  	<time datetime="2018-12-23T01:50:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-23</time>
+        <a href="/2019/01/05/JS复制内容到剪贴板/" class="archive-article-date">
+  	<time datetime="2019-01-05T10:31:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-05</time>
 </a>
         
       </header>
@@ -751,17 +708,34 @@
       
           <!-- Table of Contents -->
           
-        <h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a><a name="lbyepu"></a>Python</h2><ul>
-<li><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="noopener">廖雪峰 Python 教程</a></li>
-<li><a href="https://github.com/TwoWater/Python" target="_blank" rel="noopener">Python 入门教程</a></li>
+        <h2 id="两种方式"><a href="#两种方式" class="headerlink" title="两种方式"></a>两种方式</h2><ul>
+<li>第三方方式：<a href="https://github.com/zenorocha/clipboard.js" target="_blank" rel="noopener">clipboard.js</a><br></li>
+<li>原生方法：<code>document.execCommand()</code><br></li>
+<li>react库：<code>react-copy-to-clipboard</code><br></li>
 </ul>
-<h2 id="Tensorflow"><a href="#Tensorflow" class="headerlink" title="Tensorflow"></a><a name="gyswoz"></a>Tensorflow</h2><ul>
-<li><a href="https://tensorflow.juejin.im/get_started/" target="_blank" rel="noopener">Tensorflow中文文档</a></li>
+<p><a href="https://clipboardjs.com/" target="_blank" rel="noopener">clipboard官方网站</a></p>
+<h2 id="第三方库使用方式"><a href="#第三方库使用方式" class="headerlink" title="第三方库使用方式"></a>第三方库使用方式</h2><p><strong>直接引用</strong><code>&lt;script src=&quot;dist/clipboard.min.js&quot;&gt;&lt;/script&gt;</code><br><strong>包引用</strong><code>npm install clipboard --save</code> <code>import Clipboard from &#39;clipboard&#39;;</code></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="从输入框复制"><a href="#从输入框复制" class="headerlink" title="从输入框复制"></a>从输入框复制</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">点我复制</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Clipboard <span class="keyword">from</span> <span class="string">'clipboard'</span>;</span><br><span class="line"><span class="keyword">const</span> btnCopy = <span class="keyword">new</span> Clipboard(<span class="string">'btn'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="直接复制"><a href="#直接复制" class="headerlink" title="直接复制"></a>直接复制</h4><p>直接从变量中取值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">点我复制</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Clipboadrd <span class="keyword">from</span> <span class="string">'clipboard'</span>;</span><br><span class="line"><span class="keyword">const</span> btnCopy = <span class="keyword">new</span> Clipboard(<span class="string">'btn'</span>);</span><br><span class="line"><span class="keyword">this</span>.copyValue = <span class="string">'hello world'</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p>在处理函数中加入以下回调函数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 复制成功后执行的回调函数</span></span><br><span class="line">clipboard.on(<span class="string">'success'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.info(<span class="string">'Action:'</span>, e.action);<span class="comment">// 动作名称，比如：Action：copy</span></span><br><span class="line">    <span class="built_in">console</span>.info(<span class="string">'Text:'</span>, e.text);<span class="comment">// 内容，比如：Text: hello world</span></span><br><span class="line">    <span class="built_in">console</span>.info(<span class="string">'Trigger:'</span>, e.trigger);<span class="comment">// 返回触发的元素：比如：点我复制</span></span><br><span class="line">    e.clearSelection();<span class="comment">// 清除选中内容</span></span><br><span class="line">&#125;)；</span><br><span class="line"><span class="comment">// 复制失败后执行的回调函数</span></span><br><span class="line">clipboard.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">'Action'</span>, e.action);</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">'Trigger'</span>, e.trigger);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="原生方法"><a href="#原生方法" class="headerlink" title="原生方法"></a>原生方法</h2><p>可以允许运行命令来操作可编辑区域的内容，注意，是可编辑区域。<br><br>定义：<code>bool = document.execCommand(aCommandName, aShowDefaultUI, aValueArgument)</code><br>方法返回一个 Boolean 值，表示操作是否成功。</p>
+<ul>
+<li>aCommandName ：表示命令名称，比如： copy, cut 等（更多命令见命令）；</li>
+<li>aShowDefaultUI：是否展示用户界面，一般情况下都是 false；</li>
+<li>aValueArgument：有些命令需要额外的参数，一般用不到；<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><h4 id="从输入框复制-1"><a href="#从输入框复制-1" class="headerlink" title="从输入框复制"></a>从输入框复制</h4>现在页面上有一个 <code>&lt;input&gt;</code> 标签，我们想要复制其中的内容:<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">点我复制</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a><a name="yck2ad"></a>资源</h2><ul>
-<li><a href="https://mp.weixin.qq.com/s/ECb57XXKhYqh4TjNM7cZYQ" target="_blank" rel="noopener">机器学习干货Top10，附项目地址</a></li>
-<li><a href="https://developers.google.cn/machine-learning/crash-course/?hl=zh-CN" target="_blank" rel="noopener">机器学习速成课程</a></li>
-</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">'#btn'</span>)</span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> input = <span class="built_in">document</span>.querySelector(<span class="string">'#demoInput'</span>);</span><br><span class="line">    input.select();</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.execCommand(<span class="string">'copy'</span>)) &#123;</span><br><span class="line">        <span class="built_in">document</span>.execCommand(<span class="string">'copy'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'复制成功'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="其他地方复制"><a href="#其他地方复制" class="headerlink" title="其他地方复制"></a>其他地方复制</h4><p>有的时候页面上并没有 <code>&lt;input&gt;</code> 标签，我们可能需要从一个 <code>&lt;div&gt;</code> 中复制内容，或者直接复制变量。<br><br>但是 execCommand() 方法的定义中提到，它只能操作可编辑区域，也就是意味着除了 <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code> 这样的输入域以外，是无法使用这个方法的。<br><br>这时候我们需要曲线救国。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">点我复制</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">'#btn'</span>);</span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> input = <span class="built_in">document</span>.createElement(<span class="string">'input'</span>)</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(input);</span><br><span class="line">    input.setAttribute(<span class="string">'value'</span>, <span class="string">'听说你想复制我'</span>)；</span><br><span class="line">    input.select();</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.execCommand(<span class="string">'copy'</span>)) &#123;</span><br><span class="line">        <span class="built_in">document</span>.execCommand(<span class="string">'copy'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'复制成功'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(input)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这个曲线救国在移动端iOS调试时会有坑</p>
+<h4 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h4><ol>
+<li>点击复制时屏幕下方会出现白屏抖动，仔细看是拉起键盘又瞬间收起<br><br>知道了抖动是由于什么产生的就比较好解决了。既然是拉起键盘，那就是聚焦到了输入域，那只要让输入域不可输入就好了，在代码中添加<code>input.setAttribute(&#39;readonly&#39;, &#39;readonly&#39;);</code> 使这个  是只读的，就不会拉起键盘了。<br></li>
+<li>无法复制:这个问题是由于<code>input.select()</code> 在ios下并没有选中全部内容，我们需要使用另一个方法来选中内容，这个方法就是<code>input.setSelectionRange(0, input.value.length)</code>;。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">'#btn'</span>);</span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>,() =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> input = <span class="built_in">document</span>.createElement(<span class="string">'input'</span>);</span><br><span class="line">    input.setAttribute(<span class="string">'readonly'</span>, <span class="string">'readonly'</span>);</span><br><span class="line">    input.setAttribute(<span class="string">'value'</span>, <span class="string">'hello world'</span>);</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(input);</span><br><span class="line">    input.setSelectionRange(<span class="number">0</span>, <span class="number">9999</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.execCommand(<span class="string">'copy'</span>)) &#123;</span><br><span class="line">        <span class="built_in">document</span>.execCommand(<span class="string">'copy'</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'复制成功'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(input);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
 
@@ -774,7 +748,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/23/机器学习/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/01/05/JS复制内容到剪贴板/">展开全文 >></a>
         </p>
       
 
@@ -793,20 +767,20 @@
 
 
   
-    <article id="post-开源管理" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-发布一个 npm 包并没有想象中那么简单" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/23/开源管理/">开源管理</a>
+      <a class="article-title" href="/2019/01/05/发布一个 npm 包并没有想象中那么简单/">发布一个 npm 包并没有想象中那么简单</a>
     </h1>
   
 
         
-        <a href="/2018/12/23/开源管理/" class="archive-article-date">
-  	<time datetime="2018-12-23T01:45:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-23</time>
+        <a href="/2019/01/05/发布一个 npm 包并没有想象中那么简单/" class="archive-article-date">
+  	<time datetime="2019-01-05T05:33:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-05</time>
 </a>
         
       </header>
@@ -815,41 +789,22 @@
       
           <!-- Table of Contents -->
           
-        <h1 id="督导小组"><a href="#督导小组" class="headerlink" title="督导小组"></a><a name="w9hgep"></a>督导小组</h1><ul>
-<li style="list-style: none"><input type="checkbox"> 核心功能的监督把控，</li>
-<li style="list-style: none"><input type="checkbox"> 整体功能的规划设计，</li>
-<li style="list-style: none"><input type="checkbox"> 督导新功能的引入，</li>
-<li style="list-style: none"><input type="checkbox"> 制定开发计划，</li>
-<li style="list-style: none"><input type="checkbox"> 提交代码 Review</li>
+        <p>经过我们大半年的努力，Dbox-UI 终于完成了 V1.0 的开发，开心脸。<br>以为只要将开发的代码放到 lib 下，然后执行如下命令就 Game Over了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm adduser</span><br><span class="line">npm publish</span><br></pre></td></tr></table></figure>
+<p>然而。。。</p>
+<p><strong>我们出现了几个问题：</strong></p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 手动将代码拷到 lib 下，只要改动一点，就得重新拷贝，效率极低</li>
+<li style="list-style: none"><input type="checkbox"> 代码是 ES6 语法，通常node_modules 下面的库在使用者使用时是不会让babel 进行转换的</li>
+<li style="list-style: none"><input type="checkbox"> 代码中引入的是 Less 文件</li>
+<li style="list-style: none"><input type="checkbox"> 网站代码和组件代码在同一分支导致了很多无法想象的问题，例如eslint的版本升级到5.9.0，会导致网站DEMO无法运行等问题</li>
 </ul>
-<h1 id="编译小组"><a href="#编译小组" class="headerlink" title="编译小组"></a><a name="psblws"></a>编译小组</h1><ul>
-<li style="list-style: none"><input type="checkbox"> 代码文件编译到不同端的实现，</li>
-<li style="list-style: none"><input type="checkbox"> 微信小程序端 JSX 编译，</li>
-<li style="list-style: none"><input type="checkbox"> 快应用端 JSX 编译等</li>
-<li style="list-style: none"><input type="checkbox"> ESLint 插件维护</li>
-</ul>
-<h1 id="开发工具小组"><a href="#开发工具小组" class="headerlink" title="开发工具小组"></a><a name="3l0vbt"></a>开发工具小组</h1><p>负责 cli 工具的开发与优化工作</p>
-<h1 id="组件库小组"><a href="#组件库小组" class="headerlink" title="组件库小组"></a><a name="3l0vbt"></a>组件库小组</h1><ul>
-<li style="list-style: none"><input type="checkbox"> 标准组件库的规范制定、</li>
-<li style="list-style: none"><input type="checkbox"> 文档编写，</li>
-<li style="list-style: none"><input type="checkbox"> 标准组件库在不同端的实现，</li>
-<li style="list-style: none"><input type="checkbox"> 标准组件库官网建设</li>
-</ul>
-<h1 id="运行框架小组"><a href="#运行框架小组" class="headerlink" title="运行框架小组"></a><a name="3l0vbt"></a>运行框架小组</h1><p> 负责不同端运行框架的实现</p>
-<h1 id="端能力-API-小组"><a href="#端能力-API-小组" class="headerlink" title="端能力 API 小组"></a><a name="3l0vbt"></a>端能力 API 小组</h1><ul>
-<li style="list-style: none"><input type="checkbox"> 端能力 API 的规范制定、</li>
-<li style="list-style: none"><input type="checkbox"> 端能力 API 的文档编写，</li>
-<li style="list-style: none"><input type="checkbox"> 端能力 API 在不同端的实现</li>
-</ul>
-<h1 id="UI-库小组"><a href="#UI-库小组" class="headerlink" title="UI 库小组"></a><a name="3l0vbt"></a>UI 库小组</h1><p> 负责 Dbox UI 库的实现</p>
-<h1 id="社区维护小组"><a href="#社区维护小组" class="headerlink" title="社区维护小组"></a><a name="3l0vbt"></a>社区维护小组</h1><ul>
-<li style="list-style: none"><input type="checkbox"> 社区内答疑解惑，</li>
-<li style="list-style: none"><input type="checkbox"> GitHub ISSUE 维护，</li>
-<li style="list-style: none"><input type="checkbox"> 问题搜集，</li>
-<li style="list-style: none"><input type="checkbox"> 社区项目发起与引导，</li>
-<li style="list-style: none"><input type="checkbox"> 第三方库适配与生态管理等</li>
-</ul>
-
+<p>报错信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ERROR <span class="keyword">in</span> ./~/_react-dragme@1.0.11@react-dragme/src/index.js                                                                                                                                             </span><br><span class="line">Module parse failed: g:\gitspace\react-dragme\node_modules\_react-dragme@1.0.11@react-dragme\src\index.js Unexpected token (109:16)                                                                     </span><br><span class="line">You may need an appropriate loader to handle this file <span class="built_in">type</span>.                                                                                                                                            </span><br><span class="line">SyntaxError: Unexpected token (109:16)                                                                                                                                                                  </span><br><span class="line">    at Parser.pp<span class="variable">$4</span>.raise (g:\gitspace\react-dragme\node_modules\_acorn@3.3.0@acorn\dist\acorn.js:2221:15)                                                                                               </span><br><span class="line">    at Parser.pp.unexpected (g:\gitspace\react-dragme\node_modules\_acorn@3.3.0@acorn\dist\acorn.js:603:10)                                                                                             </span><br><span class="line">    at Parser.pp<span class="variable">$3</span>.parseExprAtom (g:\gitspace\react-dragme\node_modules\_acorn@3.3.0@acorn\dist\acorn.js:1822:12)                                                                                       </span><br><span class="line">    at Parser.pp<span class="variable">$3</span>.parseExprSubscripts (g:\gitspace\react-dragme\node_modules\_acorn@3.3.0@acorn\dist\acorn.js:1715:21)                                                                                 </span><br><span class="line">    at Parser.pp<span class="variable">$3</span>.parseMaybeUnary (g:\gitspace\react-dragme\node_modules\_acorn@3.3.0@acorn\dist\acorn.js:1692:19)                                                                                     </span><br><span class="line">    at Parser.pp<span class="variable">$3</span>.parseExprOps (g:\gitspace\react-dragme\node_modules\_acorn@3.3.0@acorn\dist\acorn.js:1637:21)                                                                                        </span><br><span class="line">    at Parser.pp<span class="variable">$3</span>.parseMaybeConditional (g:\gitspace\react-dragme\node_modules\_acorn@3.3.0@acorn\dist\acorn.js:1620:21)                                                                               </span><br><span class="line">    at Parser.pp<span class="variable">$3</span>.parseMaybeAssign (g:\gitspace\react-dragme\node_modules\_acorn@3.3.0@acorn\dist\acorn.js:1597:21)                                                                                    </span><br><span class="line">    at Parser.pp<span class="variable">$3</span>.parseParenAndDistinguishExpression (g:\gitspace\react-dragme\node_modules\_acorn@3.3.0@acorn\dist\acorn.js:1861:32)                                                                  </span><br><span class="line">    at Parser.pp<span class="variable">$3</span>.parseExprAtom (g:\gitspace\react-dragme\node_modules\_acorn@3.3.0@acorn\dist\acorn.js:1796:19)                                                                                       </span><br><span class="line"> @ ./app.js 25:19-42                                                                                                                                                                                    </span><br><span class="line">webpack: Failed to compile.</span><br></pre></td></tr></table></figure>
+<p>遇到这些问题后，我们参考了 <a href="https://github.com/ant-design/antd-tools" target="_blank" rel="noopener">antd-tools</a> 和 <a href="https://github.com/youzan/zent/blob/master/scripts/publish.sh" target="_blank" rel="noopener">youzan/zent</a></p>
+<h1 id="scripts"><a href="#scripts" class="headerlink" title="scripts"></a>scripts</h1><p>我们在项目根目录下多加了一个文件夹 scripts，用于预发布的打包</p>
+<h2 id="es-和-lib-文件夹代码拷贝"><a href="#es-和-lib-文件夹代码拷贝" class="headerlink" title="es 和 lib 文件夹代码拷贝"></a>es 和 lib 文件夹代码拷贝</h2><h2 id="ES6-转换成-ES5-语法"><a href="#ES6-转换成-ES5-语法" class="headerlink" title="ES6 转换成 ES5 语法"></a>ES6 转换成 ES5 语法</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">    "build": "babel src -d lib",</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="Less-转换成-Css-语法"><a href="#Less-转换成-Css-语法" class="headerlink" title="Less 转换成 Css 语法"></a>Less 转换成 Css 语法</h2>
       
 
       
@@ -861,7 +816,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/23/开源管理/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/01/05/发布一个 npm 包并没有想象中那么简单/">展开全文 >></a>
         </p>
       
 
@@ -880,20 +835,20 @@
 
 
   
-    <article id="post-如何做一个 Github 开源项目" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-代码审查" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/23/如何做一个 Github 开源项目/">如何做一个 Github 开源项目</a>
+      <a class="article-title" href="/2019/01/05/代码审查/">代码审查</a>
     </h1>
   
 
         
-        <a href="/2018/12/23/如何做一个 Github 开源项目/" class="archive-article-date">
-  	<time datetime="2018-12-23T01:44:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-23</time>
+        <a href="/2019/01/05/代码审查/" class="archive-article-date">
+  	<time datetime="2019-01-05T05:18:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-05</time>
 </a>
         
       </header>
@@ -902,71 +857,33 @@
       
           <!-- Table of Contents -->
           
-        <h2 id="适合开源"><a href="#适合开源" class="headerlink" title="适合开源"></a><a name="p4zokc"></a>适合开源</h2><ul>
-<li>cache工具(缓存工具，整合localStorage,以及合理的内存销毁机制)</li>
-<li>query2json,解析url参数为json格式</li>
-<li>移动端打印console.log,方便移动端输出内容</li>
-</ul>
-<h2 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a><a name="40d3er"></a>版本号</h2><ul>
-<li>一级：重构版本</li>
-<li>二级：重大功能改进</li>
-<li>三级：小升级或者bug修复</li>
-</ul>
-<p>0.X.X: 非正式版本</p>
-<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a><a name="5vq9yv"></a>目录结构</h2><ul>
-<li>src: 源代码</li>
-<li>release: 发布结果</li>
-<li>test：单元测试用例</li>
-<li>doc: 文档</li>
-<li>example：实例</li>
-</ul>
-<h2 id="Readme"><a href="#Readme" class="headerlink" title="Readme"></a><a name="eqgbtd"></a>Readme</h2><ul>
-<li>产品简介(此处要突出特点，打差异化竞争)</li>
-<li>产品安装和下载</li>
-<li>快速使用(详细的使用文档或者二次开发文档，外链即可)</li>
-<li>交流提问区(QQ、微信群)</li>
-<li>关于作者(博客链接和收款二维码)</li>
-</ul>
-<h2 id="文档和测试用例"><a href="#文档和测试用例" class="headerlink" title="文档和测试用例"></a><a name="yxcddz"></a>文档和测试用例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm i gitbook-cli -g</span><br><span class="line">SUMMARY.md</span><br><span class="line">gitbook init</span><br><span class="line">gitbook build</span><br></pre></td></tr></table></figure>
-<p>配置.gitignore加上_book</p>
-<h2 id="发布npm模块"><a href="#发布npm模块" class="headerlink" title="发布npm模块"></a><a name="s3hgkd"></a>发布npm模块</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm add user</span><br><span class="line">npm login</span><br><span class="line">npm publish .</span><br></pre></td></tr></table></figure>
-<p>不能重名</p>
-<h2 id="升级"><a href="#升级" class="headerlink" title="升级"></a><a name="kft6cp"></a>升级</h2><ul>
-<li>新建分支</li>
-<li>修改版本号</li>
-<li>修改代码、文档和测试用例</li>
-<li>自测</li>
-<li>将新的分支提交到远程</li>
-<li>再次确认版本号，因为版本号非常重要</li>
-<li>将新的分支合并到master，并提交master到远程</li>
-<li>创建tag并提交到远程</li>
-<li>提交到npm</li>
-</ul>
-<h2 id="宣传"><a href="#宣传" class="headerlink" title="宣传"></a><a name="g4knmn"></a>宣传</h2><p>一个公司的核心竞争力，一是技术，二是营销。</p>
-<h3 id="博客"><a href="#博客" class="headerlink" title="博客"></a><a name="gm41yu"></a>博客</h3><p>围绕产品功能<br>第一类技术干货文章<br>第二类产品介绍<br>以第一类为主</p>
+        <h1 id="EsLint"><a href="#EsLint" class="headerlink" title="EsLint"></a>EsLint</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev eslint eslint-loader babel-loader babel-eslint eslint-plugin-react</span><br></pre></td></tr></table></figure>
 <ul>
-<li>如何</li>
-<li>坑</li>
-<li>预防</li>
-<li>总结</li>
-<li>半年记</li>
+<li><code>eslint</code> is the core JavaScript linter.</li>
+<li><code>eslint-loader</code> tells webpack that you want to use eslint in our build</li>
+<li><code>babel-loader</code> transpiles our code with webpack</li>
+<li><code>babel-eslint</code> provides linting for valid ES6 code</li>
+<li><code>eslint-plugin-react</code> extends ESLint rules to cover React</li>
 </ul>
-<h3 id="回答相关的问题"><a href="#回答相关的问题" class="headerlink" title="回答相关的问题"></a><a name="9lgcmn"></a>回答相关的问题</h3><ul>
-<li>知乎</li>
-<li><a href="http://sf.gg" target="_blank" rel="noopener">sf.gg</a></li>
-<li><p>stackoverflow</p>
-</li>
-<li><p>字数只能多不能少，最好图文并茂，还能讲个笑话</p>
-</li>
-<li>回答要专业，经过亲自测试，不要想当然的瞎猜</li>
-<li>回答问题的最后，顺便推广自己的产品</li>
+<p>添加 eslint 配置文件，如果有不希望被限制的语法可以添加到“rule”字段<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch .eslintrc</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"parser"</span>: <span class="string">"babel-eslint"</span>,</span><br><span class="line">  <span class="attr">"env"</span>: &#123;</span><br><span class="line">    <span class="attr">"browser"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"commonjs"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"es6"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"node"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"plugins"</span>: [</span><br><span class="line">    <span class="string">"react"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"extends"</span>: [<span class="string">"plugin:prettier/recommended"</span>, <span class="string">"plugin:react/recommended"</span>, <span class="string">"eslint:recommended"</span>],</span><br><span class="line">  <span class="attr">"rules"</span>: &#123;</span><br><span class="line">    <span class="attr">"quotes"</span>: [<span class="number">1</span>, <span class="string">"double"</span>, <span class="string">"avoid-escape"</span>],</span><br><span class="line">    <span class="attr">"react/prop-types"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"no-console"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"no-unused-vars"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"no-func-assign"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">"no-const-assign"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">"no-var"</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">"react/react-in-jsx-scope"</span>: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="prettier"><a href="#prettier" class="headerlink" title="prettier"></a>prettier</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>prettier</code> — the core prettier library. Duh.</li>
+<li><code>eslint-plugin-prettier</code> — this plugin allows you to format code using Prettier when you run –fix</li>
+<li><code>eslint-config-prettier</code> — This library solves the conflicts between eslint and prettier. It turns off conflicting rules. ESLint’s rules, not Prettier’s. Obviously.</li>
 </ul>
-<h2 id="需求采纳"><a href="#需求采纳" class="headerlink" title="需求采纳"></a><a name="25ntlx"></a>需求采纳</h2><ul>
-<li>很多用户都提过这个需求，即大众需求</li>
-<li>自己判断这个需求对大部分用户都有用</li>
-<li>该需求符合产品定位以及产品发展的方向</li>
-<li>该需求能抹平和竞品的差距，或者能和竞品差异化竞争</li>
-</ul>
+<h1 id="vscode-settings"><a href="#vscode-settings" class="headerlink" title="vscode settings"></a>vscode settings</h1><p>配置 vscode 编辑器，可以自动提示并修复错误</p>
+<blockquote>
+<p>.vscode/settings.json</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"editor.formatOnSave"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"[javascript]"</span>: &#123;</span><br><span class="line">    <span class="attr">"editor.formatOnSave"</span>: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"eslint.autoFixOnSave"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"eslint.alwaysShowStatus"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"files.associations"</span>: &#123;</span><br><span class="line">    <span class="attr">"*.js"</span>: <span class="string">"javascriptreact"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="git-hook"><a href="#git-hook" class="headerlink" title="git hook"></a>git hook</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev pretty-quick husky lint-staged</span><br></pre></td></tr></table></figure>
+<p>配置文件，使得自动修复错误</p>
+<blockquote>
+<p>package.json</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;husky&quot;: &#123;</span><br><span class="line">	&quot;hooks&quot;: &#123;</span><br><span class="line">	  &quot;pre-commit&quot;: &quot;pretty-quick --staged&quot;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
       
 
@@ -979,7 +896,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/23/如何做一个 Github 开源项目/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/01/05/代码审查/">展开全文 >></a>
         </p>
       
 
@@ -998,20 +915,20 @@
 
 
   
-    <article id="post-微博运营" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-Fronted-Book" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/23/微博运营/">微博运营</a>
+      <a class="article-title" href="/2019/01/05/Fronted-Book/">Fronted-Book</a>
     </h1>
   
 
         
-        <a href="/2018/12/23/微博运营/" class="archive-article-date">
-  	<time datetime="2018-12-23T01:42:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-23</time>
+        <a href="/2019/01/05/Fronted-Book/" class="archive-article-date">
+  	<time datetime="2019-01-05T04:56:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-05</time>
 </a>
         
       </header>
@@ -1020,64 +937,42 @@
       
           <!-- Table of Contents -->
           
-        <h2 id="微博运营"><a href="#微博运营" class="headerlink" title="微博运营"></a><a name="1y6nkg"></a>微博运营</h2><ul>
-<li>微博重点扶持行业：母婴、金融、汽车、美妆、饮料等</li>
-<li>要想有粉丝 》要先有曝光 》先有流量</li>
-<li>平台根据用户反馈给内容分配流量：微博是通过1个小时内评判流量是否倾斜</li>
-<li>符合平台运营的基本规范 + 生产用户喜欢的优质内容</li>
-<li><p>微博加权规则</p>
+        <p>电子书详见：<a href="https://github.com/lulu27753/Frontend-Book.git" target="_blank" rel="noopener">https://github.com/lulu27753/Frontend-Book.git</a></p>
 <ul>
-<li><p>账号因素：</p>
-<ul>
-<li>认证：媒体账号</li>
-<li>会员</li>
-<li>绑定手机号</li>
-<li>丰富账号信息</li>
+<li style="list-style: none"><input type="checkbox"> AboutFace4交互设计精髓4中文版（彩版）.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> 2017科技中的设计趋势报告.pdf</li>
+<li style="list-style: none"><input type="checkbox"> CSS权威指南 第3版.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> CSS插件工具箱.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> Clean Code（中文版）.pdf</li>
+<li style="list-style: none"><input type="checkbox"> Git权威指南.pdf</li>
+<li style="list-style: none"><input type="checkbox"> HTML＆XHTML权威指南.pdf</li>
+<li style="list-style: none"><input type="checkbox"> HTTP权威指南.pdf</li>
+<li style="list-style: none"><input type="checkbox"> JavaScript DOM编程艺术（中文第二版）.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> JavaScript权威指南(第6版)中文版.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> JavaScript语言精粹.pdf</li>
+<li style="list-style: none"><input type="checkbox"> JavaScript高级程序设计第3版.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> JavaScript设计模式与开发实践.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> MVC的JavaScript Web富应用开发.pdf</li>
+<li style="list-style: none"><input type="checkbox"> Mac操作说明完全指南.pdf</li>
+<li style="list-style: none"><input type="checkbox"> Node.js开发指南.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> TCP-IP详解卷1：协议.pdf</li>
+<li style="list-style: none"><input type="checkbox"> Web性能权威指南.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> front-end-handbook-2018.pdf</li>
+<li style="list-style: none"><input type="checkbox"> ppk谈JavaScript.pdf</li>
+<li style="list-style: none"><input type="checkbox"> 图解HTTP.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> 剑指offer.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> 高性能JavaScript_编程.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> 正则指引.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> 背包九讲2.0.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> 深入浅出Node.js.pdf</li>
+<li style="list-style: none"><input type="checkbox"> 了不起的NodeJS.pdf</li>
+<li style="list-style: none"><input type="checkbox"> 深入浅出React和Redux.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> 你不知道的JavaScript（上）.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> 前端面试指南.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> 《不要让我思考Don’tMakeMeThink》-克鲁格.pdf</li>
+<li style="list-style: none"><input type="checkbox" checked> 数据结构与算法JavaScript描述.pdf</li>
+<li style="list-style: none"><input type="checkbox"> 锦绣蓝图：怎样规划令人流连忘返的网站.pdf</li>
 </ul>
-</li>
-<li>内容因素：热门话题 | 九图 | 头条文章 | 视频</li>
-</ul>
-</li>
-<li><p>微博降权</p>
-<ul>
-<li>不被推荐到热门流 减少部分曝光量 减少大部分曝光量 封号</li>
-<li>向外引流：微信 | 抖音</li>
-<li><p>广告关键词：</p>
-<ul>
-<li>易导致账号被降权，降低在热门展现的几率或者是禁止展现</li>
-<li>“购买” “优惠” “券”等 淘宝 | 京东 | 亚马逊 | 。。。| 5 折。。。都要避免</li>
-<li>电商领域会有外链的特权</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>微博向微信引流</p>
-<ul>
-<li>将微信号插在图片，被监测的几率相对较低</li>
-<li>设置私信自动回复，用“VX”字样</li>
-</ul>
-</li>
-<li><p>微博蹭热搜、公众号蹭热点</p>
-<ul>
-<li>选择可蹭的话题</li>
-<li>撰写蹭热文案：关键词必须相同、完全关联，且要保证文案的相关性</li>
-</ul>
-</li>
-<li><p>长文关注：</p>
-<ul>
-<li>新账号扶植功能，仅粉丝可阅读全文，否则需关注账号看全文</li>
-<li>总粉丝两万以下的账号有此功能，一旦突破，功能自动取消</li>
-</ul>
-</li>
-<li><p>利用大 V 流量增粉</p>
-<ul>
-<li>找垂直领域大V</li>
-<li>谈价格</li>
-<li>写文章</li>
-</ul>
-</li>
-</ul>
-<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a><a name="tu3ryh"></a>资源</h2><p><a href="http://123.ipaiban.com/" target="_blank" rel="noopener">公众号运营工具导航</a></p>
 
       
 
@@ -1090,7 +985,122 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/23/微博运营/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/01/05/Fronted-Book/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-前端学习路线图" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/04/前端学习路线图/">前端学习路线图</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/04/前端学习路线图/" class="archive-article-date">
+  	<time datetime="2019-01-04T07:42:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          <!-- Table of Contents -->
+          
+        <p><img src="https://github.com/goodjack/developer-roadmap-chinese/raw/master/chinese-version/images/frontend.png#align=left&amp;display=inline&amp;height=2014&amp;linkTarget=_blank&amp;originHeight=3178&amp;originWidth=1177&amp;width=746" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/04/前端学习路线图/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Retina 屏" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/03/Retina 屏/">Retina 屏</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/03/Retina 屏/" class="archive-article-date">
+  	<time datetime="2019-01-03T08:13:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          <!-- Table of Contents -->
+          
+        <h1 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a><a name="dvgxng"></a>分辨率</h1><p><span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">iPhone 6s：1334 x 750</span></span><br><span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">MacBook Pro：2880 x 1800</span></span><br><span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">普通电脑14寸：1920 x 1080</span></span></p>
+<h1 id="同样尺寸的图片变得模糊"><a href="#同样尺寸的图片变得模糊" class="headerlink" title="同样尺寸的图片变得模糊"></a><a name="mc18wk"></a><strong>同样尺寸的图片变得模糊</strong></h1><p><strong>Retina屏 将传统的四个物理像素点模拟一个像素点</strong></p>
+<h2 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a><a name="izb0tu"></a><strong>解决方案：</strong></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"pic.png"</span> <span class="attr">srcset</span>=<span class="string">"pic@2x.png 2x"</span> /&gt;</span> /*其中@2x.png为后缀的图片就是为Retina准备的*/</span><br></pre></td></tr></table></figure>
+<p><span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">CSS中，  有一个属性为 </span></span><span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)"><code>image-set</code></span></span><span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">，可以为不同的屏幕配不同尺寸的图片：</span></span><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">url</span>(pic.png) <span class="number">0</span> <span class="number">0</span> no-repeat;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">-webkit-image-set</span>(url(pic.png) <span class="number">1</span>x, <span class="built_in">url</span>(pic@2x.png) <span class="number">2</span>x);</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">-moz-image-set</span>(url(pic.png) <span class="number">1</span>x,<span class="built_in">url</span>(images/pic@2x.png) <span class="number">2</span>x);</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">-ms-image-set</span>(url(pic.png) <span class="number">1</span>x,<span class="built_in">url</span>(images/pic@2x.png) <span class="number">2</span>x);</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">-o-image-set</span>(url(url(pic.png) <span class="number">1</span>x,<span class="built_in">url</span>(images/pic@2x.png) <span class="number">2</span>x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="网页元素宽度高度有半个像素的概念"><a href="#网页元素宽度高度有半个像素的概念" class="headerlink" title="网页元素宽度高度有半个像素的概念"></a><a name="gtz7vm"></a><strong>网页元素宽度高度有半个像素的概念</strong></h1><p><span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">传统屏幕中一个px就是一个px，一个物理像素和一个逻辑像素是一一对应的，没有0.5px的概念。</span></span><br><span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">但是四个物理像素模拟一个物理像素的高分辨率屏出现后，这种特性被打破。</span></span><br><span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">当一个网页元素的宽度或高度不是整数，而出现小数位长度的时候，四个像素组成的一个</span></span><span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)"><code>逻辑像素</code></span></span><span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">中，上面两个像素被渲染为黑色，而下面两个像素并没有被渲染，从而下面两个像素组成的一条线就呈现为一条白色亮线，从逻辑上讲，它仅高0.5px。</span></span></p>
+<h2 id="解决方案：-1"><a href="#解决方案：-1" class="headerlink" title="解决方案："></a><a name="xkk7lm"></a><strong>解决方案：</strong></h2><p>避免小于0.5px单位的长度出现，当长度大于0.5px的时候，就会完全占满四个物理像素组成的一个逻辑像素。因此，尽可能在一些颜色与邻近元素对比度大的元素中，采用绝对长度单位px，而不使用% em rem pt等非绝对长度单位。不过，Retina屏为更小精度的定位提供了可能，你甚至可以采用0.4px这样的方法来专门为Retina屏进行一些适配。</p>
+<h1 id="元素变小，错位"><a href="#元素变小，错位" class="headerlink" title="元素变小，错位"></a><a name="n8uxcu"></a><strong>元素变小，错位</strong></h1><p><span data-type="color" style="color:rgb(51, 51, 51)"><span data-type="background" style="background-color:rgb(255, 255, 255)">高分辨率的屏幕，会使得在普通分辨率下看上去正常的尺寸变的比较小。传统屏幕上显示3行文本，在高分辨率屏幕上则一行就显示完了，显得很丑。</span></span></p>
+<h2 id="解决方案：-2"><a href="#解决方案：-2" class="headerlink" title="解决方案："></a><a name="g2sigy"></a><strong>解决方案：</strong></h2><p>采用屏幕适配来为不同宽度的屏幕显示不同的效果。一般而言，能够采用retina屏的电脑，都已经升级到高版本的系统，自带的浏览器版本也比较高，都支持html5的特性，因此，我们在设计制作网页的时候，需要专门为这帮高端用户设计多余的页面元素，使用responsive css的方法，展示给他们更多的内容，从而保证在高分辨率屏幕上和普通分辨率屏幕上都能很好的显示。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/03/Retina 屏/">展开全文 >></a>
         </p>
       
 
@@ -1111,7 +1121,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1123,7 +1133,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 代码风情
+    		&copy; 2019 代码风情
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1303,6 +1313,10 @@
               <a href="http://www.lulustyle.net/shanbeiBbs/bbs.html" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>记单词网站</a>
             </li>
           
+            <li class="search-li">
+              <a href="https://github.com/lulu27753/luluresume.github.io" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>个人简历</a>
+            </li>
+          
         </ul>
   		
     	</section>
@@ -1311,7 +1325,7 @@
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">个人主攻 Web 前端 React 开发，5年+工作经验，1年团队管理经验，有过angular、vue、node 的开发经验，了解mongodb、sql 等数据库，熟悉 webpack、gulp、rollup等构建工具，熟悉git、PS、sketch等工具的使用。研究ant design开源组件源码、开发模式、开发流程、开发规范等。经历过前后端分离，熟悉大前端BFF架构。参与或独立开发过多个核心项目，项目类型涉及：医疗器械、教育服务、企业管理、SPA 应用（PC/Moblie）等等；</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">个人主攻 Web 前端 React 开发，5年+工作经验，1年+团队管理经验，有过angular、vue、node 的开发经验，了解mongodb、sql 等数据库，熟悉 webpack、gulp、rollup等构建工具，熟悉git、PS、sketch等工具的使用。研究ant design开源组件源码、开发模式、开发流程、开发规范等。经历过前后端分离，熟悉大前端BFF架构。参与或独立开发过多个核心项目，项目类型涉及：医疗器械、教育服务、企业管理、SPA 应用（PC/Moblie）等等；</div>
   	  	
     	</section>
     
